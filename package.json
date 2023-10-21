@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "format": "prettier --write \"components/**/*.js\" \"components/**/*.vue\" \"examples/**/*.vue\" \"examples/**/*.vue\""
+    "format": "prettier --write \"components/**/*.js\" \"components/**/*.vue\" \"examples/**/*.vue\" \"examples/**/*.vue\"",
+    "build:js": "webpack --config ./webpack.component.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
