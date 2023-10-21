@@ -382,6 +382,7 @@ export default {
 
 <style lang="scss" scoped>
 .textBox {
+  width: 800px;
   height: 410px;
 
   &-left {
