@@ -14,7 +14,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Demo",
+  name: "ytDemo",
   components: {},
   props: {},
   computed: {},

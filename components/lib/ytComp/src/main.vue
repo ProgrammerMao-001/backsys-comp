@@ -11,12 +11,12 @@
 
 <script>
 export default {
-  name: "aComp",
+  name: "ytComp",
   components: {},
   props: {
     pageName: {
       type: String,
-      default: "aComp"
+      default: "ytComp"
     }
   },
   computed: {},
