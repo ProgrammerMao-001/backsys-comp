@@ -1,15 +1,19 @@
 # yt-ui组件库
 后台系统常用的组件
 
+* [访问在线文档](www.baidu.com)
+* [github地址](https://github.com/ProgrammerMao-001/yt-ui)
+
 ### 使用前须知
 ```
 1. 目前只支持vue2.x 版本，vue3以上版本暂不支持
-2. 使用时请务必安装以下依赖
+2. 使用时请务确保node_modules中存在如下依赖
 3. 组件库中所有的样式命名规则为： yt-组件名称(-yt) 
     3.1 如文件名为：ytDemo 则外层样式类名为：yt-demo，以此类推
+4. 所有组件的demo都存放在examples文件夹中
 ```
 
-###  安装 
+### 安装 
 ``` 
 建议node14及以上版本（本人v14.16.1）
 npm install node-sass@4.14.1 --save-dev
