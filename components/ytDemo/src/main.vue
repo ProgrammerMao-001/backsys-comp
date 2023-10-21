@@ -6,7 +6,8 @@
 <template>
   <div>
     <div class="a">
-      <div class="b">this is DemoPage</div>
+      a
+      <div class="b">b</div>
     </div>
   </div>
 </template>
@@ -30,4 +31,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.a {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+
+  .b {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+  }
+}
+</style>

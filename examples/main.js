@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import "../components/css/index.scss"
-import ytDemo from "../components/lib/ytDemo";
-import ytComp from "../components/lib/ytComp";
+import ytDemo from "../components/ytDemo";
+import ytComp from "../components/ytComp";
 Vue.use(ytDemo)
 Vue.use(ytComp)
 
