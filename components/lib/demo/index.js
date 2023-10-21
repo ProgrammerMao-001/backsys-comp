@@ -1,7 +1,7 @@
-import Demo from "./src/main.vue"
+import Demo from "./src/main.vue";
 
-Demo.install = Vue =>{
-    Vue.component(Demo.name, Demo)
-}
+Demo.install = (Vue) => {
+  Vue.component(Demo.name, Demo);
+};
 
-export default Demo
+export default Demo;

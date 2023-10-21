@@ -6,9 +6,7 @@
 <template>
   <div>
     <div class="a">
-      <div class="b">
-        this is DemoPage
-      </div>
+      <div class="b">this is DemoPage</div>
     </div>
   </div>
 </template>
@@ -26,12 +24,9 @@ export default {
     return {};
   },
   methods: {},
-  created() {
-  },
-  mounted() {
-  },
-  destroyed() {
-  }
+  created() {},
+  mounted() {},
+  destroyed() {},
 };
 </script>
 
