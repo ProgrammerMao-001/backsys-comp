@@ -1,29 +1,32 @@
 # yt-ui组件库
 后台系统常用的组件
 
-### 使用前须知 before - use
+### 使用前须知
 ```
-1. 本项目使用的是vue-cli5.0脚手架搭建的，如果需要使用，请先安装vue-cli5.0及以上版本
-2. 目前只支持vue2.x 版本，vue3以上版本暂不支持
-3. 使用时请务必安装以下依赖
-4. 组件库中所有的样式命名规则为： yt-组件名称(-yt) 
-    4.1 如文件名为：ytDemo 则外层样式类名为：yt-demo，以此类推
+1. 目前只支持vue2.x 版本，vue3以上版本暂不支持
+2. 使用时请务必安装以下依赖
+3. 组件库中所有的样式命名规则为： yt-组件名称(-yt) 
+    3.1 如文件名为：ytDemo 则外层样式类名为：yt-demo，以此类推
 ```
 
-###  安装 to - install
+###  安装 
 ``` 
+建议node14及以上版本（本人v14.16.1）
 npm install node-sass@4.14.1 --save-dev
 npm install sass-loader@8.0.0 --save-dev
 ```
 
-### 文件介绍 file - introduction
+### node 对应版本可参照下表
+<img height="100" src="F:\code\前端组件库\yt-ui\public\img\nodeControl.png" width="100"/></img> 
+
+### 文件介绍
 ``` 
 components文件夹 ---> 存放所有的组件
 examples文件夹 ---> 存放组件的demo(组件如何使用)
 public文件夹 ---> 存放组件的静态资源
 ```
 
-### 发布流程 publishing - process
+### 发布流程
 ``` 
  todo: 更新 readeMe.md、package.json版本号   
  1. npm run lib   
@@ -32,7 +35,7 @@ public文件夹 ---> 存放组件的静态资源
  4. npm publish --access public
 ```
 
-### 如何使用 how - to - use
+### 如何使用
 ```
  1. 安装  
     npm i @mhfwork/yt-ui --save-dev
