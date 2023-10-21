@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <yt-demo />
-    <yt-comp page-name="ytComp" />
+    <useYtRealCanvas ref="useYtRealCanvas" />
   </div>
 </template>
 
 <script>
+import useYtRealCanvas from "./useYtRealCanvas/useYtRealCanvas.vue";
 export default {
   name: "App",
-  components: {},
+  components: {useYtRealCanvas},
 };
 </script>
 
