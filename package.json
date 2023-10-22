@@ -1,11 +1,12 @@
 {
   "name": "@mhfwork/yt-ui",
-  "version": "0.1.02",
+  "version": "0.1.03",
   "private": false,
   "author": {
     "name": "毛三仙",
     "email": "mhf.mail@qq.com"
   },
+  "license": "MIT",
   "keywords": [
     "vue",
     "element-ui",

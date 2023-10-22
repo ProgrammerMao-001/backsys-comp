@@ -1,8 +1,9 @@
 # yt-ui组件库
 后台系统常用的组件
 
-* [访问在线文档](www.baidu.com)
-* [github地址](https://github.com/ProgrammerMao-001/yt-ui)
+* [demo](https://programmermao-001.github.io/use-yt-ui/)
+* [源码地址](https://github.com/ProgrammerMao-001/yt-ui)
+* [文档地址]：敬请期待...
 
 ### 使用前须知
 ```
