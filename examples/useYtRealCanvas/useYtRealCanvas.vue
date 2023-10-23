@@ -21,12 +21,9 @@ export default {
     return {};
   },
   methods: {},
-  created() {
-  },
-  mounted() {
-  },
-  destroyed() {
-  }
+  created() {},
+  mounted() {},
+  destroyed() {},
 };
 </script>
 

@@ -8,7 +8,7 @@
 import useYtRealCanvas from "./useYtRealCanvas/useYtRealCanvas.vue";
 export default {
   name: "App",
-  components: {useYtRealCanvas},
+  components: { useYtRealCanvas },
 };
 </script>
 

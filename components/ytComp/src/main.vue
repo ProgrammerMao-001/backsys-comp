@@ -5,7 +5,7 @@
 -->
 <template>
   <div>
-    {{pageName}}
+    {{ pageName }}
   </div>
 </template>
 
@@ -16,8 +16,8 @@ export default {
   props: {
     pageName: {
       type: String,
-      default: "ytComp"
-    }
+      default: "ytComp",
+    },
   },
   computed: {},
   watch: {},
@@ -26,12 +26,9 @@ export default {
     return {};
   },
   methods: {},
-  created() {
-  },
-  mounted() {
-  },
-  destroyed() {
-  }
+  created() {},
+  mounted() {},
+  destroyed() {},
 };
 </script>
 

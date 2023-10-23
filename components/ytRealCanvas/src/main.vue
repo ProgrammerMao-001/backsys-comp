@@ -9,34 +9,37 @@
       <el-col :span="14">
         <div class="textBox-left">
           <el-form
-              ref="formData"
-              :model="formData"
-              :rules="formDataRules"
-              label-width="96px"
+            ref="formData"
+            :model="formData"
+            :rules="formDataRules"
+            label-width="106px"
           >
             <el-form-item label="文本内容 :" prop="programContent">
               <el-input
-                  v-model="formData.programContent"
-                  resize="none"
-                  rows="3"
-                  type="textarea"
-                  placeholder=""
-                  :disabled="!canEdit"
-                  @input="fontChange"
+                size="small"
+                v-model="formData.programContent"
+                resize="none"
+                rows="3"
+                type="textarea"
+                placeholder=""
+                :disabled="!canEdit"
+                @input="fontChange"
               />
             </el-form-item>
 
             <el-form-item label="文本颜色 : " prop="textColor">
               <el-input
-                  v-model="formData.textColor"
-                  placeholder=""
-                  :disabled="!canEdit"
+                size="small"
+                v-model="formData.textColor"
+                placeholder=""
+                :disabled="!canEdit"
               >
                 <template slot="suffix">
                   <el-color-picker
-                      v-model="formData.textColor"
-                      :disabled="!canEdit"
-                      @change="fontChange"
+                    size="small"
+                    v-model="formData.textColor"
+                    :disabled="!canEdit"
+                    @change="fontChange"
                   ></el-color-picker>
                 </template>
               </el-input>
@@ -44,71 +47,69 @@
 
             <el-form-item label="文本字体 : " prop="textCase">
               <el-select
-                  v-model="formData.textCase"
-                  placeholder=""
-                  :disabled="!canEdit"
-                  @change="fontChange"
+                v-model="formData.textCase"
+                placeholder=""
+                :disabled="!canEdit"
+                @change="fontChange"
               >
                 <el-option
-                    v-for="item in textCaseList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
+                  v-for="item in textCaseList"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
                 >
                 </el-option>
               </el-select>
             </el-form-item>
 
             <el-form-item label="文本字号 : " prop="textFont">
-              <el-select
-                  v-model="formData.textFont"
-                  placeholder=""
-                  :disabled="!canEdit"
-                  @change="fontChange"
-              >
-                <el-option
-                    v-for="item in textFontList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                >
-                </el-option>
-              </el-select>
+              <el-input-number
+                :disabled="!canEdit"
+                controls-position="right"
+                v-model="formData.textFont"
+                @change="fontChange"
+                :min="1"
+                :max="100"
+              ></el-input-number>
             </el-form-item>
 
             <el-form-item label="文本行高 : " prop="textHeight">
-              <el-select
-                  v-model="formData.textHeight"
-                  placeholder=""
-                  :disabled="!canEdit"
-                  @change="fontChange"
-              >
-                <el-option
-                    v-for="item in textHeightList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                >
-                </el-option>
-              </el-select>
+              <el-input-number
+                :disabled="!canEdit"
+                controls-position="right"
+                v-model="formData.textHeight"
+                @change="fontChange"
+                :min="1"
+                :max="100"
+              ></el-input-number>
             </el-form-item>
 
             <el-form-item label="背景颜色 : " prop="background">
               <el-input
-                  v-model="formData.background"
-                  placeholder=""
-                  :disabled="!canEdit"
+                v-model="formData.background"
+                placeholder=""
+                :disabled="!canEdit"
               >
                 <template slot="suffix">
                   <el-color-picker
-                      v-model="formData.background"
-                      :disabled="!canEdit"
-                      @change="fontChange"
+                    v-model="formData.background"
+                    :disabled="!canEdit"
+                    @change="fontChange"
                   ></el-color-picker>
                 </template>
               </el-input>
             </el-form-item>
 
+            <el-form-item label="是否绘制网格 : " prop="haveGrid">
+              <el-radio-group v-model="formData.haveGrid" @change="fontChange">
+                <el-radio
+                  v-for="(item, index) in haveGridOption"
+                  :label="item.value"
+                  :key="index"
+                  >{{ item.label }}
+                </el-radio>
+              </el-radio-group>
+            </el-form-item>
           </el-form>
         </div>
       </el-col>
@@ -120,10 +121,10 @@
             <div class="textBox-right-board-group">
               <div class="borderContainer" @click="showDialog">
                 <canvas
-                    width="273x"
-                    height="153px"
-                    style="border: grey 1px solid"
-                    id="myCanvas"
+                  width="273x"
+                  height="153px"
+                  style="border: grey 1px solid"
+                  id="myCanvas"
                 >
                 </canvas>
               </div>
@@ -135,17 +136,16 @@
     </el-row>
 
     <el-dialog
-        :title="dialogTitle"
-        width="580px"
-        append-to-body
-        :visible.sync="dialogVisible"
-        :before-close="hideDialog"
+      :title="dialogTitle"
+      width="580px"
+      append-to-body
+      :visible.sync="dialogVisible"
+      :before-close="hideDialog"
     >
       <div>
         <el-image style="width: 546px; height: 306px" :src="imgUrl"></el-image>
       </div>
     </el-dialog>
-
 
     <!--  todo 要删除   -->
     <el-button @click="exportFormData" type="primary">buttonCont</el-button>
@@ -157,10 +157,9 @@ export default {
   name: "ytRealCanvas",
   components: {},
   props: {
-
     dialogTitle: {
       type: String,
-      default: "预览图片"
+      default: "预览图片",
     }, // 预览图片的弹窗标题
     canEdit: {
       type: Boolean,
@@ -170,11 +169,13 @@ export default {
   data() {
     return {
       formData: {
-        textFont: "24px",
+        programContent: "yt-ui组件库",
+        textFont: "24",
         textCase: "微软雅黑",
         textColor: "#FFF",
         background: "#000",
         textHeight: "24",
+        haveGrid: true,
       },
       formDataRules: {
         // duration: [
@@ -200,48 +201,14 @@ export default {
           value: "隶书",
         },
       ],
-      textFontList: [
+      haveGridOption: [
         {
-          label: "16px",
-          value: "16px",
+          label: "是",
+          value: true,
         },
         {
-          label: "24px",
-          value: "24px",
-        },
-        {
-          label: "30px",
-          value: "30px",
-        },
-        {
-          label: "36px",
-          value: "36px",
-        },
-        {
-          label: "42px",
-          value: "42px",
-        },
-      ],
-      textHeightList: [
-        {
-          label: 16,
-          value: 16,
-        },
-        {
-          label: 24,
-          value: 24,
-        },
-        {
-          label: 30,
-          value: 30,
-        },
-        {
-          label: 36,
-          value: 36,
-        },
-        {
-          label: 42,
-          value: 42,
+          label: "否",
+          value: false,
         },
       ],
       dialogVisible: false,
@@ -283,7 +250,7 @@ export default {
      * startTop      开始绘制文本的 y 坐标位置（相对于画布）
      * */
     drawCanvas(params) {
-      console.log(params, "params")
+      console.log(params, "params");
       let {
         element,
         lineHeight,
@@ -308,26 +275,30 @@ export default {
       context.fillRect(bgStepX, bgStepY, canvas.width, canvas.height);
       context.setLineDash([]);
       context.beginPath();
-      for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
-        context.beginPath();
-        context.moveTo(i, 0 + 0.5);
-        context.lineTo(i, canvas.height + 0.5);
-        context.stroke();
-      }
-      for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
-        context.beginPath();
-        context.moveTo(0 + 0.5, i1);
-        context.lineTo(canvas.width, i1);
-        context.stroke();
+      // for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
+      //   context.beginPath();
+      //   context.moveTo(i, 0 + 0.5);
+      //   context.lineTo(i, canvas.height + 0.5);
+      //   context.stroke();
+      // }
+      // for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
+      //   context.beginPath();
+      //   context.moveTo(0 + 0.5, i1);
+      //   context.lineTo(canvas.width, i1);
+      //   context.stroke();
+      // }
+
+      if (this.formData.haveGrid) {
+        this.makeGrid({ canvas, lineStepX, lineStepY, context });
       }
 
       context.fillStyle = this.formData.textColor;
-      context.font = `${this.formData.textFont} ${this.formData.textCase}`;
+      context.font = `${this.formData.textFont}px ${this.formData.textCase}`;
 
       /* 获取字符串的真实长度（字节长度） */
       function getTrueLength(str) {
         let len = str ? str.length : 0,
-            truelen = 0;
+          truelen = 0;
         for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
             truelen += 2;
@@ -341,8 +312,8 @@ export default {
       /* 按字节长度截取字符串，返回substr截取位置 */
       function cutString(str, strLength) {
         let len = str ? str.length : 0,
-            tLen = len,
-            nLen = 0;
+          tLen = len,
+          nLen = 0;
         for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
             if (nLen + 2 < strLength) {
@@ -366,14 +337,36 @@ export default {
       for (let i2 = 1; getTrueLength(text) > 0; i2++) {
         let tl = cutString(text, byteLength);
         context.fillText(
-            text.substr(0, tl).replace(/^\s+|\s+$/, ""),
-            startLeft,
-            (i2 - 1) * lineHeight + startTop
+          text.substr(0, tl).replace(/^\s+|\s+$/, ""),
+          startLeft,
+          (i2 - 1) * lineHeight + startTop
         );
         text = text.substr(tl);
       }
       context.restore();
       context.closePath();
+    },
+
+    /**
+     * @Event canvas 绘制网格背景
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 23:27:37
+     **/
+    makeGrid(params) {
+      let { canvas, lineStepX, lineStepY, context } = params;
+      for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
+        context.beginPath();
+        context.moveTo(i, 0 + 0.5);
+        context.lineTo(i, canvas.height + 0.5);
+        context.stroke();
+      }
+      for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
+        context.beginPath();
+        context.moveTo(0 + 0.5, i1);
+        context.lineTo(canvas.width, i1);
+        context.stroke();
+      }
     },
 
     /**
@@ -429,13 +422,11 @@ export default {
      * @time: 2023-10-23 22:33:49
      **/
     exportFormData() {
-      console.log(this.formData)
-      return this.formData
-    }
-
+      console.log(this.formData);
+      return this.formData;
+    },
   },
-  created() {
-  },
+  created() {},
   mounted() {
     this.initMyCanvas();
   },
@@ -485,10 +476,12 @@ export default {
 }
 
 ::v-deep .el-color-picker--medium .el-color-picker__trigger {
-  margin: 12px -4px 0 0;
+  height: 40px;
+  width: 40px;
+  padding: 4px;
 }
 
-::v-deep .el-color-picker__mask {
-  margin: 8px -4px 0 0;
+.el-color-picker {
+  margin-right: -4px;
 }
 </style>
