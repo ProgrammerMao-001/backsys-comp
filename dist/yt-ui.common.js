@@ -64,7 +64,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytComp/src/main.vue?vue&type=template&id=25e596c5&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytComp/src/main.vue?vue&type=template&id=4db69105&scoped=true
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -207,7 +207,7 @@ var component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "25e596c5",
+  "4db69105",
   null
   
 )
@@ -287,8 +287,8 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytDemo = (src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=67781900&scoped=true
-var mainvue_type_template_id_67781900_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=101510c3&scoped=true
+var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -304,11 +304,11 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
   }, [_c('div', {
     staticClass: "textBox-left"
   }, [_c('el-form', {
-    ref: "textForm",
+    ref: "formData",
     attrs: {
-      "model": _vm.textForm,
-      "rules": _vm.textFormRules,
-      "label-width": "96px"
+      "model": _vm.formData,
+      "rules": _vm.formDataRules,
+      "label-width": "106px"
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -317,21 +317,22 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
     }
   }, [_c('el-input', {
     attrs: {
+      "size": "small",
       "resize": "none",
       "rows": "3",
       "type": "textarea",
       "placeholder": "",
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit
     },
     on: {
       "input": _vm.fontChange
     },
     model: {
-      value: _vm.textForm.programContent,
+      value: _vm.formData.programContent,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "programContent", $$v);
+        _vm.$set(_vm.formData, "programContent", $$v);
       },
-      expression: "textForm.programContent"
+      expression: "formData.programContent"
     }
   })], 1), _c('el-form-item', {
     attrs: {
@@ -340,31 +341,33 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
     }
   }, [_c('el-input', {
     attrs: {
+      "size": "small",
       "placeholder": "",
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit
     },
     model: {
-      value: _vm.textForm.textColor,
+      value: _vm.formData.textColor,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "textColor", $$v);
+        _vm.$set(_vm.formData, "textColor", $$v);
       },
-      expression: "textForm.textColor"
+      expression: "formData.textColor"
     }
   }, [_c('template', {
     slot: "suffix"
   }, [_c('el-color-picker', {
     attrs: {
-      "disabled": _vm.title === '详情'
+      "size": "small",
+      "disabled": !_vm.canEdit
     },
     on: {
       "change": _vm.fontChange
     },
     model: {
-      value: _vm.textForm.textColor,
+      value: _vm.formData.textColor,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "textColor", $$v);
+        _vm.$set(_vm.formData, "textColor", $$v);
       },
-      expression: "textForm.textColor"
+      expression: "formData.textColor"
     }
   })], 1)], 2)], 1), _c('el-form-item', {
     attrs: {
@@ -374,17 +377,17 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
   }, [_c('el-select', {
     attrs: {
       "placeholder": "",
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit
     },
     on: {
       "change": _vm.fontChange
     },
     model: {
-      value: _vm.textForm.textCase,
+      value: _vm.formData.textCase,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "textCase", $$v);
+        _vm.$set(_vm.formData, "textCase", $$v);
       },
-      expression: "textForm.textCase"
+      expression: "formData.textCase"
     }
   }, _vm._l(_vm.textCaseList, function (item) {
     return _c('el-option', {
@@ -399,30 +402,46 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
       "label": "文本字号 : ",
       "prop": "textFont"
     }
-  }, [_c('el-select', {
+  }, [_c('el-input-number', {
     attrs: {
-      "placeholder": "",
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit,
+      "controls-position": "right",
+      "min": 1,
+      "max": 100
     },
     on: {
       "change": _vm.fontChange
     },
     model: {
-      value: _vm.textForm.textFont,
+      value: _vm.formData.textFont,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "textFont", $$v);
+        _vm.$set(_vm.formData, "textFont", $$v);
       },
-      expression: "textForm.textFont"
+      expression: "formData.textFont"
     }
-  }, _vm._l(_vm.textFontList, function (item) {
-    return _c('el-option', {
-      key: item.value,
-      attrs: {
-        "label": item.label,
-        "value": item.value
-      }
-    });
-  }), 1)], 1), _c('el-form-item', {
+  })], 1), _c('el-form-item', {
+    attrs: {
+      "label": "文本行高 : ",
+      "prop": "textHeight"
+    }
+  }, [_c('el-input-number', {
+    attrs: {
+      "disabled": !_vm.canEdit,
+      "controls-position": "right",
+      "min": 1,
+      "max": 100
+    },
+    on: {
+      "change": _vm.fontChange
+    },
+    model: {
+      value: _vm.formData.textHeight,
+      callback: function ($$v) {
+        _vm.$set(_vm.formData, "textHeight", $$v);
+      },
+      expression: "formData.textHeight"
+    }
+  })], 1), _c('el-form-item', {
     attrs: {
       "label": "背景颜色 : ",
       "prop": "background"
@@ -430,32 +449,55 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
   }, [_c('el-input', {
     attrs: {
       "placeholder": "",
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit
     },
     model: {
-      value: _vm.textForm.background,
+      value: _vm.formData.background,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "background", $$v);
+        _vm.$set(_vm.formData, "background", $$v);
       },
-      expression: "textForm.background"
+      expression: "formData.background"
     }
   }, [_c('template', {
     slot: "suffix"
   }, [_c('el-color-picker', {
     attrs: {
-      "disabled": _vm.title === '详情'
+      "disabled": !_vm.canEdit
     },
     on: {
       "change": _vm.fontChange
     },
     model: {
-      value: _vm.textForm.background,
+      value: _vm.formData.background,
       callback: function ($$v) {
-        _vm.$set(_vm.textForm, "background", $$v);
+        _vm.$set(_vm.formData, "background", $$v);
       },
-      expression: "textForm.background"
+      expression: "formData.background"
     }
-  })], 1)], 2)], 1)], 1)], 1)]), _c('el-col', {
+  })], 1)], 2)], 1), _c('el-form-item', {
+    attrs: {
+      "label": "是否绘制网格 : ",
+      "prop": "haveGrid"
+    }
+  }, [_c('el-radio-group', {
+    on: {
+      "change": _vm.fontChange
+    },
+    model: {
+      value: _vm.formData.haveGrid,
+      callback: function ($$v) {
+        _vm.$set(_vm.formData, "haveGrid", $$v);
+      },
+      expression: "formData.haveGrid"
+    }
+  }, _vm._l(_vm.haveGridOption, function (item, index) {
+    return _c('el-radio', {
+      key: index,
+      attrs: {
+        "label": item.value
+      }
+    }, [_vm._v(_vm._s(item.label) + " ")]);
+  }), 1)], 1)], 1)], 1)]), _c('el-col', {
     attrs: {
       "span": 10
     }
@@ -470,7 +512,7 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
   }, [_c('div', {
     staticClass: "borderContainer",
     on: {
-      "click": _vm.getCanvasImg
+      "click": _vm.showDialog
     }
   }, [_c('canvas', {
     staticStyle: {
@@ -483,7 +525,7 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
     }
   })]), _c('span', [_vm._v(" (1920 * 1080) ")])])])])])], 1), _c('el-dialog', {
     attrs: {
-      "title": "预览",
+      "title": _vm.dialogTitle,
       "width": "580px",
       "append-to-body": "",
       "visible": _vm.dialogVisible,
@@ -502,33 +544,45 @@ var mainvue_type_template_id_67781900_scoped_true_render = function render() {
     attrs: {
       "src": _vm.imgUrl
     }
-  })], 1)])], 1);
+  })], 1)]), _c('el-button', {
+    attrs: {
+      "type": "primary"
+    },
+    on: {
+      "click": _vm.exportFormData
+    }
+  }, [_vm._v("buttonCont")])], 1);
 };
-var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytRealCanvas_src_mainvue_type_script_lang_js = ({
   name: "ytRealCanvas",
   components: {},
   props: {
-    typeForm: {
-      type: Object,
-      default: () => {}
-    },
-    title: {
+    dialogTitle: {
       type: String,
-      default: ""
-    }
+      default: "预览图片"
+    },
+    // 预览图片的弹窗标题
+    canEdit: {
+      type: Boolean,
+      default: true
+    } // 是否可以编辑
   },
+
   data() {
     return {
-      textForm: {
-        textFont: "24px",
+      formData: {
+        programContent: "yt-ui组件库",
+        textFont: "24",
         textCase: "微软雅黑",
         textColor: "#FFF",
-        background: "#000"
+        background: "#000",
+        textHeight: "24",
+        haveGrid: true
       },
-      textFormRules: {
+      formDataRules: {
         // duration: [
         //   { required: true, message: "持续时间不能为空" },
         //   { type: "number", message: "持续时间必须为数字值" },
@@ -547,50 +601,42 @@ var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
         label: "隶书",
         value: "隶书"
       }],
-      textFontList: [{
-        label: "16px",
-        value: "16px"
+      haveGridOption: [{
+        label: "是",
+        value: true
       }, {
-        label: "24px",
-        value: "24px"
-      }, {
-        label: "30px",
-        value: "30px"
-      }, {
-        label: "36px",
-        value: "36px"
-      }, {
-        label: "42px",
-        value: "42px"
+        label: "否",
+        value: false
       }],
       dialogVisible: false,
       imgUrl: null
     };
   },
   methods: {
-    getTextForm() {
-      if (this.typeForm) {
-        this.textForm = this.typeForm;
-      }
-    },
+    /**
+     * @Event 初始化默认 canvas 对象
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:39:23
+     **/
     initMyCanvas() {
       this.drawCanvas({
         element: "#myCanvas",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
-        bgColor: this.textForm.background,
+        bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
-        lineHeight: 20,
+        lineHeight: this.formData.textHeight,
         byteLength: 20,
-        text: this.textForm.programContent,
+        text: this.formData.programContent,
         startLeft: 20,
         startTop: 40
       });
     },
     /**
-     * @Event 方法
+     * @Event 绘制 canvas 图像
      * @description: canvas 文本设置 / canvas 绘制网格背景 / 文本自动换行
      * element       canvas 对象
      * lineHeight    段落文本行高
@@ -600,6 +646,7 @@ var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
      * startTop      开始绘制文本的 y 坐标位置（相对于画布）
      * */
     drawCanvas(params) {
+      console.log(params, "params");
       let {
         element,
         lineHeight,
@@ -623,25 +670,35 @@ var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
       context.fillRect(bgStepX, bgStepY, canvas.width, canvas.height);
       context.setLineDash([]);
       context.beginPath();
-      for (var i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
-        context.beginPath();
-        context.moveTo(i, 0 + 0.5);
-        context.lineTo(i, canvas.height + 0.5);
-        context.stroke();
+      // for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
+      //   context.beginPath();
+      //   context.moveTo(i, 0 + 0.5);
+      //   context.lineTo(i, canvas.height + 0.5);
+      //   context.stroke();
+      // }
+      // for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
+      //   context.beginPath();
+      //   context.moveTo(0 + 0.5, i1);
+      //   context.lineTo(canvas.width, i1);
+      //   context.stroke();
+      // }
+
+      if (this.formData.haveGrid) {
+        this.makeGrid({
+          canvas,
+          lineStepX,
+          lineStepY,
+          context
+        });
       }
-      for (var i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
-        context.beginPath();
-        context.moveTo(0 + 0.5, i1);
-        context.lineTo(canvas.width, i1);
-        context.stroke();
-      }
-      context.fillStyle = this.textForm.textColor;
-      context.font = `${this.textForm.textFont} ${this.textForm.textCase}`;
+      context.fillStyle = this.formData.textColor;
+      context.font = `${this.formData.textFont}px ${this.formData.textCase}`;
+
+      /* 获取字符串的真实长度（字节长度） */
       function getTrueLength(str) {
-        //获取字符串的真实长度（字节长度）
-        var len = str ? str.length : 0,
+        let len = str ? str.length : 0,
           truelen = 0;
-        for (var x = 0; x < len; x++) {
+        for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
             truelen += 2;
           } else {
@@ -650,89 +707,131 @@ var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
         }
         return truelen;
       }
-      function cutString(str, leng) {
-        //按字节长度截取字符串，返回substr截取位置
-        var len = str ? str.length : 0,
-          tlen = len,
-          nlen = 0;
-        for (var x = 0; x < len; x++) {
+
+      /* 按字节长度截取字符串，返回substr截取位置 */
+      function cutString(str, strLength) {
+        let len = str ? str.length : 0,
+          tLen = len,
+          nLen = 0;
+        for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
-            if (nlen + 2 < leng) {
-              nlen += 2;
+            if (nLen + 2 < strLength) {
+              nLen += 2;
             } else {
-              tlen = x;
+              tLen = x;
               break;
             }
           } else {
-            if (nlen + 1 < leng) {
-              nlen += 1;
+            if (nLen + 1 < strLength) {
+              nLen += 1;
             } else {
-              tlen = x;
+              tLen = x;
               break;
             }
           }
         }
-        return tlen;
+        return tLen;
       }
-      for (var i2 = 1; getTrueLength(text) > 0; i2++) {
-        var tl = cutString(text, byteLength);
+      for (let i2 = 1; getTrueLength(text) > 0; i2++) {
+        let tl = cutString(text, byteLength);
         context.fillText(text.substr(0, tl).replace(/^\s+|\s+$/, ""), startLeft, (i2 - 1) * lineHeight + startTop);
         text = text.substr(tl);
       }
       context.restore();
       context.closePath();
     },
+    /**
+     * @Event canvas 绘制网格背景
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 23:27:37
+     **/
+    makeGrid(params) {
+      let {
+        canvas,
+        lineStepX,
+        lineStepY,
+        context
+      } = params;
+      for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
+        context.beginPath();
+        context.moveTo(i, 0 + 0.5);
+        context.lineTo(i, canvas.height + 0.5);
+        context.stroke();
+      }
+      for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
+        context.beginPath();
+        context.moveTo(0 + 0.5, i1);
+        context.lineTo(canvas.width, i1);
+        context.stroke();
+      }
+    },
+    /**
+     * @Event 更新 canvas
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:38:42
+     **/
     fontChange() {
       this.drawCanvas({
         element: "#myCanvas",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
-        bgColor: this.textForm.background,
+        bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
-        lineHeight: 20,
+        lineHeight: this.formData.textHeight,
         byteLength: 20,
-        text: this.textForm.programContent,
+        text: this.formData.programContent,
         startLeft: 20,
         startTop: 40
       });
     },
-    getCanvasImg() {
-      var canvas = document.getElementById("myCanvas");
-      console.log(canvas.toDataURL());
+    /**
+     * @Event  查看 canvas 图片的弹窗打开事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:41:57
+     **/
+    showDialog() {
+      let canvas = document.getElementById("myCanvas");
       this.dialogVisible = true;
-      this.imgUrl = canvas.toDataURL();
+      this.imgUrl = canvas.toDataURL(); // 得到图片的base64地址
     },
+
+    /**
+     * @Event 查看 canvas 图片的弹窗关闭事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:40:16
+     **/
     hideDialog() {
       this.imgUrl = null;
       this.dialogVisible = false;
     },
     /**
-     * @Event 校验文本form 方法
+     * @Event 父组件中使用，用来获取 formData 对象
      * @description:
      * @author: mhf
-     * @time: 2023-10-16 14:49:19
+     * @time: 2023-10-23 22:33:49
      **/
-    validateTextForm() {
-      let flag = false;
-      this.$refs.textForm.validate(valid => flag = valid);
-      return flag;
+    exportFormData() {
+      console.log(this.formData);
+      return this.formData;
     }
   },
-  created() {
-    this.getTextForm();
-  },
+  created() {},
   mounted() {
     this.initMyCanvas();
   }
 });
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytRealCanvas_src_mainvue_type_script_lang_js = (ytRealCanvas_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=67781900&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=101510c3&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=67781900&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=101510c3&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue
 
@@ -745,11 +844,11 @@ var mainvue_type_template_id_67781900_scoped_true_staticRenderFns = [];
 
 var src_main_component = normalizeComponent(
   components_ytRealCanvas_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_67781900_scoped_true_render,
-  mainvue_type_template_id_67781900_scoped_true_staticRenderFns,
+  mainvue_type_template_id_101510c3_scoped_true_render,
+  mainvue_type_template_id_101510c3_scoped_true_staticRenderFns,
   false,
   null,
-  "67781900",
+  "101510c3",
   null
   
 )
@@ -776,7 +875,7 @@ const install = function (Vue) {
   });
 };
 // 判断是否直接引入文件，如果是，就不用调用Vue.use()
-if (typeof window !== 'undefined' && window.Vue) {
+if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 // 导出install方法
