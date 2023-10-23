@@ -9,33 +9,33 @@
       <el-col :span="14">
         <div class="textBox-left">
           <el-form
-              ref="textForm"
-              :model="textForm"
-              :rules="textFormRules"
+              ref="formData"
+              :model="formData"
+              :rules="formDataRules"
               label-width="96px"
           >
             <el-form-item label="文本内容 :" prop="programContent">
               <el-input
-                  v-model="textForm.programContent"
+                  v-model="formData.programContent"
                   resize="none"
                   rows="3"
                   type="textarea"
                   placeholder=""
-                  :disabled="title === '详情'"
+                  :disabled="!canEdit"
                   @input="fontChange"
               />
             </el-form-item>
 
             <el-form-item label="文本颜色 : " prop="textColor">
               <el-input
-                  v-model="textForm.textColor"
+                  v-model="formData.textColor"
                   placeholder=""
-                  :disabled="title === '详情'"
+                  :disabled="!canEdit"
               >
                 <template slot="suffix">
                   <el-color-picker
-                      v-model="textForm.textColor"
-                      :disabled="title === '详情'"
+                      v-model="formData.textColor"
+                      :disabled="!canEdit"
                       @change="fontChange"
                   ></el-color-picker>
                 </template>
@@ -44,9 +44,9 @@
 
             <el-form-item label="文本字体 : " prop="textCase">
               <el-select
-                  v-model="textForm.textCase"
+                  v-model="formData.textCase"
                   placeholder=""
-                  :disabled="title === '详情'"
+                  :disabled="!canEdit"
                   @change="fontChange"
               >
                 <el-option
@@ -61,9 +61,9 @@
 
             <el-form-item label="文本字号 : " prop="textFont">
               <el-select
-                  v-model="textForm.textFont"
+                  v-model="formData.textFont"
                   placeholder=""
-                  :disabled="title === '详情'"
+                  :disabled="!canEdit"
                   @change="fontChange"
               >
                 <el-option
@@ -78,14 +78,14 @@
 
             <el-form-item label="背景颜色 : " prop="background">
               <el-input
-                  v-model="textForm.background"
+                  v-model="formData.background"
                   placeholder=""
-                  :disabled="title === '详情'"
+                  :disabled="!canEdit"
               >
                 <template slot="suffix">
                   <el-color-picker
-                      v-model="textForm.background"
-                      :disabled="title === '详情'"
+                      v-model="formData.background"
+                      :disabled="!canEdit"
                       @change="fontChange"
                   ></el-color-picker>
                 </template>
@@ -101,7 +101,7 @@
           <span class="textBox-right-font"> 预览 : </span>
           <div class="textBox-right-board">
             <div class="textBox-right-board-group">
-              <div class="borderContainer" @click="getCanvasImg">
+              <div class="borderContainer" @click="showDialog">
                 <canvas
                     width="273x"
                     height="153px"
@@ -118,16 +118,20 @@
     </el-row>
 
     <el-dialog
-        title="预览"
+        :title="dialogTitle"
         width="580px"
         append-to-body
         :visible.sync="dialogVisible"
         :before-close="hideDialog"
     >
       <div>
-        <el-image style="width: 546px; height: 306px" :src="imgUrl"> </el-image>
+        <el-image style="width: 546px; height: 306px" :src="imgUrl"></el-image>
       </div>
     </el-dialog>
+
+
+    <!--  todo 要删除   -->
+    <el-button @click="exportFormData" type="primary">buttonCont</el-button>
   </div>
 </template>
 
@@ -136,25 +140,25 @@ export default {
   name: "ytRealCanvas",
   components: {},
   props: {
-    typeForm: {
-      type: Object,
-      default: () => {
-      },
-    },
-    title: {
+
+    dialogTitle: {
       type: String,
-      default: "",
-    },
+      default: "预览图片"
+    }, // 预览图片的弹窗标题
+    canEdit: {
+      type: Boolean,
+      default: true,
+    }, // 是否可以编辑
   },
   data() {
     return {
-      textForm: {
+      formData: {
         textFont: "24px",
         textCase: "微软雅黑",
         textColor: "#FFF",
         background: "#000",
       },
-      textFormRules: {
+      formDataRules: {
         // duration: [
         //   { required: true, message: "持续时间不能为空" },
         //   { type: "number", message: "持续时间必须为数字值" },
@@ -205,31 +209,31 @@ export default {
     };
   },
   methods: {
-    getTextForm() {
-      if (this.typeForm) {
-        this.textForm = this.typeForm;
-      }
-    },
-
+    /**
+     * @Event 初始化默认 canvas 对象
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:39:23
+     **/
     initMyCanvas() {
       this.drawCanvas({
         element: "#myCanvas",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
-        bgColor: this.textForm.background,
+        bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: 20,
         byteLength: 20,
-        text: this.textForm.programContent,
+        text: this.formData.programContent,
         startLeft: 20,
         startTop: 40,
       });
     },
 
     /**
-     * @Event 方法
+     * @Event 绘制 canvas 图像
      * @description: canvas 文本设置 / canvas 绘制网格背景 / 文本自动换行
      * element       canvas 对象
      * lineHeight    段落文本行高
@@ -263,27 +267,27 @@ export default {
       context.fillRect(bgStepX, bgStepY, canvas.width, canvas.height);
       context.setLineDash([]);
       context.beginPath();
-      for (var i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
+      for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
         context.beginPath();
         context.moveTo(i, 0 + 0.5);
         context.lineTo(i, canvas.height + 0.5);
         context.stroke();
       }
-      for (var i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
+      for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
         context.beginPath();
         context.moveTo(0 + 0.5, i1);
         context.lineTo(canvas.width, i1);
         context.stroke();
       }
 
-      context.fillStyle = this.textForm.textColor;
-      context.font = `${this.textForm.textFont} ${this.textForm.textCase}`;
+      context.fillStyle = this.formData.textColor;
+      context.font = `${this.formData.textFont} ${this.formData.textCase}`;
 
+      /* 获取字符串的真实长度（字节长度） */
       function getTrueLength(str) {
-        //获取字符串的真实长度（字节长度）
-        var len = str ? str.length : 0,
+        let len = str ? str.length : 0,
             truelen = 0;
-        for (var x = 0; x < len; x++) {
+        for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
             truelen += 2;
           } else {
@@ -292,32 +296,34 @@ export default {
         }
         return truelen;
       }
-      function cutString(str, leng) {
-        //按字节长度截取字符串，返回substr截取位置
-        var len = str ? str.length : 0,
-            tlen = len,
-            nlen = 0;
-        for (var x = 0; x < len; x++) {
+
+      /* 按字节长度截取字符串，返回substr截取位置 */
+      function cutString(str, strLength) {
+        let len = str ? str.length : 0,
+            tLen = len,
+            nLen = 0;
+        for (let x = 0; x < len; x++) {
           if (str.charCodeAt(x) > 128) {
-            if (nlen + 2 < leng) {
-              nlen += 2;
+            if (nLen + 2 < strLength) {
+              nLen += 2;
             } else {
-              tlen = x;
+              tLen = x;
               break;
             }
           } else {
-            if (nlen + 1 < leng) {
-              nlen += 1;
+            if (nLen + 1 < strLength) {
+              nLen += 1;
             } else {
-              tlen = x;
+              tLen = x;
               break;
             }
           }
         }
-        return tlen;
+        return tLen;
       }
-      for (var i2 = 1; getTrueLength(text) > 0; i2++) {
-        var tl = cutString(text, byteLength);
+
+      for (let i2 = 1; getTrueLength(text) > 0; i2++) {
+        let tl = cutString(text, byteLength);
         context.fillText(
             text.substr(0, tl).replace(/^\s+|\s+$/, ""),
             startLeft,
@@ -325,54 +331,69 @@ export default {
         );
         text = text.substr(tl);
       }
-
       context.restore();
       context.closePath();
     },
 
+    /**
+     * @Event 更新 canvas
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:38:42
+     **/
     fontChange() {
       this.drawCanvas({
         element: "#myCanvas",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
-        bgColor: this.textForm.background,
+        bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: 20,
         byteLength: 20,
-        text: this.textForm.programContent,
+        text: this.formData.programContent,
         startLeft: 20,
         startTop: 40,
       });
     },
 
-    getCanvasImg() {
-      var canvas = document.getElementById("myCanvas");
-      console.log(canvas.toDataURL());
+    /**
+     * @Event  查看 canvas 图片的弹窗打开事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:41:57
+     **/
+    showDialog() {
+      let canvas = document.getElementById("myCanvas");
       this.dialogVisible = true;
-      this.imgUrl = canvas.toDataURL();
+      this.imgUrl = canvas.toDataURL(); // 得到图片的base64地址
     },
 
+    /**
+     * @Event 查看 canvas 图片的弹窗关闭事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-23 22:40:16
+     **/
     hideDialog() {
       this.imgUrl = null;
       this.dialogVisible = false;
     },
 
     /**
-     * @Event 校验文本form 方法
+     * @Event 父组件中使用，用来获取 formData 对象
      * @description:
      * @author: mhf
-     * @time: 2023-10-16 14:49:19
+     * @time: 2023-10-23 22:33:49
      **/
-    validateTextForm() {
-      let flag = false;
-      this.$refs.textForm.validate((valid) => (flag = valid));
-      return flag;
-    },
+    exportFormData() {
+      console.log(this.formData)
+      return this.formData
+    }
+
   },
   created() {
-    this.getTextForm();
   },
   mounted() {
     this.initMyCanvas();
