@@ -76,6 +76,23 @@
               </el-select>
             </el-form-item>
 
+            <el-form-item label="文本行高 : " prop="textHeight">
+              <el-select
+                  v-model="formData.textHeight"
+                  placeholder=""
+                  :disabled="!canEdit"
+                  @change="fontChange"
+              >
+                <el-option
+                    v-for="item in textHeightList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+
             <el-form-item label="背景颜色 : " prop="background">
               <el-input
                   v-model="formData.background"
@@ -157,6 +174,7 @@ export default {
         textCase: "微软雅黑",
         textColor: "#FFF",
         background: "#000",
+        textHeight: "24",
       },
       formDataRules: {
         // duration: [
@@ -204,6 +222,28 @@ export default {
           value: "42px",
         },
       ],
+      textHeightList: [
+        {
+          label: 16,
+          value: 16,
+        },
+        {
+          label: 24,
+          value: 24,
+        },
+        {
+          label: 30,
+          value: 30,
+        },
+        {
+          label: 36,
+          value: 36,
+        },
+        {
+          label: 42,
+          value: 42,
+        },
+      ],
       dialogVisible: false,
       imgUrl: null,
     };
@@ -224,7 +264,7 @@ export default {
         bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
-        lineHeight: 20,
+        lineHeight: this.formData.textHeight,
         byteLength: 20,
         text: this.formData.programContent,
         startLeft: 20,
@@ -243,6 +283,7 @@ export default {
      * startTop      开始绘制文本的 y 坐标位置（相对于画布）
      * */
     drawCanvas(params) {
+      console.log(params, "params")
       let {
         element,
         lineHeight,
@@ -350,7 +391,7 @@ export default {
         bgColor: this.formData.background,
         bgStepX: 0,
         bgStepY: 0,
-        lineHeight: 20,
+        lineHeight: this.formData.textHeight,
         byteLength: 20,
         text: this.formData.programContent,
         startLeft: 20,
