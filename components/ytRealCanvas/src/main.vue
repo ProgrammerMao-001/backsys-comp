@@ -98,21 +98,21 @@
 
             <el-form-item label="文本距离左侧值 : " prop="leftNum">
               <el-input-number
-                  :size="inputSize"
-                  :disabled="!canEdit"
-                  controls-position="right"
-                  v-model="formData.leftNum"
-                  @change="fontChange"
+                :size="inputSize"
+                :disabled="!canEdit"
+                controls-position="right"
+                v-model="formData.leftNum"
+                @change="fontChange"
               ></el-input-number>
             </el-form-item>
 
             <el-form-item label="文本距离顶部值 : " prop="topNum">
               <el-input-number
-                  :size="inputSize"
-                  :disabled="!canEdit"
-                  controls-position="right"
-                  v-model="formData.topNum"
-                  @change="fontChange"
+                :size="inputSize"
+                :disabled="!canEdit"
+                controls-position="right"
+                v-model="formData.topNum"
+                @change="fontChange"
               ></el-input-number>
             </el-form-item>
 
@@ -134,7 +134,11 @@
             </el-form-item>
 
             <el-form-item label="是否绘制网格 : " prop="haveGrid">
-              <el-radio-group v-model="formData.haveGrid" @change="fontChange">
+              <el-radio-group
+                :disabled="!canEdit"
+                v-model="formData.haveGrid"
+                @change="fontChange"
+              >
                 <el-radio
                   v-for="(item, index) in haveGridOption"
                   :label="item.value"
@@ -162,7 +166,7 @@
     </el-row>
 
     <el-dialog
-        class="textBox-Dialog"
+      class="textBox-Dialog"
       :title="dialogTitle"
       width="606px"
       append-to-body
@@ -173,9 +177,6 @@
         <el-image style="width: 546px; height: 306px" :src="imgUrl"></el-image>
       </div>
     </el-dialog>
-
-    <!--  todo 要删除   -->
-    <el-button @click="exportFormData" type="primary">buttonCont</el-button>
   </div>
 </template>
 
@@ -201,11 +202,16 @@ export default {
       default: () => {
         return {
           minRows: 1,
-          maxRows: 4,
+          maxRows: 5,
         };
       },
     }, // 设置输入框默认高度，最小接收行数和最大行数
-
+    receivedForm: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    }, // 设置接收到的formData数据
   },
   data() {
     return {
@@ -221,7 +227,7 @@ export default {
         topNum: 40, // 文本距离顶部值
         byteLength: 20, // 单行文本数量
       },
-      formDataRules: { },
+      formDataRules: {},
       textCaseList: [
         {
           label: "微软雅黑",
@@ -441,17 +447,34 @@ export default {
     },
 
     /**
-     * @Event 父组件中使用，用来获取 formData 对象
+     * @Event 接收到的receivedForm存在，则 替换formData
      * @description:
      * @author: mhf
-     * @time: 2023-10-23 22:33:49
+     * @time: 2023-10-24 23:54:47
      **/
-    exportFormData() {
-      console.log(this.formData);
-      return this.formData;
+    getFormData() {
+      console.log(this.receivedForm, this.isEmptyObject(this.receivedForm));
+      if (this.isEmptyObject(this.receivedForm)) {
+        this.formData = {
+          programContent: "@mhfwork/yt-ui组件库",
+          textFont: "24",
+          textCase: "微软雅黑",
+          textColor: "#FFF",
+          background: "#000",
+          textHeight: "40",
+          haveGrid: true,
+          leftNum: 20,
+          topNum: 40,
+          byteLength: 20,
+        };
+      } else {
+        this.formData = this.receivedForm;
+      }
     },
   },
-  created() {},
+  created() {
+    this.getFormData();
+  },
   mounted() {
     this.initMyCanvas();
   },
@@ -461,8 +484,6 @@ export default {
 <style lang="scss" scoped>
 .textBox {
   width: 100%;
-  height: 410px;
-  border: 1px solid red;
 
   &-left {
     ::v-deep .el-color-picker__trigger {

@@ -297,8 +297,8 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytDemo = (src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=101510c3&scoped=true
-var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=5dc70541&scoped=true
+var mainvue_type_template_id_5dc70541_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -309,7 +309,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-col', {
     attrs: {
-      "span": 14
+      "span": 12
     }
   }, [_c('div', {
     staticClass: "textBox-left"
@@ -318,7 +318,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     attrs: {
       "model": _vm.formData,
       "rules": _vm.formDataRules,
-      "label-width": "106px"
+      "label-width": "120px"
     }
   }, [_c('el-form-item', {
     attrs: {
@@ -327,12 +327,11 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-input', {
     attrs: {
-      "size": "small",
       "resize": "none",
-      "rows": "3",
       "type": "textarea",
       "placeholder": "",
-      "disabled": !_vm.canEdit
+      "disabled": !_vm.canEdit,
+      "autosize": _vm.inputRows
     },
     on: {
       "input": _vm.fontChange
@@ -351,7 +350,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-input', {
     attrs: {
-      "size": "small",
+      "size": _vm.inputSize,
       "placeholder": "",
       "disabled": !_vm.canEdit
     },
@@ -366,7 +365,6 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     slot: "suffix"
   }, [_c('el-color-picker', {
     attrs: {
-      "size": "small",
       "disabled": !_vm.canEdit
     },
     on: {
@@ -386,6 +384,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-select', {
     attrs: {
+      "size": _vm.inputSize,
       "placeholder": "",
       "disabled": !_vm.canEdit
     },
@@ -414,6 +413,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-input-number', {
     attrs: {
+      "size": _vm.inputSize,
       "disabled": !_vm.canEdit,
       "controls-position": "right",
       "min": 1,
@@ -436,6 +436,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   }, [_c('el-input-number', {
     attrs: {
+      "size": _vm.inputSize,
       "disabled": !_vm.canEdit,
       "controls-position": "right",
       "min": 1,
@@ -453,12 +454,77 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }
   })], 1), _c('el-form-item', {
     attrs: {
+      "label": "单行文本数量 : ",
+      "prop": "byteLength"
+    }
+  }, [_c('el-input-number', {
+    attrs: {
+      "size": _vm.inputSize,
+      "disabled": !_vm.canEdit,
+      "controls-position": "right",
+      "min": 5
+    },
+    on: {
+      "change": _vm.fontChange
+    },
+    model: {
+      value: _vm.formData.byteLength,
+      callback: function ($$v) {
+        _vm.$set(_vm.formData, "byteLength", $$v);
+      },
+      expression: "formData.byteLength"
+    }
+  })], 1), _c('el-form-item', {
+    attrs: {
+      "label": "文本距离左侧值 : ",
+      "prop": "leftNum"
+    }
+  }, [_c('el-input-number', {
+    attrs: {
+      "size": _vm.inputSize,
+      "disabled": !_vm.canEdit,
+      "controls-position": "right"
+    },
+    on: {
+      "change": _vm.fontChange
+    },
+    model: {
+      value: _vm.formData.leftNum,
+      callback: function ($$v) {
+        _vm.$set(_vm.formData, "leftNum", $$v);
+      },
+      expression: "formData.leftNum"
+    }
+  })], 1), _c('el-form-item', {
+    attrs: {
+      "label": "文本距离顶部值 : ",
+      "prop": "topNum"
+    }
+  }, [_c('el-input-number', {
+    attrs: {
+      "size": _vm.inputSize,
+      "disabled": !_vm.canEdit,
+      "controls-position": "right"
+    },
+    on: {
+      "change": _vm.fontChange
+    },
+    model: {
+      value: _vm.formData.topNum,
+      callback: function ($$v) {
+        _vm.$set(_vm.formData, "topNum", $$v);
+      },
+      expression: "formData.topNum"
+    }
+  })], 1), _c('el-form-item', {
+    attrs: {
       "label": "背景颜色 : ",
       "prop": "background"
     }
   }, [_c('el-input', {
     attrs: {
       "placeholder": "",
+      "size": _vm.inputSize,
       "disabled": !_vm.canEdit
     },
     model: {
@@ -490,6 +556,9 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
       "prop": "haveGrid"
     }
   }, [_c('el-radio-group', {
+    attrs: {
+      "disabled": !_vm.canEdit
+    },
     on: {
       "change": _vm.fontChange
     },
@@ -509,7 +578,7 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     }, [_vm._v(_vm._s(item.label) + " ")]);
   }), 1)], 1)], 1)], 1)]), _c('el-col', {
     attrs: {
-      "span": 10
+      "span": 12
     }
   }, [_c('div', {
     staticClass: "textBox-right"
@@ -525,18 +594,14 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
       "click": _vm.showDialog
     }
   }, [_c('canvas', {
-    staticStyle: {
-      "border": "grey 1px solid"
-    },
     attrs: {
-      "width": "273x",
-      "height": "153px",
       "id": "myCanvas"
     }
-  })]), _c('span', [_vm._v(" (1920 * 1080) ")])])])])])], 1), _c('el-dialog', {
+  })])])])])])], 1), _c('el-dialog', {
+    staticClass: "textBox-Dialog",
     attrs: {
       "title": _vm.dialogTitle,
-      "width": "580px",
+      "width": "606px",
       "append-to-body": "",
       "visible": _vm.dialogVisible,
       "before-close": _vm.hideDialog
@@ -554,16 +619,9 @@ var mainvue_type_template_id_101510c3_scoped_true_render = function render() {
     attrs: {
       "src": _vm.imgUrl
     }
-  })], 1)]), _c('el-button', {
-    attrs: {
-      "type": "primary"
-    },
-    on: {
-      "click": _vm.exportFormData
-    }
-  }, [_vm._v("buttonCont")])], 1);
+  })], 1)])], 1);
 };
-var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_5dc70541_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytRealCanvas_src_mainvue_type_script_lang_js = ({
@@ -578,26 +636,56 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
     canEdit: {
       type: Boolean,
       default: true
-    } // 是否可以编辑
+    },
+    // 是否可以编辑
+    inputSize: {
+      type: String,
+      default: "small"
+    },
+    // 所有input的尺寸（medium / small / mini）
+    inputRows: {
+      type: Object,
+      default: () => {
+        return {
+          minRows: 1,
+          maxRows: 5
+        };
+      }
+    },
+    // 设置输入框默认高度，最小接收行数和最大行数
+    receivedForm: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    } // 设置接收到的formData数据
   },
 
   data() {
     return {
       formData: {
-        programContent: "yt-ui组件库",
+        programContent: "@mhfwork/yt-ui组件库",
+        // 文本内容
         textFont: "24",
+        // 文本字号
         textCase: "微软雅黑",
+        // 文本字体
         textColor: "#FFF",
+        // 文本颜色
         background: "#000",
-        textHeight: "24",
-        haveGrid: true
+        // 背景颜色
+        textHeight: "40",
+        // 文本行高
+        haveGrid: true,
+        // 是否绘制网格
+        leftNum: 20,
+        // 文本距离左侧值
+        topNum: 40,
+        // 文本距离顶部值
+        byteLength: 20 // 单行文本数量
       },
-      formDataRules: {
-        // duration: [
-        //   { required: true, message: "持续时间不能为空" },
-        //   { type: "number", message: "持续时间必须为数字值" },
-        // ],
-      },
+
+      formDataRules: {},
       textCaseList: [{
         label: "微软雅黑",
         value: "微软雅黑"
@@ -639,10 +727,10 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: this.formData.textHeight,
-        byteLength: 20,
+        byteLength: this.formData.byteLength,
         text: this.formData.programContent,
-        startLeft: 20,
-        startTop: 40
+        startLeft: this.formData.leftNum,
+        startTop: this.formData.topNum
       });
     },
     /**
@@ -680,19 +768,6 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
       context.fillRect(bgStepX, bgStepY, canvas.width, canvas.height);
       context.setLineDash([]);
       context.beginPath();
-      // for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
-      //   context.beginPath();
-      //   context.moveTo(i, 0 + 0.5);
-      //   context.lineTo(i, canvas.height + 0.5);
-      //   context.stroke();
-      // }
-      // for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
-      //   context.beginPath();
-      //   context.moveTo(0 + 0.5, i1);
-      //   context.lineTo(canvas.width, i1);
-      //   context.stroke();
-      // }
-
       if (this.formData.haveGrid) {
         this.makeGrid({
           canvas,
@@ -744,7 +819,7 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
       }
       for (let i2 = 1; getTrueLength(text) > 0; i2++) {
         let tl = cutString(text, byteLength);
-        context.fillText(text.substr(0, tl).replace(/^\s+|\s+$/, ""), startLeft, (i2 - 1) * lineHeight + startTop);
+        context.fillText(text.substr(0, tl).replace(/^\s+|\s+$/, ""), startLeft, (i2 - 1) * lineHeight + startTop); // 用来填充的文本信息,填充文本的起点横坐标,填充文本的起点纵坐标
         text = text.substr(tl);
       }
       context.restore();
@@ -792,10 +867,10 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: this.formData.textHeight,
-        byteLength: 20,
+        byteLength: this.formData.byteLength,
         text: this.formData.programContent,
-        startLeft: 20,
-        startTop: 40
+        startLeft: this.formData.leftNum,
+        startTop: this.formData.topNum
       });
     },
     /**
@@ -821,27 +896,44 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
       this.dialogVisible = false;
     },
     /**
-     * @Event 父组件中使用，用来获取 formData 对象
+     * @Event 接收到的receivedForm存在，则 替换formData
      * @description:
      * @author: mhf
-     * @time: 2023-10-23 22:33:49
+     * @time: 2023-10-24 23:54:47
      **/
-    exportFormData() {
-      console.log(this.formData);
-      return this.formData;
+    getFormData() {
+      console.log(this.receivedForm, this.isEmptyObject(this.receivedForm));
+      if (this.isEmptyObject(this.receivedForm)) {
+        this.formData = {
+          programContent: "@mhfwork/yt-ui组件库",
+          textFont: "24",
+          textCase: "微软雅黑",
+          textColor: "#FFF",
+          background: "#000",
+          textHeight: "40",
+          haveGrid: true,
+          leftNum: 20,
+          topNum: 40,
+          byteLength: 20
+        };
+      } else {
+        this.formData = this.receivedForm;
+      }
     }
   },
-  created() {},
+  created() {
+    this.getFormData();
+  },
   mounted() {
     this.initMyCanvas();
   }
 });
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytRealCanvas_src_mainvue_type_script_lang_js = (ytRealCanvas_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=101510c3&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=5dc70541&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=101510c3&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=5dc70541&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue
 
@@ -854,11 +946,11 @@ var mainvue_type_template_id_101510c3_scoped_true_staticRenderFns = [];
 
 var src_main_component = normalizeComponent(
   components_ytRealCanvas_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_101510c3_scoped_true_render,
-  mainvue_type_template_id_101510c3_scoped_true_staticRenderFns,
+  mainvue_type_template_id_5dc70541_scoped_true_render,
+  mainvue_type_template_id_5dc70541_scoped_true_staticRenderFns,
   false,
   null,
-  "101510c3",
+  "5dc70541",
   null
   
 )
