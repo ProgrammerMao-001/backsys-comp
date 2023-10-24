@@ -6,7 +6,7 @@
 <template>
   <div class="textBox">
     <el-row :gutter="24">
-      <el-col :span="14">
+      <el-col :span="12">
         <div class="textBox-left">
           <el-form
             ref="formData"
@@ -85,6 +85,17 @@
               ></el-input-number>
             </el-form-item>
 
+            <el-form-item label="单行文本数量 : " prop="byteLength">
+              <el-input-number
+                :size="inputSize"
+                :disabled="!canEdit"
+                controls-position="right"
+                v-model="formData.byteLength"
+                @change="fontChange"
+                :min="5"
+              ></el-input-number>
+            </el-form-item>
+
             <el-form-item label="文本距离左侧值 : " prop="leftNum">
               <el-input-number
                   :size="inputSize"
@@ -136,18 +147,13 @@
         </div>
       </el-col>
 
-      <el-col :span="10">
+      <el-col :span="12">
         <div class="textBox-right">
           <span class="textBox-right-font"> 预览 : </span>
           <div class="textBox-right-board">
             <div class="textBox-right-board-group">
               <div class="borderContainer" @click="showDialog">
-                <canvas
-                  width="273x"
-                  height="153px"
-                  id="myCanvas"
-                >
-                </canvas>
+                <canvas id="myCanvas"></canvas>
               </div>
             </div>
           </div>
@@ -204,22 +210,18 @@ export default {
   data() {
     return {
       formData: {
-        programContent: "yt-ui组件库",
-        textFont: "24",
-        textCase: "微软雅黑",
-        textColor: "#FFF",
-        background: "#000",
-        textHeight: "24",
-        haveGrid: true,
-        leftNum: 20,
-        topNum: 40,
+        programContent: "@mhfwork/yt-ui组件库", // 文本内容
+        textFont: "24", // 文本字号
+        textCase: "微软雅黑", // 文本字体
+        textColor: "#FFF", // 文本颜色
+        background: "#000", // 背景颜色
+        textHeight: "40", // 文本行高
+        haveGrid: true, // 是否绘制网格
+        leftNum: 20, // 文本距离左侧值
+        topNum: 40, // 文本距离顶部值
+        byteLength: 20, // 单行文本数量
       },
-      formDataRules: {
-        // duration: [
-        //   { required: true, message: "持续时间不能为空" },
-        //   { type: "number", message: "持续时间必须为数字值" },
-        // ],
-      },
+      formDataRules: { },
       textCaseList: [
         {
           label: "微软雅黑",
@@ -269,7 +271,7 @@ export default {
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: this.formData.textHeight,
-        byteLength: 20,
+        byteLength: this.formData.byteLength,
         text: this.formData.programContent,
         startLeft: this.formData.leftNum,
         startTop: this.formData.topNum,
@@ -408,7 +410,7 @@ export default {
         bgStepX: 0,
         bgStepY: 0,
         lineHeight: this.formData.textHeight,
-        byteLength: 20,
+        byteLength: this.formData.byteLength,
         text: this.formData.programContent,
         startLeft: this.formData.leftNum,
         startTop: this.formData.topNum,
@@ -458,11 +460,17 @@ export default {
 
 <style lang="scss" scoped>
 .textBox {
-  width: 800px;
+  width: 100%;
   height: 410px;
   border: 1px solid red;
 
   &-left {
+    ::v-deep .el-color-picker__trigger {
+      height: 30px;
+      width: 30px;
+      padding: 2px;
+      margin-top: 6px;
+    }
   }
 
   &-right {
@@ -476,34 +484,19 @@ export default {
     &-board {
       width: calc(100% - 40px);
       float: right;
-      overflow-y: auto;
-      height: 374px;
 
       &-group {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-start;
 
         .borderContainer {
           cursor: pointer;
         }
-
-        span {
-          font-family: MicrosoftYaHei;
-          color: #333333;
-          line-height: 40px;
-        }
       }
     }
   }
-}
-
-::v-deep .el-color-picker__trigger {
-  height: 30px;
-  width: 30px;
-  padding: 2px;
-  margin-top: 6px;
 }
 
 .textBox-Dialog {
