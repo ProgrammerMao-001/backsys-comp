@@ -12,7 +12,7 @@
             ref="formData"
             :model="formData"
             :rules="formDataRules"
-            label-width="106px"
+            label-width="120px"
           >
             <el-form-item label="文本内容 :" prop="programContent">
               <el-input
@@ -82,6 +82,26 @@
                 @change="fontChange"
                 :min="1"
                 :max="100"
+              ></el-input-number>
+            </el-form-item>
+
+            <el-form-item label="文本距离左侧值 : " prop="leftNum">
+              <el-input-number
+                  :size="inputSize"
+                  :disabled="!canEdit"
+                  controls-position="right"
+                  v-model="formData.leftNum"
+                  @change="fontChange"
+              ></el-input-number>
+            </el-form-item>
+
+            <el-form-item label="文本距离顶部值 : " prop="topNum">
+              <el-input-number
+                  :size="inputSize"
+                  :disabled="!canEdit"
+                  controls-position="right"
+                  v-model="formData.topNum"
+                  @change="fontChange"
               ></el-input-number>
             </el-form-item>
 
@@ -191,6 +211,8 @@ export default {
         background: "#000",
         textHeight: "24",
         haveGrid: true,
+        leftNum: 20,
+        topNum: 40,
       },
       formDataRules: {
         // duration: [
@@ -249,8 +271,8 @@ export default {
         lineHeight: this.formData.textHeight,
         byteLength: 20,
         text: this.formData.programContent,
-        startLeft: 20,
-        startTop: 40,
+        startLeft: this.formData.leftNum,
+        startTop: this.formData.topNum,
       });
     },
 
@@ -341,7 +363,7 @@ export default {
           text.substr(0, tl).replace(/^\s+|\s+$/, ""),
           startLeft,
           (i2 - 1) * lineHeight + startTop
-        );
+        ); // 用来填充的文本信息,填充文本的起点横坐标,填充文本的起点纵坐标
         text = text.substr(tl);
       }
       context.restore();
@@ -388,8 +410,8 @@ export default {
         lineHeight: this.formData.textHeight,
         byteLength: 20,
         text: this.formData.programContent,
-        startLeft: 20,
-        startTop: 40,
+        startLeft: this.formData.leftNum,
+        startTop: this.formData.topNum,
       });
     },
 
