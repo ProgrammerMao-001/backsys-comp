@@ -3,7 +3,7 @@
 
 * [demo](https://programmermao-001.github.io/use-yt-ui/)
 * [源码地址](https://github.com/ProgrammerMao-001/yt-ui)
-* [文档地址]：敬请期待...
+* [文档地址](https://programmermao-001.github.io/yt-ui-doc/)
 
 ### 使用前须知
 ```
