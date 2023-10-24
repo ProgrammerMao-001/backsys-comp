@@ -16,27 +16,25 @@
           >
             <el-form-item label="文本内容 :" prop="programContent">
               <el-input
-                size="small"
                 v-model="formData.programContent"
                 resize="none"
-                rows="3"
                 type="textarea"
                 placeholder=""
                 :disabled="!canEdit"
+                :autosize="inputRows"
                 @input="fontChange"
               />
             </el-form-item>
 
             <el-form-item label="文本颜色 : " prop="textColor">
               <el-input
-                size="small"
+                :size="inputSize"
                 v-model="formData.textColor"
                 placeholder=""
                 :disabled="!canEdit"
               >
                 <template slot="suffix">
                   <el-color-picker
-                    size="small"
                     v-model="formData.textColor"
                     :disabled="!canEdit"
                     @change="fontChange"
@@ -47,6 +45,7 @@
 
             <el-form-item label="文本字体 : " prop="textCase">
               <el-select
+                :size="inputSize"
                 v-model="formData.textCase"
                 placeholder=""
                 :disabled="!canEdit"
@@ -64,6 +63,7 @@
 
             <el-form-item label="文本字号 : " prop="textFont">
               <el-input-number
+                :size="inputSize"
                 :disabled="!canEdit"
                 controls-position="right"
                 v-model="formData.textFont"
@@ -75,6 +75,7 @@
 
             <el-form-item label="文本行高 : " prop="textHeight">
               <el-input-number
+                :size="inputSize"
                 :disabled="!canEdit"
                 controls-position="right"
                 v-model="formData.textHeight"
@@ -88,6 +89,7 @@
               <el-input
                 v-model="formData.background"
                 placeholder=""
+                :size="inputSize"
                 :disabled="!canEdit"
               >
                 <template slot="suffix">
@@ -123,12 +125,10 @@
                 <canvas
                   width="273x"
                   height="153px"
-                  style="border: grey 1px solid"
                   id="myCanvas"
                 >
                 </canvas>
               </div>
-              <span> (1920 * 1080) </span>
             </div>
           </div>
         </div>
@@ -136,8 +136,9 @@
     </el-row>
 
     <el-dialog
+        class="textBox-Dialog"
       :title="dialogTitle"
-      width="580px"
+      width="606px"
       append-to-body
       :visible.sync="dialogVisible"
       :before-close="hideDialog"
@@ -165,6 +166,20 @@ export default {
       type: Boolean,
       default: true,
     }, // 是否可以编辑
+    inputSize: {
+      type: String,
+      default: "small",
+    }, // 所有input的尺寸（medium / small / mini）
+    inputRows: {
+      type: Object,
+      default: () => {
+        return {
+          minRows: 1,
+          maxRows: 4,
+        };
+      },
+    }, // 设置输入框默认高度，最小接收行数和最大行数
+
   },
   data() {
     return {
@@ -275,23 +290,9 @@ export default {
       context.fillRect(bgStepX, bgStepY, canvas.width, canvas.height);
       context.setLineDash([]);
       context.beginPath();
-      // for (let i = lineStepX + 0.5; i < canvas.width; i += lineStepX) {
-      //   context.beginPath();
-      //   context.moveTo(i, 0 + 0.5);
-      //   context.lineTo(i, canvas.height + 0.5);
-      //   context.stroke();
-      // }
-      // for (let i1 = lineStepY + 0.5; i1 < canvas.height; i1 += lineStepY) {
-      //   context.beginPath();
-      //   context.moveTo(0 + 0.5, i1);
-      //   context.lineTo(canvas.width, i1);
-      //   context.stroke();
-      // }
-
       if (this.formData.haveGrid) {
         this.makeGrid({ canvas, lineStepX, lineStepY, context });
       }
-
       context.fillStyle = this.formData.textColor;
       context.font = `${this.formData.textFont}px ${this.formData.textCase}`;
 
@@ -437,6 +438,7 @@ export default {
 .textBox {
   width: 800px;
   height: 410px;
+  border: 1px solid red;
 
   &-left {
   }
@@ -475,13 +477,16 @@ export default {
   }
 }
 
-::v-deep .el-color-picker--medium .el-color-picker__trigger {
-  height: 40px;
-  width: 40px;
-  padding: 4px;
+::v-deep .el-color-picker__trigger {
+  height: 30px;
+  width: 30px;
+  padding: 2px;
+  margin-top: 6px;
 }
 
-.el-color-picker {
-  margin-right: -4px;
+.textBox-Dialog {
+  ::v-deep .el-dialog__body {
+    padding: 4px 30px 10px;
+  }
 }
 </style>
