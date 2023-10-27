@@ -1,24 +1,17 @@
 <!--
- * @Description: main 页面
+ * @Description: 文件上传通用组件 页面
  * @Author: mhf
- * @Date: 2023/10/21
+ * @Date: 2023/10/27 17:49
 -->
 <template>
-  <div>
-    {{ pageName }}
-  </div>
+  <div>ytFileUpload</div>
 </template>
 
 <script>
 export default {
-  name: "ytComp",
+  name: "ytFileUpload",
   components: {},
-  props: {
-    pageName: {
-      type: String,
-      default: "ytComp",
-    },
-  },
+  props: {},
   computed: {},
   watch: {},
   filters: {},

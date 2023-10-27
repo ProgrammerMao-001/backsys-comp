@@ -7,12 +7,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
 /* element-ui */
 
-import ytDemo from "../components/ytDemo";
-import ytComp from "../components/ytComp";
 import ytRealCanvas from "../components/ytRealCanvas";
-Vue.use(ytDemo)
-Vue.use(ytComp)
+import ytFileUpload from "../components/ytFileUpload";
 Vue.use(ytRealCanvas)
+Vue.use(ytFileUpload)
 
 Vue.config.productionTip = false
 

@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <useYtRealCanvas ref="useYtRealCanvas" />
+    <useYtFileUpload ref="useYtFileUpload" />
   </div>
 </template>
 
 <script>
-import useYtRealCanvas from "./useYtRealCanvas/useYtRealCanvas.vue";
+import useYtFileUpload from "./useYtFileUpload/useYtFileUpload.vue";
 export default {
   name: "App",
-  components: { useYtRealCanvas },
+  components: { useYtFileUpload },
 };
 </script>
 
