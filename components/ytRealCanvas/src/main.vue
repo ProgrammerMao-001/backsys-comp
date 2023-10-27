@@ -4,10 +4,10 @@
  * @Date: 2023/10/21
 -->
 <template>
-  <div class="textBox">
+  <div class="ytRealCanvas">
     <el-row :gutter="24">
       <el-col :span="12">
-        <div class="textBox-left">
+        <div class="ytRealCanvas-left">
           <el-form
             ref="formData"
             :model="formData"
@@ -152,12 +152,12 @@
       </el-col>
 
       <el-col :span="12">
-        <div class="textBox-right">
-          <span class="textBox-right-font"> 预览 : </span>
-          <div class="textBox-right-board">
-            <div class="textBox-right-board-group">
-              <div class="borderContainer" @click="showDialog">
-                <canvas id="myCanvas"></canvas>
+        <div class="ytRealCanvas-right">
+          <span class="ytRealCanvas-right-font"> 预览 : </span>
+          <div class="ytRealCanvas-right-board">
+            <div class="ytRealCanvas-right-board-group">
+              <div class="ytRealCanvas-right-board-group-container" @click="showDialog">
+                <canvas id="ytRealCanvasBox"></canvas>
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@
     </el-row>
 
     <el-dialog
-      class="textBox-Dialog"
+      class="ytRealCanvas-Dialog"
       :title="dialogTitle"
       width="606px"
       append-to-body
@@ -269,7 +269,7 @@ export default {
      **/
     initMyCanvas() {
       this.drawCanvas({
-        element: "#myCanvas",
+        element: "#ytRealCanvasBox",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
@@ -408,7 +408,7 @@ export default {
      **/
     fontChange() {
       this.drawCanvas({
-        element: "#myCanvas",
+        element: "#ytRealCanvasBox",
         lineColor: "rgba(238,238,238,0.6)",
         lineStepX: 10,
         lineStepY: 10,
@@ -430,7 +430,7 @@ export default {
      * @time: 2023-10-23 22:41:57
      **/
     showDialog() {
-      let canvas = document.getElementById("myCanvas");
+      let canvas = document.getElementById("ytRealCanvasBox");
       this.dialogVisible = true;
       this.imgUrl = canvas.toDataURL(); // 得到图片的base64地址
     },
@@ -485,7 +485,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.textBox {
+.ytRealCanvas {
   width: 100%;
 
   &-left {
@@ -515,7 +515,7 @@ export default {
         flex-wrap: wrap;
         align-items: flex-start;
 
-        .borderContainer {
+        &-borderContainer {
           cursor: pointer;
         }
       }
@@ -523,7 +523,7 @@ export default {
   }
 }
 
-.textBox-Dialog {
+.ytRealCanvas-Dialog {
   ::v-deep .el-dialog__body {
     padding: 4px 30px 10px;
   }
