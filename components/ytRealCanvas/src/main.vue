@@ -196,7 +196,7 @@ export default {
     inputSize: {
       type: String,
       default: "small",
-    }, // 所有input的尺寸（medium / small / mini）
+    }, // 所有input的尺寸（可选值：medium / small / mini）
     inputRows: {
       type: Object,
       default: () => {
