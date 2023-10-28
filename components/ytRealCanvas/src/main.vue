@@ -156,7 +156,10 @@
           <span class="ytRealCanvas-right-font"> 预览 : </span>
           <div class="ytRealCanvas-right-board">
             <div class="ytRealCanvas-right-board-group">
-              <div class="ytRealCanvas-right-board-group-container" @click="showDialog">
+              <div
+                class="ytRealCanvas-right-board-group-container"
+                @click="showDialog"
+              >
                 <canvas id="ytRealCanvasBox"></canvas>
               </div>
             </div>

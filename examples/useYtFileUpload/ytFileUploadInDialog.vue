@@ -5,27 +5,27 @@
 -->
 <template>
   <el-dialog
-      :close-on-click-modal="false"
-      :title="title"
-      :visible.sync="visibleFlag"
-      v-if="visibleFlag"
-      width="900px"
-      append-to-body
-      @close="hideDialog"
+    :close-on-click-modal="false"
+    :title="title"
+    :visible.sync="visibleFlag"
+    v-if="visibleFlag"
+    width="900px"
+    append-to-body
+    @close="hideDialog"
   >
     <el-form
-        ref="form"
-        :model="formData"
-        :rules="formRules"
-        label-width="110px"
+      ref="form"
+      :model="formData"
+      :rules="formRules"
+      label-width="110px"
     >
       <el-form-item label="附件 :" prop="annexUrl">
-        <ytFileUpload :headerObj="headerObj"
-                      :actionUrl="actionUrl"
-                      :utilsObj="utilsObj"
-                      @getFileUploadYt="getFileUploadYt"
+        <ytFileUpload
+          :headerObj="headerObj"
+          :actionUrl="actionUrl"
+          :utilsObj="utilsObj"
+          @getFileUploadYt="getFileUploadYt"
         />
-
       </el-form-item>
     </el-form>
 
@@ -48,9 +48,10 @@ export default {
         annexUrl: [],
       },
       headerObj: {
-        AuthorizationSys: "放在请求头上的token"
+        AuthorizationSys: "放在请求头上的token",
       },
-      actionUrl: process.env.VUE_APP_BASE_API + "/tlxx-modules-annex/annexAction/upload",
+      actionUrl:
+        process.env.VUE_APP_BASE_API + "/tlxx-modules-annex/annexAction/upload",
       utilsObj: {
         isDisabled: false, // 是否禁用附件上传的功能
         fileList: [], // 已经上传的附件列表
@@ -62,7 +63,7 @@ export default {
         btnIcon: "el-icon-upload", // 上传按钮展示的图标
         btnType: "text", // 上传按钮的样式类型 如：primary / success / warning / danger / info / text
         btnContent: "上传附件",
-      }
+      },
     };
   },
   methods: {
@@ -87,8 +88,7 @@ export default {
      * @time: 2023-10-28 19:32:21
      **/
     getDetail(id) {
-      function detailInterface() {
-      } // 模拟请求
+      function detailInterface() {} // 模拟请求
       detailInterface(id).then((res) => {
         if (res.code === 1) {
           this.formData = res.data;
@@ -103,49 +103,47 @@ export default {
       });
     },
     submitForm() {
-      function updateProjectAnnex() {
-      } // 模拟请求
-      function addProjectAnnex() {
-      } // 模拟请求
+      function updateProjectAnnex() {} // 模拟请求
+      function addProjectAnnex() {} // 模拟请求
       this.$refs.form.validate((valid) => {
         if (valid) {
           if (this.title === "修改") {
             this.formData.annexUrl !== []
-                ? (this.formData.annexUrl = JSON.stringify(
-                    this.formData.annexUrl
+              ? (this.formData.annexUrl = JSON.stringify(
+                  this.formData.annexUrl
                 ))
-                : (this.formData.annexUrl = []);
+              : (this.formData.annexUrl = []);
             updateProjectAnnex(this.formData)
-                .then((res) => {
-                  if (res.code === 1) {
-                    this.$message.success("修改成功！");
-                    this.hideDialog();
-                  } else {
-                    this.$message.warning(res.message);
-                  }
-                })
-                .catch((e) => {
-                  throw e;
-                });
+              .then((res) => {
+                if (res.code === 1) {
+                  this.$message.success("修改成功！");
+                  this.hideDialog();
+                } else {
+                  this.$message.warning(res.message);
+                }
+              })
+              .catch((e) => {
+                throw e;
+              });
           }
           if (this.title === "新增项目附件配置") {
             this.formData.annexUrl !== []
-                ? (this.formData.annexUrl = JSON.stringify(
-                    this.formData.annexUrl
+              ? (this.formData.annexUrl = JSON.stringify(
+                  this.formData.annexUrl
                 ))
-                : (this.formData.annexUrl = []);
+              : (this.formData.annexUrl = []);
             addProjectAnnex(this.formData)
-                .then((res) => {
-                  if (res.code === 1) {
-                    this.$message.success("添加成功！");
-                    this.hideDialog();
-                  } else {
-                    this.$message.warning(res.message);
-                  }
-                })
-                .catch((e) => {
-                  throw e;
-                });
+              .then((res) => {
+                if (res.code === 1) {
+                  this.$message.success("添加成功！");
+                  this.hideDialog();
+                } else {
+                  this.$message.warning(res.message);
+                }
+              })
+              .catch((e) => {
+                throw e;
+              });
           }
         } else {
           return false;
@@ -161,14 +159,12 @@ export default {
      **/
     getFileUploadYt(e) {
       this.formData.annexUrl = e;
-      console.log(e, "获取到的文件 e")
-    }
+      console.log(e, "获取到的文件 e");
+    },
   },
 
-  destroyed() {
-  }
+  destroyed() {},
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <h3> useYtRealCanvas </h3>
+    <h3>useYtRealCanvas</h3>
     <useYtRealCanvas ref="useYtRealCanvas" />
-    <h3> useYtFileUpload </h3>
+    <h3>useYtFileUpload</h3>
     <useYtFileUpload ref="useYtFileUpload" />
   </div>
 </template>

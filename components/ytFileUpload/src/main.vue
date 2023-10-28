@@ -7,26 +7,26 @@
 <template>
   <div class="ytFileUpload">
     <el-upload
-        :disabled="utilsObj.isDisabled"
-        :action="actionUrl"
-        :headers="headerObj"
-        :file-list="utilsObj.fileList"
-        :limit="utilsObj.limitNum"
-        :multiple="utilsObj.isMultiple"
-        :on-preview="handlePreview"
-        :on-success="handleSuccess"
-        :on-remove="handleRemove"
-        :before-upload="handBeforeUpload"
-        :on-exceed="handleExceed"
+      :disabled="utilsObj.isDisabled"
+      :action="actionUrl"
+      :headers="headerObj"
+      :file-list="utilsObj.fileList"
+      :limit="utilsObj.limitNum"
+      :multiple="utilsObj.isMultiple"
+      :on-preview="handlePreview"
+      :on-success="handleSuccess"
+      :on-remove="handleRemove"
+      :before-upload="handBeforeUpload"
+      :on-exceed="handleExceed"
     >
       <!-- 默认上传按钮样式 -->
       <div v-if="utilsObj.typeStyle === 0">
         <el-button
-            :disabled="utilsObj.isDisabled"
-            :size="utilsObj.btnSize"
-            :icon="utilsObj.btnIcon"
-            :type="utilsObj.btnType"
-        >{{ utilsObj.btnContent }}
+          :disabled="utilsObj.isDisabled"
+          :size="utilsObj.btnSize"
+          :icon="utilsObj.btnIcon"
+          :type="utilsObj.btnType"
+          >{{ utilsObj.btnContent }}
         </el-button>
       </div>
 
@@ -61,7 +61,7 @@ export default {
 
     actionUrl: {
       type: String,
-      default: ""
+      default: "",
     }, // 文件上传的接口: 如：process.env.VUE_APP_BASE_API + "/file/upload",
 
     headerObj: {
@@ -83,8 +83,8 @@ export default {
           "application/vnd.ms-excel",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         ], // 默认可上传的类型
-        fileName: ["apk","zip","pdf","doc","docx","xls","xlsx"] // 默认可上传的类型对应的后缀名
-      })
+        fileName: ["apk", "zip", "pdf", "doc", "docx", "xls", "xlsx"], // 默认可上传的类型对应的后缀名
+      }),
     }, // 文件上传类型控制（如需添加自定义文件类型：请查看 handBeforeUpload(file) {// file.type}）
   },
   data() {
@@ -100,7 +100,7 @@ export default {
      * @time: 2023-10-27 23:59:11
      **/
     handlePreview(file) {
-      console.log(file, "点击文件列表中已上传的文件时的钩子")
+      console.log(file, "点击文件列表中已上传的文件时的钩子");
       if (file.response) {
         // 上传文件的时候 查看
         window.open(file.response.data.url);
@@ -117,7 +117,7 @@ export default {
      * @time: 2023-10-27 23:59:34
      **/
     handleSuccess(file) {
-      console.log(file, "文件上传成功时的钩子")
+      console.log(file, "文件上传成功时的钩子");
       if (file) {
         this.resFileArr.push(file.data);
         this.$emit("getFileUploadYt", this.resFileArr);
@@ -133,12 +133,12 @@ export default {
      * @time: 2023-10-28 00:00:37
      **/
     handleRemove(file) {
-      console.log(file, "文件列表移除文件时的钩子")
+      console.log(file, "文件列表移除文件时的钩子");
       if (file.response) {
         this.resFileArr.map((item, index) => {
           if (
-              item === file.response.data ||
-              item.url === file.response.data.url
+            item === file.response.data ||
+            item.url === file.response.data.url
           ) {
             this.resFileArr.splice(index, 1);
             this.$emit("getFileUploadYt", this.resFileArr);
@@ -161,10 +161,11 @@ export default {
      * @time: 2023-10-28 00:01:13
      **/
     handBeforeUpload(file) {
-      console.log(file,file.type, "上传文件之前的钩子")
-      if (this.uploadType.fileType.indexOf(file.type) === -1
-      ) {
-        this.$message.error(`请上传后缀名为 ${this.uploadType.fileName.join("、")} 的文件`);
+      console.log(file, file.type, "上传文件之前的钩子");
+      if (this.uploadType.fileType.indexOf(file.type) === -1) {
+        this.$message.error(
+          `请上传后缀名为 ${this.uploadType.fileName.join("、")} 的文件`
+        );
         return false;
       }
       if (file.size > this.utilsObj.fileSize * 1024 * 1024) {
@@ -180,11 +181,11 @@ export default {
      * @time: 2023-10-28 00:03:21
      **/
     handleExceed(files, fileList) {
-      console.log(files, fileList, "文件超出个数限制时的钩子")
+      console.log(files, fileList, "文件超出个数限制时的钩子");
       this.$message.warning(
-          `当前限制选择 ${this.utilsObj.limitNum} 个文件，本次选择了 ${
-              files.length
-          } 个文件，共选择了 ${files.length + fileList.length} 个文件`
+        `当前限制选择 ${this.utilsObj.limitNum} 个文件，本次选择了 ${
+          files.length
+        } 个文件，共选择了 ${files.length + fileList.length} 个文件`
       );
     },
 
@@ -196,17 +197,16 @@ export default {
      **/
     getFileList() {
       setTimeout(() => {
-        console.log(this.utilsObj, "回显附件列表")
+        console.log(this.utilsObj, "回显附件列表");
         if (this.utilsObj.fileList) {
           this.resFileArr = this.utilsObj.fileList;
         }
       }, 500);
-    }
+    },
   },
-  created() {
-  },
+  created() {},
   mounted() {
-    this.getFileList()
+    this.getFileList();
   },
 };
 </script>

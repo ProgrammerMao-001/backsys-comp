@@ -1,5 +1,5 @@
 # yt-ui组件库
-后台系统常用的组件
+vue后台系统常用的组件
 
 * [demo](https://programmermao-001.github.io/use-yt-ui/)
 * [源码地址](https://github.com/ProgrammerMao-001/yt-ui)

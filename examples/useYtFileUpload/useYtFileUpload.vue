@@ -5,11 +5,12 @@
 -->
 <template>
   <div>
-    <ytFileUpload ref="ytFileUpload"
-                  :utilsObj="utilsObj"
-                  :actionUrl="actionUrl"
-                  :uploadType="uploadType"
-                  @getFileUploadYt="getFileUploadYt"
+    <ytFileUpload
+      ref="ytFileUpload"
+      :utilsObj="utilsObj"
+      :actionUrl="actionUrl"
+      :uploadType="uploadType"
+      @getFileUploadYt="getFileUploadYt"
     />
   </div>
 </template>
@@ -45,9 +46,8 @@ export default {
           "application/vnd.ms-excel",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         ],
-        fileName: ["pdf","doc","docx","xls","xlsx"]
-      }
-
+        fileName: ["pdf", "doc", "docx", "xls", "xlsx"],
+      },
     };
   },
   methods: {
