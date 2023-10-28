@@ -1683,7 +1683,7 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=51b5a7ab&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=7a6bacc2&scoped=true
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -2318,10 +2318,10 @@ var staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var src_mainvue_type_script_lang_js = (mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=51b5a7ab&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=7a6bacc2&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=51b5a7ab&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=7a6bacc2&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
@@ -2436,7 +2436,7 @@ var component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "51b5a7ab",
+  "7a6bacc2",
   null
   
 )
@@ -2448,8 +2448,8 @@ main.install = Vue => {
   Vue.component(main.name, main);
 };
 /* harmony default export */ var ytRealCanvas = (main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=template&id=210a43f0&scoped=true
-var mainvue_type_template_id_210a43f0_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=template&id=53e0843e&scoped=true
+var mainvue_type_template_id_53e0843e_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -2477,7 +2477,7 @@ var mainvue_type_template_id_210a43f0_scoped_true_render = function render() {
     }
   }, [_vm._v(_vm._s(_vm.utilsObj.btnContent) + " ")])], 1) : _vm._e(), _vm.utilsObj.typeStyle === 1 ? _c('div', [_vm._t("default")], 2) : _vm._e()])], 1);
 };
-var mainvue_type_template_id_210a43f0_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_53e0843e_scoped_true_staticRenderFns = [];
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
 var es_array_push = __webpack_require__(7658);
@@ -2525,7 +2525,17 @@ var es_array_push = __webpack_require__(7658);
       default: function () {
         return {};
       }
-    } // 文件上传请求头参数（放在requestHeaders请求头中，一般存放token 如：{AuthorizationSys: "tokenKey"}）
+    },
+    // 文件上传请求头参数（放在requestHeaders请求头中，一般存放token 如：{AuthorizationSys: "tokenKey"}）
+
+    uploadType: {
+      type: Object,
+      default: () => ({
+        fileType: ["application/vnd.android.package-archive", "application/x-zip-compressed", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"],
+        // 默认可上传的类型
+        fileName: ["apk", "zip", "pdf", "doc", "docx", "xls", "xlsx"] // 默认可上传的类型对应的后缀名
+      })
+    } // 文件上传类型控制（如需添加自定义文件类型：请查看 handBeforeUpload(file) {// file.type}）
   },
 
   data() {
@@ -2553,7 +2563,7 @@ var es_array_push = __webpack_require__(7658);
     },
     /**
      * @Event 文件上传成功时的钩子
-     * @description: 将成功之后的保存文件的数组传给父组件
+     * @description: 将文件上传成功之后所保存的文件数组传给父组件
      * @author: mhf
      * @time: 2023-10-27 23:59:34
      **/
@@ -2563,12 +2573,12 @@ var es_array_push = __webpack_require__(7658);
         this.resFileArr.push(file.data);
         this.$emit("getFileUploadYt", this.resFileArr);
       } else {
-        this.$message.warning(file.message, "上传失败！");
+        this.$message.warning(file.message + "上传失败！");
       }
     },
     /**
      * @Event 文件列表移除文件时的钩子
-     * @description: 将移除之后的保存文件的数组传给父组件
+     * @description: 将文件移除成功之后所保存的文件数组传给父组件
      * @author: mhf
      * @time: 2023-10-28 00:00:37
      **/
@@ -2597,9 +2607,9 @@ var es_array_push = __webpack_require__(7658);
      * @time: 2023-10-28 00:01:13
      **/
     handBeforeUpload(file) {
-      console.log(file, "上传文件之前的钩子");
-      if (["application/vnd.android.package-archive", "application/x-zip-compressed", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"].indexOf(file.type) === -1) {
-        this.$message.error("请上传后缀名为 apk、zip、pdf、doc、docx、xls、xlsx的文件");
+      console.log(file, file.type, "上传文件之前的钩子");
+      if (this.uploadType.fileType.indexOf(file.type) === -1) {
+        this.$message.error(`请上传后缀名为 ${this.uploadType.fileName.join("、")} 的文件`);
         return false;
       }
       if (file.size > this.utilsObj.fileSize * 1024 * 1024) {
@@ -2639,10 +2649,10 @@ var es_array_push = __webpack_require__(7658);
 });
 ;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytFileUpload_src_mainvue_type_script_lang_js = (ytFileUpload_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=210a43f0&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=53e0843e&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=210a43f0&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=53e0843e&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue
 
@@ -2655,11 +2665,11 @@ var es_array_push = __webpack_require__(7658);
 
 var main_component = normalizeComponent(
   components_ytFileUpload_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_210a43f0_scoped_true_render,
-  mainvue_type_template_id_210a43f0_scoped_true_staticRenderFns,
+  mainvue_type_template_id_53e0843e_scoped_true_render,
+  mainvue_type_template_id_53e0843e_scoped_true_staticRenderFns,
   false,
   null,
-  "210a43f0",
+  "53e0843e",
   null
   
 )
