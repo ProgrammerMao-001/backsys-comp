@@ -8,6 +8,7 @@
     <ytFileUpload ref="ytFileUpload"
                   :utilsObj="utilsObj"
                   :actionUrl="actionUrl"
+                  :uploadType="uploadType"
                   @getFileUploadYt="getFileUploadYt"
     />
   </div>
@@ -35,7 +36,18 @@ export default {
         btnType: "primary", // 上传按钮的样式类型 如：primary / success / warning / danger / info / text
         btnContent: "上传附件", // 上传按钮展示的文字内容
       },
-      actionUrl: "http://127.0.0.1:3002/api/upload"
+      actionUrl: "http://127.0.0.1:3002/api/upload",
+      uploadType: {
+        fileType: [
+          "application/pdf",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "application/vnd.ms-excel",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ],
+        fileName: ["pdf","doc","docx","xls","xlsx"]
+      }
+
     };
   },
   methods: {

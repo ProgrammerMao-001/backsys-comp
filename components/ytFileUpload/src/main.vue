@@ -2,7 +2,7 @@
  * @Description: 文件上传通用组件 页面
  * @Author: mhf
  * @Date: 2023/10/27 17:49
- * @todo: 完善上传成功之后的回调以及参数配置，完善上传前的类型控制，自定义配置
+ * @todo: 完善上传成功之后的回调以及参数配置
 -->
 <template>
   <div class="ytFileUpload">
@@ -70,6 +70,22 @@ export default {
         return {};
       },
     }, // 文件上传请求头参数（放在requestHeaders请求头中，一般存放token 如：{AuthorizationSys: "tokenKey"}）
+
+    uploadType: {
+      type: Object,
+      default: () => ({
+        fileType: [
+          "application/vnd.android.package-archive",
+          "application/x-zip-compressed",
+          "application/pdf",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "application/vnd.ms-excel",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ], // 默认可上传的类型
+        fileName: ["apk","zip","pdf","doc","docx","xls","xlsx"] // 默认可上传的类型对应的后缀名
+      })
+    }, // 文件上传类型控制（如需添加自定义文件类型：请查看 handBeforeUpload(file) {// file.type}）
   },
   data() {
     return {
@@ -96,7 +112,7 @@ export default {
 
     /**
      * @Event 文件上传成功时的钩子
-     * @description: 将成功之后的保存文件的数组传给父组件
+     * @description: 将文件上传成功之后所保存的文件数组传给父组件
      * @author: mhf
      * @time: 2023-10-27 23:59:34
      **/
@@ -112,7 +128,7 @@ export default {
 
     /**
      * @Event 文件列表移除文件时的钩子
-     * @description: 将移除之后的保存文件的数组传给父组件
+     * @description: 将文件移除成功之后所保存的文件数组传给父组件
      * @author: mhf
      * @time: 2023-10-28 00:00:37
      **/
@@ -145,21 +161,10 @@ export default {
      * @time: 2023-10-28 00:01:13
      **/
     handBeforeUpload(file) {
-      console.log(file, "上传文件之前的钩子")
-      if (
-          [
-            "application/vnd.android.package-archive",
-            "application/x-zip-compressed",
-            "application/pdf",
-            "application/msword",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "application/vnd.ms-excel",
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-          ].indexOf(file.type) === -1
+      console.log(file,file.type, "上传文件之前的钩子")
+      if (this.uploadType.fileType.indexOf(file.type) === -1
       ) {
-        this.$message.error(
-            "请上传后缀名为 apk、zip、pdf、doc、docx、xls、xlsx的文件"
-        );
+        this.$message.error(`请上传后缀名为 ${this.uploadType.fileName.join("、")} 的文件`);
         return false;
       }
       if (file.size > this.utilsObj.fileSize * 1024 * 1024) {

@@ -515,7 +515,7 @@ export default {
         flex-wrap: wrap;
         align-items: flex-start;
 
-        &-borderContainer {
+        &-container {
           cursor: pointer;
         }
       }
