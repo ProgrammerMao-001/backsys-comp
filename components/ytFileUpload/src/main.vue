@@ -122,7 +122,7 @@ export default {
         this.resFileArr.push(file.data);
         this.$emit("getFileUploadYt", this.resFileArr);
       } else {
-        this.$message.warning(file.message, "上传失败！");
+        this.$message.warning(file.message + "上传失败！");
       }
     },
 
