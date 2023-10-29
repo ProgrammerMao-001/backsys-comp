@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <h3>useYtRealCanvas</h3>
-    <useYtRealCanvas ref="useYtRealCanvas" />
-    <h3>useYtFileUpload</h3>
-    <useYtFileUpload ref="useYtFileUpload" />
+    <div class="container" v-if="showPage === 'useYtRealCanvas'">
+      <h3>useYtRealCanvas</h3>
+      <useYtRealCanvas ref="useYtRealCanvas" />
+    </div>
+
+    <div class="container" v-if="showPage === 'useYtFileUpload'">
+      <h3>useYtFileUpload</h3>
+      <useYtFileUpload ref="useYtFileUpload" />
+    </div>
   </div>
 </template>
 
@@ -16,6 +21,11 @@ export default {
     useYtFileUpload,
     useYtRealCanvas,
   },
+  data() {
+    return {
+      showPage: "useYtFileUpload",
+    }
+  }
 };
 </script>
 
@@ -23,5 +33,9 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+
+.container {
+  width: calc(100% - 12px);
 }
 </style>
