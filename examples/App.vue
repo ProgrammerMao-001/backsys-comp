@@ -11,7 +11,7 @@
     </div>
 
     <div class="container" v-if="showPage === 'useYtForm'">
-      <h3> useYtForm </h3>
+      <h3>useYtForm</h3>
       <useYtForm ref="useYtForm" />
     </div>
   </div>
@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       showPage: "useYtForm",
-    }
-  }
+    };
+  },
 };
 </script>
 
