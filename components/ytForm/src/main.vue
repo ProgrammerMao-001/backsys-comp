@@ -8,7 +8,7 @@
 <template>
   <div class="ytForm">
     <!-- 表单区域 -->
-    <el-form ref="formRef"
+    <el-form ref="form"
              :model="form"
              :inline="inline"
              :rules="formRules"
@@ -215,11 +215,32 @@ export default {
       this.$emit("selectClick", {item, items});
       console.log(item, items, "item, items")
     },
+
+     /**
+        * @Event 表单查询
+        * @description:
+        * @author: mhf
+        * @time: 2023-11-04 18:36:18
+        **/
     handleSearch() {
-      this.$emit("handleSearch", this.form);
+      this.$refs["form"].validate((valid) => {
+        if (valid) {
+          this.$emit("handleSearch", this.form);
+        } else {
+          return false;
+        }
+      });
     },
+
+     /**
+        * @Event 重置表单
+        * @description:
+        * @author: mhf
+        * @time: 2023-11-04 18:30:00
+        **/
     handleResetFrom() {
-      this.$emit("handleResetFrom");
+       this.$refs["form"].resetFields();
+       this.$emit("handleResetFrom");
     },
   },
 };

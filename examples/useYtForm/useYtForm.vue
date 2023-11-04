@@ -11,7 +11,8 @@
         :inline="inline"
         :form="searchForm"
         :formSize="formSize"
-        :form-label="formLabel"
+        :formLabel="formLabel"
+        :formRules="formRules"
         @handleSearch="handleSearch"
         @handleResetFrom="handleResetFrom"
         @selectClick="selectClick"
@@ -118,6 +119,9 @@ export default {
           valueFormat: "yyyy-MM-dd"
         }
       ],
+      formRules: {
+        inputValue: { required: true, message: '请输入输入框内容', trigger: 'blur' },
+      }, // 表单规则校验
       searchForm: {
         // pageNum: 1,
         // pageSize: 10,
