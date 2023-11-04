@@ -16,7 +16,26 @@
         @handleSearch="handleSearch"
         @handleResetFrom="handleResetFrom"
         @selectClick="selectClick"
-    />
+    >
+      <template slot="formSlot">
+        <el-date-picker
+            type="years"
+            v-model="searchForm.formSlotValue"
+            value-format="yyyy"
+            placeholder="选择一个或多个年"
+            :size="formSize">
+        </el-date-picker>
+      </template>
+
+      <template slot="btnSlot">
+        <el-button type="primary" :size="formSize"> 自定义按钮（插槽）  </el-button>
+      </template>
+
+      <template slot="otherSlot">
+        <span> 在这里写其他自定义内容 </span>
+      </template>
+
+    </ytForm>
   </div>
 </template>
 
@@ -47,15 +66,15 @@ export default {
           opts: [
             {
               deptName: '单位1',
-              deptId: '1'
+              deptId: '单位1'
             },
             {
               deptName: '单位2',
-              deptId: '2'
+              deptId: '单位2'
             },
             {
               deptName: '单位3',
-              deptId: "3"
+              deptId: "单位3"
             }
           ],
           optLabel: "deptName",
@@ -68,15 +87,15 @@ export default {
           opts: [
             {
               label: '男',
-              value: 1
+              value: '男'
             },
             {
               label: '女',
-              value: 2
+              value: '女'
             },
             {
               label: '未知',
-              value: 0
+              value: '未知'
             }
           ],
         },
@@ -123,8 +142,6 @@ export default {
         inputValue: { required: true, message: '请输入输入框内容', trigger: 'blur' },
       }, // 表单规则校验
       searchForm: {
-        // pageNum: 1,
-        // pageSize: 10,
       }, // 表单查询的条件
     };
   },

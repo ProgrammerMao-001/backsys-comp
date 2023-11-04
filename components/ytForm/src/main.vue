@@ -4,12 +4,10 @@
  * @Date: 2023/10/29 11:19
 -->
 
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div class="ytForm">
-    <!-- 表单区域 -->
     <el-form ref="form"
-             :model="form"
+             :model="formData"
              :inline="inline"
              :rules="formRules"
              :label-width="labelWidth"
@@ -22,14 +20,14 @@
       >
         <el-input
             v-if="item.type === 'input'"
-            v-model.trim="form[item.value]"
+            v-model.trim="formData[item.value]"
             :size="formSize"
             :placeholder="'请输入' + item.label"
         />
 
         <el-select
             v-if="item.type === 'select'"
-            v-model.trim="form[item.value]"
+            v-model.trim="formData[item.value]"
             filterable
             clearable
             :placeholder="'请选择' + item.label"
@@ -47,7 +45,7 @@
         <template v-if="item.type === 'radio'">
           <el-radio
               v-for="items in item.opts"
-              v-model="form[item.value]"
+              v-model="formData[item.value]"
               :size="formSize"
               :key="items.value"
               :label="items.value"
@@ -57,7 +55,7 @@
 
         <el-switch
             v-if="item.type === 'switch'"
-            v-model="form[item.value]"
+            v-model="formData[item.value]"
             :size="formSize"
             :active-color="item.activeColor"
             :inactive-color="item.inactiveColor"
@@ -68,7 +66,7 @@
         <el-date-picker
             type="date"
             v-if="item.type === 'date'"
-            v-model="form[item.value]"
+            v-model="formData[item.value]"
             :placeholder="item.placeholder || '请选择日期'"
             :value-format="item.valueFormat || 'yyyy-MM-dd'"
             :size="formSize"
@@ -76,7 +74,7 @@
 
         <el-date-picker
             v-if="item.type === 'daterange' || item.type === 'datetimerange'"
-            v-model="form[item.value]"
+            v-model="formData[item.value]"
             :size="formSize"
             :type="item.type"
             :picker-options="item.pickerOptions || pickerOptions"
@@ -89,7 +87,7 @@
       </el-form-item>
 
       <el-form-item>
-        <slot/>
+        <slot name="formSlot"/>
       </el-form-item>
 
       <div v-if="showOperationBtn" class="ytForm-btn">
@@ -107,10 +105,11 @@
               @click="handleResetFrom"
           >重置
           </el-button>
+          <slot name="btnSlot"/>
         </el-form-item>
         <el-form-item/>
         <el-form-item>
-          <slot name="btnSlot"/>
+          <slot name="otherSlot"></slot>
         </el-form-item>
       </div>
     </el-form>
@@ -125,17 +124,14 @@ export default {
       type: Boolean,
       default: true,
     }, // 行内表单模式	true / false
-    // eslint-disable-next-line vue/require-default-prop
     form: {
       type: Object,
       required: true,
     }, // 表单数据 formData
-    // eslint-disable-next-line vue/require-default-prop
     formLabel: {
       type: Array,
       required: true,
     }, // 表单类型数组
-    // eslint-disable-next-line vue/require-default-prop
     formRules: {
       type: Object,
       default: () => {
@@ -155,7 +151,11 @@ export default {
       default: true,
     }, // 是否展示 (查询、重置)按钮
   },
-  // 用来以对象方式存放数据
+  computed: {
+    formData() {
+      return this.form;
+    }
+  },
   data() {
     return {
       pickerOptions: {
@@ -225,7 +225,7 @@ export default {
     handleSearch() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          this.$emit("handleSearch", this.form);
+          this.$emit("handleSearch", this.formData);
         } else {
           return false;
         }
