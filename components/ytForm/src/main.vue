@@ -129,10 +129,16 @@ export default {
     form: {
       type: Object,
       required: true,
+      default: () => {
+        return {};
+      },
     }, // 表单数据 formData
     formLabel: {
       type: Array,
       required: true,
+      default: () => {
+        return [];
+      }
     }, // 表单类型数组
     formRules: {
       type: Object,
