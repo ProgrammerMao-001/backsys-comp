@@ -1,15 +1,19 @@
 <!--
  * @Description: 搜索表单组件 页面
  * @Author: mhf
- * @Use: type可选值：'',numberInput,select,dept,radio,switch,date,daterange,dateNoTime,datetimerange
  * @Date: 2023/10/29 11:19
 -->
 
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <div class="search-component">
+  <div class="ytForm">
     <!-- 表单区域 -->
-    <el-form ref="formRef" :model="form" :inline="inline" :rules="formRules">
+    <el-form ref="formRef"
+             :model="form"
+             :inline="inline"
+             :rules="formRules"
+             :label-width="labelWidth"
+    >
       <el-form-item
           v-for="(item, index) in formLabel"
           :key="index"
@@ -40,65 +44,55 @@
           />
         </el-select>
 
-        <!--        <treeselect-->
-        <!--            v-if="item.type === 'dept'"-->
-        <!--            v-model="form[item.value]"-->
-        <!--            class="treeBox"-->
-        <!--            :options="item.opts"-->
-        <!--            :show-count="true"-->
-        <!--            :placeholder="'请选择' + item.label"-->
-        <!--        />-->
         <template v-if="item.type === 'radio'">
           <el-radio
               v-for="items in item.opts"
-              :key="items.value"
               v-model="form[item.value]"
+              :size="formSize"
+              :key="items.value"
               :label="items.value"
           >{{ items.label }}
           </el-radio>
         </template>
-        <el-switch v-if="item.type === 'switch'" v-model="form[item.value]"/>
+
+        <el-switch
+            v-if="item.type === 'switch'"
+            v-model="form[item.value]"
+            :size="formSize"
+            :active-color="item.activeColor"
+            :inactive-color="item.inactiveColor"
+            :active-text="item.activeText"
+            :inactive-text="item.inactiveText">
+        </el-switch>
+
         <el-date-picker
+            type="date"
             v-if="item.type === 'date'"
             v-model="form[item.value]"
-            type="date"
-            placeholder="选择日期"
-            value-format="yyyy-MM-dd HH:mm:ss"
+            :placeholder="item.placeholder || '请选择日期'"
+            :value-format="item.valueFormat || 'yyyy-MM-dd'"
+            :size="formSize"
         />
+
         <el-date-picker
-            v-if="item.type === 'dateNoTime'"
+            v-if="item.type === 'daterange' || item.type === 'datetimerange'"
             v-model="form[item.value]"
-            type="date"
-            placeholder="选择日期"
-            value-format="yyyy-MM-dd"
-        />
-        <el-date-picker
-            v-if="item.type === 'datetimerange'"
-            v-model="form[item.value]"
-            type="datetimerange"
-            :picker-options="pickerOptions"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            align="right"
-            value-format="yyyy-MM-dd HH:mm:ss"
-        />
-        <el-date-picker
-            v-if="item.type === 'daterange'"
-            v-model="form[item.value]"
-            type="daterange"
-            :picker-options="pickerOptions"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            align="right"
-            value-format="yyyy-MM-dd"
+            :size="formSize"
+            :type="item.type"
+            :picker-options="item.pickerOptions || pickerOptions"
+            :range-separator="item.rangeSeparator"
+            :start-placeholder="item.startPlaceholder"
+            :end-placeholder="item.endPlaceholder"
+            :align="item.align || 'center'"
+            :value-format="item.valueFormat || 'yyyy-MM-dd HH:mm:ss'"
         />
       </el-form-item>
+
       <el-form-item>
         <slot/>
       </el-form-item>
-      <div v-if="showOperationBtn" class="right-handle">
+
+      <div v-if="showOperationBtn" class="ytForm-btn">
         <el-form-item>
           <el-button
               type="primary"
@@ -116,7 +110,7 @@
         </el-form-item>
         <el-form-item/>
         <el-form-item>
-          <slot name="handleSlot"/>
+          <slot name="btnSlot"/>
         </el-form-item>
       </div>
     </el-form>
@@ -130,36 +124,36 @@ export default {
     inline: {
       type: Boolean,
       default: true,
-    },
+    }, // 行内表单模式	true / false
     // eslint-disable-next-line vue/require-default-prop
     form: {
       type: Object,
       required: true,
-    },
+    }, // 表单数据 formData
     // eslint-disable-next-line vue/require-default-prop
     formLabel: {
       type: Array,
       required: true,
-    },
+    }, // 表单类型数组
     // eslint-disable-next-line vue/require-default-prop
     formRules: {
       type: Object,
       default: () => {
         return {};
       },
-    },
+    }, // 表单规则校验对象
     labelWidth: {
-      type: Number,
-      default: 90,
-    },
+      type: String,
+      default: "",
+    }, // 表单标签label宽度
     formSize: {
       type: String,
       default: "small"
-    }, // small / mini / medium
+    }, // 组件尺寸 small / mini / medium
     showOperationBtn: {
       type: Boolean,
       default: true,
-    },
+    }, // 是否展示 (查询、重置)按钮
   },
   // 用来以对象方式存放数据
   data() {
@@ -171,7 +165,6 @@ export default {
             onClick(picker) {
               const startTime = new Date(new Date().setHours(0, 0, 0));
               const endTime = new Date(new Date().setHours(23, 59, 59));
-              // const endTime = new Date(); //
               picker.$emit("pick", [startTime, endTime]);
             },
           },
@@ -212,13 +205,14 @@ export default {
   mounted() {
   },
   methods: {
- /**
-    * @Event 下拉列表里面的项点击
-    * @description:
-    * @author: mhf
-    * @time: 2023-10-29 13:30:25
-    **/
+    /**
+     * @Event 下拉列表里面的项点击
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-29 13:30:25
+     **/
     selectClick(item, items) {
+      this.$emit("selectClick", {item, items});
       console.log(item, items, "item, items")
     },
     handleSearch() {
@@ -232,26 +226,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search-component {
-  .right-handle {
+.ytForm {
+  &-btn {
     display: inline-block;
-    margin-left: 30px;
   }
-}
-
-.treeBox {
-  width: 242px;
-}
-
-::v-deep .el-input--small .el-input__inner {
-  height: 32px !important;
-}
-
-::v-deep .el-form-item--medium .el-form-item__label {
-  //font-size: 14px !important;
-}
-
-::v-deep .el-button--small {
-  //font-size: 14px !important;
 }
 </style>
