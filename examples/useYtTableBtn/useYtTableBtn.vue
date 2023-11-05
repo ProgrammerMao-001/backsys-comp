@@ -5,7 +5,13 @@
 -->
 <template>
   <div>
-    <ytTableBtn ref="ytTableBtn"></ytTableBtn>
+    <ytTableBtn
+      ref="ytTableBtn"
+      :btnList="btnList"
+      :permiArr="permiArr"
+      @sendClick="getClick"
+    >
+    </ytTableBtn>
   </div>
 </template>
 
@@ -18,15 +24,60 @@ export default {
   watch: {},
   filters: {},
   data() {
-    return {};
+    return {
+      btnList: [
+        {
+          name: "无权限1",
+          icon: "el-icon-delete",
+          color: "#fc5c5c",
+        },
+        {
+          name: "无权限2",
+          icon: "el-icon-delete",
+          color: "green",
+        },
+        {
+          name: "新增",
+          icon: "el-icon-plus",
+          color: "#1492FF",
+          hasPermi: "system:user:add",
+        },
+        {
+          name: "导入",
+          icon: "el-icon-download",
+          color: "#1492FF",
+          hasPermi: "system:user:import",
+        },
+        {
+          name: "导出",
+          icon: "el-icon-upload2",
+          color: "#1492FF",
+          hasPermi: "system:user:export",
+        },
+        {
+          name: "删除",
+          icon: "el-icon-delete",
+          color: "#fc5c5c",
+          hasPermi: "system:user:delete",
+        },
+      ],
+      permiArr: ["system:user:add", "system:user:export", "system:user:delete"],
+    };
   },
-  methods: {},
-  created() {
+  methods: {
+    /**
+     * @Event 接收点击的按钮类型
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-05 13:58:34
+     **/
+    getClick(name) {
+      console.log(name);
+    },
   },
-  mounted() {
-  },
-  destroyed() {
-  }
+  created() {},
+  mounted() {},
+  destroyed() {},
 };
 </script>
 

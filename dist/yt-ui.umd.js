@@ -2681,14 +2681,452 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytFileUpload = (src_main);
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=a0ae1e40&scoped=true
+var mainvue_type_template_id_a0ae1e40_scoped_true_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    staticClass: "ytForm"
+  }, [_c('el-form', {
+    ref: "form",
+    attrs: {
+      "model": _vm.formData,
+      "inline": _vm.inline,
+      "rules": _vm.formRules,
+      "label-width": _vm.labelWidth
+    }
+  }, [_vm._l(_vm.formLabel, function (item, index) {
+    return _c('el-form-item', {
+      key: index,
+      attrs: {
+        "label": item.label ? item.label + ' :' : item.label,
+        "prop": item.value
+      }
+    }, [item.type === 'input' ? _c('el-input', {
+      attrs: {
+        "size": _vm.formSize,
+        "placeholder": '请输入' + item.label
+      },
+      model: {
+        value: _vm.formData[item.value],
+        callback: function ($$v) {
+          _vm.$set(_vm.formData, item.value, typeof $$v === 'string' ? $$v.trim() : $$v);
+        },
+        expression: "formData[item.value]"
+      }
+    }) : _vm._e(), item.type === 'select' ? _c('el-select', {
+      attrs: {
+        "filterable": "",
+        "clearable": "",
+        "placeholder": '请选择' + item.label,
+        "size": _vm.formSize
+      },
+      model: {
+        value: _vm.formData[item.value],
+        callback: function ($$v) {
+          _vm.$set(_vm.formData, item.value, typeof $$v === 'string' ? $$v.trim() : $$v);
+        },
+        expression: "formData[item.value]"
+      }
+    }, _vm._l(item.opts, function (items, index) {
+      return _c('el-option', {
+        key: index,
+        attrs: {
+          "label": items[item.optLabel],
+          "value": items[item.optValue]
+        },
+        nativeOn: {
+          "click": function ($event) {
+            return _vm.selectClick(item, items);
+          }
+        }
+      });
+    }), 1) : _vm._e(), item.type === 'radio' ? _vm._l(item.opts, function (items) {
+      return _c('el-radio', {
+        key: items.value,
+        attrs: {
+          "size": _vm.formSize,
+          "label": items.value
+        },
+        model: {
+          value: _vm.formData[item.value],
+          callback: function ($$v) {
+            _vm.$set(_vm.formData, item.value, $$v);
+          },
+          expression: "formData[item.value]"
+        }
+      }, [_vm._v(_vm._s(items.label) + " ")]);
+    }) : _vm._e(), item.type === 'switch' ? _c('el-switch', {
+      attrs: {
+        "size": _vm.formSize,
+        "active-color": item.activeColor,
+        "inactive-color": item.inactiveColor,
+        "active-text": item.activeText,
+        "inactive-text": item.inactiveText
+      },
+      model: {
+        value: _vm.formData[item.value],
+        callback: function ($$v) {
+          _vm.$set(_vm.formData, item.value, $$v);
+        },
+        expression: "formData[item.value]"
+      }
+    }) : _vm._e(), item.type === 'date' ? _c('el-date-picker', {
+      attrs: {
+        "type": "date",
+        "placeholder": item.placeholder || '请选择日期',
+        "value-format": item.valueFormat || 'yyyy-MM-dd',
+        "size": _vm.formSize
+      },
+      model: {
+        value: _vm.formData[item.value],
+        callback: function ($$v) {
+          _vm.$set(_vm.formData, item.value, $$v);
+        },
+        expression: "formData[item.value]"
+      }
+    }) : _vm._e(), item.type === 'daterange' || item.type === 'datetimerange' ? _c('el-date-picker', {
+      attrs: {
+        "size": _vm.formSize,
+        "type": item.type,
+        "picker-options": item.pickerOptions || _vm.pickerOptions,
+        "range-separator": item.rangeSeparator,
+        "start-placeholder": item.startPlaceholder,
+        "end-placeholder": item.endPlaceholder,
+        "align": item.align || 'center',
+        "value-format": item.valueFormat || 'yyyy-MM-dd HH:mm:ss'
+      },
+      model: {
+        value: _vm.formData[item.value],
+        callback: function ($$v) {
+          _vm.$set(_vm.formData, item.value, $$v);
+        },
+        expression: "formData[item.value]"
+      }
+    }) : _vm._e()], 2);
+  }), _c('el-form-item', [_vm._t("formSlot")], 2), _vm.showOperationBtn ? _c('div', {
+    staticClass: "ytForm-btn"
+  }, [_c('el-form-item', [_c('el-button', {
+    attrs: {
+      "type": "primary",
+      "size": _vm.formSize,
+      "icon": "el-icon-search"
+    },
+    on: {
+      "click": _vm.handleSearch
+    }
+  }, [_vm._v("查询 ")]), _c('el-button', {
+    attrs: {
+      "size": _vm.formSize,
+      "icon": "el-icon-refresh"
+    },
+    on: {
+      "click": _vm.handleResetFrom
+    }
+  }, [_vm._v("重置 ")]), _vm._t("btnSlot")], 2), _c('el-form-item'), _c('el-form-item', [_vm._t("otherSlot")], 2)], 1) : _vm._e()], 2)], 1);
+};
+var mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=script&lang=js
+/* harmony default export */ var ytForm_src_mainvue_type_script_lang_js = ({
+  name: "ytForm",
+  props: {
+    inline: {
+      type: Boolean,
+      default: true
+    },
+    // 行内表单模式	true / false
+    form: {
+      type: Object,
+      required: true,
+      default: () => {
+        return {};
+      }
+    },
+    // 表单数据 formData
+    formLabel: {
+      type: Array,
+      required: true,
+      default: () => {
+        return [];
+      }
+    },
+    // 表单类型数组
+    formRules: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    },
+    // 表单规则校验对象
+    labelWidth: {
+      type: String,
+      default: ""
+    },
+    // 表单标签label宽度
+    formSize: {
+      type: String,
+      default: "small"
+    },
+    // 组件尺寸 small / mini / medium
+    showOperationBtn: {
+      type: Boolean,
+      default: true
+    } // 是否展示 (查询、重置)按钮
+  },
+
+  computed: {
+    formData() {
+      return this.form;
+    }
+  },
+  data() {
+    return {
+      pickerOptions: {
+        shortcuts: [{
+          text: "今天",
+          onClick(picker) {
+            const startTime = new Date(new Date().setHours(0, 0, 0));
+            const endTime = new Date(new Date().setHours(23, 59, 59));
+            picker.$emit("pick", [startTime, endTime]);
+          }
+        }, {
+          text: "最近一周",
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit("pick", [start, end]);
+          }
+        }, {
+          text: "最近一个月",
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+            picker.$emit("pick", [start, end]);
+          }
+        }, {
+          text: "最近三个月",
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+            picker.$emit("pick", [start, end]);
+          }
+        }]
+      }
+    };
+  },
+  created() {},
+  mounted() {},
+  methods: {
+    /**
+     * @Event 下拉列表里面的项点击
+     * @description:
+     * @author: mhf
+     * @time: 2023-10-29 13:30:25
+     **/
+    selectClick(item, items) {
+      this.$emit("selectClick", {
+        item,
+        items
+      });
+      console.log(item, items, "item, items");
+    },
+    /**
+     * @Event 表单查询
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-04 18:36:18
+     **/
+    handleSearch() {
+      this.$refs["form"].validate(valid => {
+        if (valid) {
+          this.$emit("handleSearch", this.formData);
+        } else {
+          return false;
+        }
+      });
+    },
+    /**
+     * @Event 重置表单
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-04 18:30:00
+     **/
+    handleResetFrom() {
+      this.$refs["form"].resetFields();
+      this.$emit("handleResetFrom");
+    }
+  }
+});
+;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=script&lang=js
+ /* harmony default export */ var components_ytForm_src_mainvue_type_script_lang_js = (ytForm_src_mainvue_type_script_lang_js); 
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=a0ae1e40&prod&lang=scss&scoped=true
+// extracted by mini-css-extract-plugin
+
+;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=a0ae1e40&prod&lang=scss&scoped=true
+
+;// CONCATENATED MODULE: ./components/ytForm/src/main.vue
+
+
+
+;
+
+
+/* normalize component */
+
+var src_main_component = normalizeComponent(
+  components_ytForm_src_mainvue_type_script_lang_js,
+  mainvue_type_template_id_a0ae1e40_scoped_true_render,
+  mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns,
+  false,
+  null,
+  "a0ae1e40",
+  null
+  
+)
+
+/* harmony default export */ var ytForm_src_main = (src_main_component.exports);
+;// CONCATENATED MODULE: ./components/ytForm/index.js
+
+ytForm_src_main.install = Vue => {
+  Vue.component(ytForm_src_main.name, ytForm_src_main);
+};
+/* harmony default export */ var ytForm = (ytForm_src_main);
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=template&id=47e0ed79&scoped=true
+var mainvue_type_template_id_47e0ed79_scoped_true_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    staticClass: "tableBtn"
+  }, [_c('div', {
+    staticClass: "tableBtn-box"
+  }, _vm._l(_vm.btnListNew, function (item, index) {
+    return _c('div', {
+      key: index,
+      class: index === _vm.btnListNew.length - 1 ? 'lastBox' : 'tableBox',
+      style: {
+        color: item.color
+      }
+    }, [_c('div', {
+      class: index === _vm.btnListNew.length - 1 ? 'disFlex' : 'hasPermClass'
+    }, [_c('div', {
+      staticClass: "hasPermClass-box"
+    }, [_c('i', {
+      class: item.icon
+    })]), _c('div', {
+      staticClass: "hasPermClass-elseBox",
+      on: {
+        "click": function ($event) {
+          return _vm.sendClick(item.name);
+        }
+      }
+    }, [_vm._v(" " + _vm._s(item.name) + " ")])])]);
+  }), 0)]);
+};
+var mainvue_type_template_id_47e0ed79_scoped_true_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
+
+/* harmony default export */ var ytTableBtn_src_mainvue_type_script_lang_js = ({
+  name: "ytTableBtn",
+  props: {
+    permiArr: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    },
+    // 权限数组，存放当前系统登陆人所具备的所有权限（通常存放在vuex中） demo: ["system:user:add", "system:user:update", "system:user:delete"]
+    btnList: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    } // 按钮数组 demo：[{name: "新增",icon: "el-icon-plus",color: "#1492FF",hasPermi: "system:user:resetPwd",}]
+  },
+
+  data() {
+    return {
+      btnListNew: [] // 最终具备权限的数组
+    };
+  },
+
+  created() {
+    if (this.btnList.length > 0 && this.btnList !== []) {
+      let key = "hasPermi";
+      let hasArr = [],
+        hasNotArr = [];
+      this.btnList.forEach(item => {
+        /* item 中具备 hasPermi 键 */
+        if (key in item && this.permiArr.indexOf(item.hasPermi) !== -1) {
+          hasArr.push(item);
+        }
+        /* hasPermi 不存在 */
+        if (!(key in item)) hasNotArr.push(item);
+      });
+      this.btnListNew = hasArr.concat(hasNotArr);
+      console.log(this.btnListNew);
+    }
+  },
+  methods: {
+    /**
+     * @Event 将点击按钮类型传递给父组件
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-05 13:58:15
+     **/
+    sendClick(name) {
+      this.$emit("sendClick", name);
+    }
+  }
+});
+;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
+ /* harmony default export */ var components_ytTableBtn_src_mainvue_type_script_lang_js = (ytTableBtn_src_mainvue_type_script_lang_js); 
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=47e0ed79&prod&lang=scss&scoped=true
+// extracted by mini-css-extract-plugin
+
+;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=47e0ed79&prod&lang=scss&scoped=true
+
+;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue
+
+
+
+;
+
+
+/* normalize component */
+
+var ytTableBtn_src_main_component = normalizeComponent(
+  components_ytTableBtn_src_mainvue_type_script_lang_js,
+  mainvue_type_template_id_47e0ed79_scoped_true_render,
+  mainvue_type_template_id_47e0ed79_scoped_true_staticRenderFns,
+  false,
+  null,
+  "47e0ed79",
+  null
+  
+)
+
+/* harmony default export */ var ytTableBtn_src_main = (ytTableBtn_src_main_component.exports);
+;// CONCATENATED MODULE: ./components/ytTableBtn/index.js
+
+ytTableBtn_src_main.install = Vue => {
+  Vue.component(ytTableBtn_src_main.name, ytTableBtn_src_main);
+};
+/* harmony default export */ var ytTableBtn = (ytTableBtn_src_main);
 ;// CONCATENATED MODULE: ./components/index.js
-// 整个包的入口文件
-// 统一导出
+// 统一导入所有组件
 
 
-const components = [ytRealCanvas, ytFileUpload];
+
+
+const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn];
 // 定义install方法
 const install = function (Vue) {
+  if (install.installed) return;
   // 注册所有的组件
   components.forEach(component => {
     Vue.component(component.name, component);
@@ -2701,8 +3139,7 @@ if (typeof window !== "undefined" && window.Vue) {
 // 导出install方法
 /* harmony default export */ var components_0 = ({
   install,
-  ytRealCanvas: ytRealCanvas,
-  ytFileUpload: ytFileUpload
+  ...components
 });
 ;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 

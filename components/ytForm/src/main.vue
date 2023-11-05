@@ -138,7 +138,7 @@ export default {
       required: true,
       default: () => {
         return [];
-      }
+      },
     }, // 表单类型数组
     formRules: {
       type: Object,
