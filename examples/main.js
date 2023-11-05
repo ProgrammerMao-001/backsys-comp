@@ -10,9 +10,11 @@ Vue.use(ElementUI)
 import ytRealCanvas from "../components/ytRealCanvas";
 import ytFileUpload from "../components/ytFileUpload";
 import ytForm from "../components/ytForm";
+import ytTableBtn from "../components/ytTableBtn";
 Vue.use(ytRealCanvas)
 Vue.use(ytFileUpload)
 Vue.use(ytForm)
+Vue.use(ytTableBtn)
 
 Vue.config.productionTip = false
 
