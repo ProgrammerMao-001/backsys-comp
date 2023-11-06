@@ -72,7 +72,7 @@ export default {
      * @time: 2023-11-05 13:58:34
      **/
     getClick(name) {
-      this.$message.success(`点击了${name}`)
+      this.$message.success(`点击了${name}`);
       console.log(name);
     },
   },

@@ -4,21 +4,32 @@
  * @Date: 2023/11/5 13:00
 -->
 <template>
-  <div class="tableBtn">
-    <div class="tableBtn-box">
+  <div class="ytTableBtn">
+    <div class="ytTableBtn-box">
       <div
         v-for="(item, index) in btnListNew"
         :key="index"
-        :class="index === btnListNew.length - 1 ? 'lastBox' : 'tableBox'"
+        :class="
+          index === btnListNew.length - 1
+            ? 'ytTableBtn-box-lastBox'
+            : 'ytTableBtn-box-tableBox'
+        "
         :style="{ color: item.color }"
       >
         <div
-          :class="index === btnListNew.length - 1 ? 'disFlex' : 'hasPermClass'"
+          :class="
+            index === btnListNew.length - 1
+              ? 'ytTableBtn-box-disFlex'
+              : 'ytTableBtn-box-hasPermClass'
+          "
         >
-          <div class="hasPermClass-box">
+          <div class="ytTableBtn-box-hasPermClass-box">
             <i :class="item.icon" />
           </div>
-          <div class="hasPermClass-elseBox" @click="sendClick(item.name)">
+          <div
+            class="ytTableBtn-box-hasPermClass-elseBox"
+            @click="sendClick(item.name)"
+          >
             {{ item.name }}
           </div>
         </div>
@@ -81,7 +92,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tableBtn {
+.ytTableBtn {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,7 +108,7 @@ export default {
       justify-content: center;
     }
 
-    .lastBox {
+    &-lastBox {
       height: 36px;
       background: rgba(255, 255, 255, 0);
       border-radius: 4px;
@@ -107,7 +118,7 @@ export default {
       line-height: 21px;
     }
 
-    .tableBox {
+    &-tableBox {
       padding: 0 20px 0 0;
       height: 36px;
       background: rgba(255, 255, 255, 0);
@@ -124,7 +135,11 @@ export default {
       }
     }
 
-    .hasPermClass {
+    &-disFlex {
+      display: flex;
+    }
+
+    &-hasPermClass {
       border-right: 1px solid #eeeeee;
       display: flex;
 
@@ -144,26 +159,6 @@ export default {
         cursor: pointer;
       }
     }
-
-    .noPermClass {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 21px;
-
-      i {
-        margin-right: 4px;
-      }
-    }
-
-    .noPermClassElse {
-      margin-right: 18px;
-      cursor: pointer;
-    }
   }
-}
-
-.disFlex {
-  display: flex;
 }
 </style>
