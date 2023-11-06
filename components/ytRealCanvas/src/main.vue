@@ -184,6 +184,8 @@
 </template>
 
 <script>
+import { isEmptyObject } from "../../utils/publicFun";
+
 export default {
   name: "ytRealCanvas",
   components: {},
@@ -456,10 +458,6 @@ export default {
      * @time: 2023-10-24 23:54:47
      **/
     getFormData() {
-      function isEmptyObject(obj) {
-        return Object.keys(obj).length === 0 && obj.constructor === Object;
-      }
-
       if (isEmptyObject(this.receivedForm)) {
         this.formData = {
           programContent: "@mhfwork/yt-ui组件库",

@@ -22,7 +22,6 @@ npm install sass-loader@8.0.0 --save-dev
 ```
 
 ### node 对应版本可参照下表
-![node对应版本](./public/img/nodeControl.png "node对应版本")
 <img src="https://img-blog.csdnimg.cn/3073e67b6bf0429f892d6fcb97ade1c6.png" alt="node对应版本" width="400"/>
 ### 文件介绍
 ``` 
