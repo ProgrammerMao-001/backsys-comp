@@ -16,7 +16,7 @@ vue后台系统常用的组件
 
 ### 安装 
 ``` 
-建议node14及以上版本（本人v14.16.1）
+建议node14及以上版本（推荐v14.16.1）
 npm install node-sass@4.14.1 --save-dev
 npm install sass-loader@8.0.0 --save-dev
 ```
@@ -46,10 +46,15 @@ public文件夹 ---> 存放组件的静态资源
     npm i @mhfwork/yt-ui --save-dev
  
  2. main.js 中注册
-    import ytComp from "@mhfwork/yt-ui/components/ytComp";
-    import ytDemo from "@mhfwork/yt-ui/components/ytDemo";
-    Vue.use(ytComp)
-    Vue.use(ytDemo)
+    2.1 按需导入（完整的组件列表[https://programmermao-001.github.io/yt-ui-doc/]）
+        import ytComp from "@mhfwork/yt-ui/components/ytComp";
+        import ytDemo from "@mhfwork/yt-ui/components/ytDemo";
+        Vue.use(ytComp)
+        Vue.use(ytDemo)
+    2.2 全局导入
+        import Vue from "vue";
+        import ytUi from "@mhfwork/yt-ui/components/index.js";
+        Vue.use(ytUi);
  
  3. vue文件中使用
     <yt-comp page-name="pageName"/>
