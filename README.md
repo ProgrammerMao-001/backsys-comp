@@ -46,7 +46,7 @@ public文件夹 ---> 存放组件的静态资源
     npm i @mhfwork/yt-ui --save-dev
  
  2. main.js 中注册
-    2.1 按需导入（完整的组件列表[https://programmermao-001.github.io/yt-ui-doc/]）
+    2.1 按需导入（完整的组件列表如下）
         import ytComp from "@mhfwork/yt-ui/components/ytComp";
         import ytDemo from "@mhfwork/yt-ui/components/ytDemo";
         Vue.use(ytComp)
@@ -59,6 +59,15 @@ public文件夹 ---> 存放组件的静态资源
  3. vue文件中使用
     <yt-comp page-name="pageName"/>
     <yt-demo />
+```
+
+### 组件列表
+```
+    ytFileUpload    文件上传通用组件
+    ytForm          搜索表单组件
+    ytIsShowForm    显示隐藏筛选框组件
+    ytRealCanvas    canvas实时展示输入的内容
+    ytTableBtn      自定义按钮组
 ```
 
 ### 开发中...

@@ -2,7 +2,7 @@
  * @Description: 文件上传通用组件 页面
  * @Author: mhf
  * @Date: 2023/10/27 17:49
- * @todo: 完善上传成功之后的回调以及参数配置
+ * @todo: 完善上传成功之后的回调以及参数配置（需根据后端接口返回的字段修改）
 -->
 <template>
   <div class="ytFileUpload">
