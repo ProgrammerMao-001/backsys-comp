@@ -3,8 +3,15 @@ import ytRealCanvas from "./ytRealCanvas";
 import ytFileUpload from "./ytFileUpload";
 import ytForm from "./ytForm";
 import ytTableBtn from "./ytTableBtn";
+import ytIsShowForm from "./ytIsShowForm";
 
-const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn];
+const components = [
+  ytRealCanvas,
+  ytFileUpload,
+  ytForm,
+  ytTableBtn,
+  ytIsShowForm,
+];
 // 定义install方法
 const install = function (Vue) {
   if (install.installed) return;

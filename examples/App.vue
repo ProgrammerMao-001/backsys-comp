@@ -19,6 +19,11 @@
       <h3>useYtTableBtn</h3>
       <useYtTableBtn ref="useYtTableBtn" />
     </div>
+
+    <div class="container" v-if="showPage === 'useYtIsShowForm'">
+      <h3>useYtIsShowForm</h3>
+      <useYtIsShowForm ref="useYtIsShowForm" />
+    </div>
   </div>
 </template>
 
@@ -27,6 +32,7 @@ import useYtFileUpload from "./useYtFileUpload/useYtFileUpload.vue";
 import useYtRealCanvas from "./useYtRealCanvas/useYtRealCanvas.vue";
 import useYtForm from "./useYtForm/useYtForm.vue";
 import useYtTableBtn from "./useYtTableBtn/useYtTableBtn.vue";
+import useYtIsShowForm from "./useYtIsShowForm/useYtIsShowForm.vue";
 export default {
   name: "App",
   components: {
@@ -34,10 +40,11 @@ export default {
     useYtRealCanvas,
     useYtForm,
     useYtTableBtn,
+    useYtIsShowForm,
   },
   data() {
     return {
-      showPage: "useYtTableBtn",
+      showPage: "useYtIsShowForm",
     };
   },
 };
