@@ -8,13 +8,14 @@ vue后台系统常用的组件
 ### 使用前须知
 ```
 1. 目前只支持vue2.x 版本，vue3以上版本暂不支持
-2. 使用时请务确保node_modules中存在如下依赖
+2. 本组件库基于ElementUi开发，使用前请务必确保正确安装elementUi组件库
 3. 组件库中所有的样式命名规则为： yt-组件名称(-yt) 
     3.1 如文件名为：ytDemo 则外层样式类名为：yt-demo，以此类推
 4. 所有组件的demo都存放在examples文件夹中
+5. 本组件库内置了很多公共方法，源码请查看 @mhfwork/yt-ui/components/utils/publicFun.js，具体使用请查看文档
 ```
 
-### 安装 
+### 相关依赖项安装 
 ``` 
 建议node14及以上版本（推荐v14.16.1）
 npm install node-sass@4.14.1 --save-dev
@@ -45,8 +46,8 @@ public文件夹 ---> 存放组件的静态资源
  1. 安装  
     npm i @mhfwork/yt-ui --save-dev
  
- 2. main.js 中注册
-    2.1 按需导入（完整的组件列表如下）
+ 2. main.js 中注册（选择其中一种方式注册）
+    2.1 按需导入（完整的组件列表请看下方[组件列表]）
         import ytComp from "@mhfwork/yt-ui/components/ytComp";
         import ytDemo from "@mhfwork/yt-ui/components/ytDemo";
         Vue.use(ytComp)
