@@ -14,9 +14,13 @@
 
       <i
           :style="{ color: showSearch ? '#999999' : '#1492ff' }"
-          :class="[showSearch ? 'if-yincang' : 'if-xianshi']"
+          :class="[showSearch ? 'iconfont icon-yincang' : 'iconfont icon-xianshi']"
       ></i>
     </div>
+
+
+    <div class="a">asdasd</div>
+
   </div>
 </template>
 <script>

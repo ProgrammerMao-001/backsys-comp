@@ -1673,6 +1673,103 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
+var es_array_push = __webpack_require__(7658);
+;// CONCATENATED MODULE: ./components/utils/publicFun.js
+
+/**
+ * @Event 判断是否是空对象
+ * @description:
+ * @author: mhf
+ * @time: 2023-10-25 00:21:25
+ **/
+function isEmptyObject(obj) {
+  return Object.keys(obj).length === 0 && obj.constructor === Object;
+}
+
+/**
+ * 构造树型结构数据
+ * @param {*} data 数据源
+ * @param {*} id id字段 默认 'id'
+ * @param {*} parentId 父节点字段 默认 'parentId'
+ * @param {*} children 孩子节点字段 默认 'children'
+ */
+function handleTree(data, id, parentId, children) {
+  const config = {
+    id: id || "id",
+    parentId: parentId || "parentId",
+    childrenList: children || "children"
+  };
+  var childrenListMap = {};
+  var nodeIds = {};
+  var tree = [];
+  for (const d of data) {
+    const parentId = d[config.parentId];
+    if (childrenListMap[parentId] == null) {
+      childrenListMap[parentId] = [];
+    }
+    nodeIds[d[config.id]] = d;
+    childrenListMap[parentId].push(d);
+  }
+  for (const d of data) {
+    const parentId = d[config.parentId];
+    if (nodeIds[parentId] == null) {
+      tree.push(d);
+    }
+  }
+  for (const t of tree) {
+    adaptToChildrenList(t);
+  }
+  function adaptToChildrenList(o) {
+    if (childrenListMap[o[config.id]] !== null) {
+      o[config.childrenList] = childrenListMap[o[config.id]];
+    }
+    if (o[config.childrenList]) {
+      for (const c of o[config.childrenList]) {
+        adaptToChildrenList(c);
+      }
+    }
+  }
+  return tree;
+}
+
+/**
+ * @Event 数组转树结构
+ * @description: pid: parentId
+ * @author: mhf
+ * @time: 2023-11-01 16:06:18
+ **/
+function arrayToTree(list, callback = () => {}, props = {
+  id: 'id',
+  pid: 'pid',
+  children: 'children'
+}) {
+  function sortArr(a, b) {
+    return a.orderNum - b.orderNum;
+  }
+  list.sort(sortArr);
+  const tree = [];
+  const map = {};
+  const listLength = list.length;
+  for (let i = 0; i < listLength; i++) {
+    const node = list[i];
+    const nodeId = node[props.id];
+    map[nodeId] = node;
+    callback(node);
+  }
+  for (let i = 0; i < listLength; i++) {
+    const node = list[i];
+    const nodePid = node[props.pid];
+    const parentNode = map[nodePid];
+    if (parentNode) {
+      parentNode[props.children] = parentNode[props.children] || [];
+      parentNode[props.children].push(node);
+    } else {
+      tree.push(node);
+    }
+  }
+  return tree;
+}
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=00486725&scoped=true
 var render = function render() {
   var _vm = this,
@@ -1999,16 +2096,6 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./components/utils/publicFun.js
-/**
- * @Event 判断是否是空对象
- * @description:
- * @author: mhf
- * @time: 2023-10-25 00:21:25
- **/
-function isEmptyObject(obj) {
-  return Object.keys(obj).length === 0 && obj.constructor === Object;
-}
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var mainvue_type_script_lang_js = ({
@@ -2477,8 +2564,6 @@ var mainvue_type_template_id_f42ef46c_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_f42ef46c_scoped_true_staticRenderFns = [];
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
-var es_array_push = __webpack_require__(7658);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var ytFileUpload_src_mainvue_type_script_lang_js = ({
@@ -3115,14 +3200,12 @@ ytTableBtn_src_main.install = Vue => {
   Vue.component(ytTableBtn_src_main.name, ytTableBtn_src_main);
 };
 /* harmony default export */ var ytTableBtn = (ytTableBtn_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=6df22c14&scoped=true
-var mainvue_type_template_id_6df22c14_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=22107a31&scoped=true
+var mainvue_type_template_id_22107a31_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
-    staticClass: "top-right-btn"
-  }, [_c('el-row', [_c('div', {
-    staticClass: "isSHowBtn",
+    staticClass: "ytIsShowForm",
     on: {
       "click": function ($event) {
         return _vm.toggleSearch();
@@ -3130,17 +3213,18 @@ var mainvue_type_template_id_6df22c14_scoped_true_render = function render() {
     }
   }, [_c('div', {
     style: {
-      marginRight: '6px',
       color: _vm.showSearch ? '#999999' : '#1492ff'
     }
   }, [_vm._v(" " + _vm._s(_vm.showSearch ? "隐藏筛选" : "显示筛选") + " "), _c('i', {
-    class: ['iconfont', _vm.showSearch ? 'if-yincang' : 'if-xianshi'],
+    class: [_vm.showSearch ? 'iconfont icon-yincang' : 'iconfont icon-xianshi'],
     style: {
       color: _vm.showSearch ? '#999999' : '#1492ff'
     }
-  })])])])], 1);
+  })]), _c('div', {
+    staticClass: "a"
+  }, [_vm._v("asdasd")])]);
 };
-var mainvue_type_template_id_6df22c14_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_22107a31_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytIsShowForm_src_mainvue_type_script_lang_js = ({
@@ -3164,10 +3248,10 @@ var mainvue_type_template_id_6df22c14_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytIsShowForm_src_mainvue_type_script_lang_js = (ytIsShowForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=6df22c14&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=22107a31&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=6df22c14&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=22107a31&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue
 
@@ -3180,11 +3264,11 @@ var mainvue_type_template_id_6df22c14_scoped_true_staticRenderFns = [];
 
 var ytIsShowForm_src_main_component = normalizeComponent(
   components_ytIsShowForm_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_6df22c14_scoped_true_render,
-  mainvue_type_template_id_6df22c14_scoped_true_staticRenderFns,
+  mainvue_type_template_id_22107a31_scoped_true_render,
+  mainvue_type_template_id_22107a31_scoped_true_staticRenderFns,
   false,
   null,
-  "6df22c14",
+  "22107a31",
   null
   
 )
@@ -3197,6 +3281,10 @@ ytIsShowForm_src_main.install = Vue => {
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
 ;// CONCATENATED MODULE: ./components/index.js
+// 全局样式
+
+// 公共方法
+
 // 统一导入所有组件
 
 

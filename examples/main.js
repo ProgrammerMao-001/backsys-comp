@@ -7,6 +7,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
 /* element-ui */
 
+/* 全局样式 */
+import "../components/assets/styles/index.scss"
+/* 全局样式 */
 import ytRealCanvas from "../components/ytRealCanvas";
 import ytFileUpload from "../components/ytFileUpload";
 import ytForm from "../components/ytForm";

@@ -1,0 +1,23 @@
+{
+  "id": "4320336",
+  "name": "@mhfwork/yt-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "@mhfwork/yt-ui组件库图标",
+  "glyphs": [
+    {
+      "icon_id": "30000596",
+      "name": "显示",
+      "font_class": "xianshi",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "30000597",
+      "name": "隐藏",
+      "font_class": "yincang",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    }
+  ]
+}
