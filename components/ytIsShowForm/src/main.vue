@@ -4,24 +4,19 @@
  * @Date: 2023-11-7 00:03:20
 -->
 <template>
-  <div class="top-right-btn">
-    <el-row>
-      <div class="isSHowBtn" @click="toggleSearch()">
-        <div
-          :style="{
-            marginRight: '6px',
+  <div class="ytIsShowForm" @click="toggleSearch()">
+    <div
+        :style="{
             color: showSearch ? '#999999' : '#1492ff',
           }"
-        >
-          {{ showSearch ? "隐藏筛选" : "显示筛选" }}
+    >
+      {{ showSearch ? "隐藏筛选" : "显示筛选" }}
 
-          <i
-            :style="{ color: showSearch ? '#999999' : '#1492ff' }"
-            :class="['iconfont', showSearch ? 'if-yincang' : 'if-xianshi']"
-          ></i>
-        </div>
-      </div>
-    </el-row>
+      <i
+          :style="{ color: showSearch ? '#999999' : '#1492ff' }"
+          :class="[showSearch ? 'if-yincang' : 'if-xianshi']"
+      ></i>
+    </div>
   </div>
 </template>
 <script>
@@ -37,7 +32,8 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created() {
+  },
   methods: {
     toggleSearch() {
       this.$emit("update:showSearch", !this.showSearch);
@@ -46,7 +42,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.isSHowBtn {
+.ytIsShowForm {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -56,6 +52,7 @@ export default {
 
   :hover {
     color: #1492ff !important;
+
     i {
       color: #1492ff !important;
     }

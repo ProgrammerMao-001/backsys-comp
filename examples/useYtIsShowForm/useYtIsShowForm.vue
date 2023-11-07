@@ -7,7 +7,6 @@
   <div>
     <ytIsShowForm
       ref="ytIsShowForm"
-      v-if="formLabel.length > 0"
       :show-search.sync="showSearch"
     />
   </div>
@@ -23,7 +22,6 @@ export default {
   filters: {},
   data() {
     return {
-      formLabel: [11, 2],
       showSearch: true, // 显示搜索条件
     };
   },
