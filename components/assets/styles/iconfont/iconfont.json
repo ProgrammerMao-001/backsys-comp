@@ -2,7 +2,7 @@
   "id": "4320336",
   "name": "@mhfwork/yt-ui",
   "font_family": "iconfont",
-  "css_prefix_text": "icon-",
+  "css_prefix_text": "ytUi-",
   "description": "@mhfwork/yt-ui组件库图标",
   "glyphs": [
     {
