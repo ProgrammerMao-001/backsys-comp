@@ -69,6 +69,7 @@ public文件夹 ---> 存放组件的静态资源
     ytIsShowForm    显示隐藏筛选框组件
     ytRealCanvas    canvas实时展示输入的内容
     ytTableBtn      自定义按钮组
+    ytTable         基于el-table封装的表格组件（非树形结构）
 ```
 
 ### 开发中...

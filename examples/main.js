@@ -15,11 +15,13 @@ import ytFileUpload from "../components/ytFileUpload";
 import ytForm from "../components/ytForm";
 import ytTableBtn from "../components/ytTableBtn";
 import ytIsShowForm from "../components/ytIsShowForm";
+import ytTable from "../components/ytTable";
 Vue.use(ytRealCanvas)
 Vue.use(ytFileUpload)
 Vue.use(ytForm)
 Vue.use(ytTableBtn)
 Vue.use(ytIsShowForm)
+Vue.use(ytTable)
 
 
 Vue.config.productionTip = false
