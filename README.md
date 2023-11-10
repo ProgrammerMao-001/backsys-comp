@@ -1,9 +1,9 @@
 # yt-ui组件库
 vue后台系统常用的组件
 
-* [demo](https://programmermao-001.github.io/use-yt-ui/)
+* [demo](https://programmermao-001.github.io/useYtUi/)
 * [源码地址](https://github.com/ProgrammerMao-001/yt-ui)
-* [文档地址](https://programmermao-001.github.io/yt-ui-doc/)
+* [文档地址](https://programmermao-001.github.io/ytUi-doc/)
 
 ### 使用前须知
 ```
