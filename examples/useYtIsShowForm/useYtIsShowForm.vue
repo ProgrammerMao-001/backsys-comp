@@ -5,11 +5,9 @@
 -->
 <template>
   <div>
-<!--    :showSetting="showSetting"-->
-<!--    :hideSetting="hideSetting"-->
-    <ytIsShowForm
-      ref="ytIsShowForm"
-      :showSearch.sync="showSearch"/>
+    <!--    :showSetting="showSetting"-->
+    <!--    :hideSetting="hideSetting"-->
+    <ytIsShowForm ref="ytIsShowForm" :showSearch.sync="showSearch" />
   </div>
 </template>
 
@@ -26,14 +24,14 @@ export default {
       showSearch: true, // 是否显示
       showSetting: {
         name: "显示123",
-        icon: 'el-icon-s-grid',
-        color: 'red'
+        icon: "el-icon-s-grid",
+        color: "red",
       },
       hideSetting: {
         name: "隐藏321",
-        icon: 'el-icon-d-caret',
-        color: 'green'
-      }
+        icon: "el-icon-d-caret",
+        color: "green",
+      },
     };
   },
   methods: {},

@@ -66,9 +66,9 @@ export function handleTree(data, id, parentId, children) {
  * @time: 2023-11-01 16:06:18
  **/
 export function arrayToTree(
-    list,
-    callback = () => {},
-    props = { id: 'id', pid: 'pid', children: 'children' }
+  list,
+  callback = () => {},
+  props = { id: "id", pid: "pid", children: "children" }
 ) {
   function sortArr(a, b) {
     return a.orderNum - b.orderNum;

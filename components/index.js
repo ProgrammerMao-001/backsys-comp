@@ -1,7 +1,7 @@
 // 全局样式
-import "./assets/styles/index.scss"
+import "./assets/styles/index.scss";
 // 公共方法
-import "./utils/publicFun"
+import "./utils/publicFun";
 // 统一导入所有组件
 import ytRealCanvas from "./ytRealCanvas";
 import ytFileUpload from "./ytFileUpload";
