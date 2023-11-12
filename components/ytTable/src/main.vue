@@ -34,54 +34,73 @@
       @selection-change="handleSelectionChange"
     >
       <template v-for="(item, index) in tableDataColumn">
-        <div :key="index">
-          <!--  序号 默认固定在左侧  -->
-          <el-table-column
-            v-if="item.type === 'index'"
-            type="index"
-            :index="indexMethod"
-            :label="item.label"
-            :fixed="item.fixed || 'left'"
-            :width="item.width"
-          />
+        <!--  序号 默认按照顺序排列，不固定  -->
+        <el-table-column
+          v-if="item.type === 'index'"
+          type="index"
+          :key="index"
+          :index="indexMethod"
+          :label="item.label"
+          :fixed="item.fixed"
+          :width="item.width"
+        />
 
-          <!--  多选  -->
-          <el-table-column
-            v-else-if="item.type === 'selection'"
-            type="selection"
-            :reserve-selection="true"
-            :width="item.width"
-          />
+        <!--  多选  -->
+        <el-table-column
+          v-else-if="item.type === 'selection'"
+          type="selection"
+          :key="index"
+          :reserve-selection="true"
+          :width="item.width"
+          :fixed="item.fixed"
+        />
 
-          <!--  操作 默认固定在右侧 -->
-          <el-table-column
-            v-else-if="item.type === 'operationSlot'"
-            :fixed="item.fixed || 'right'"
-            :label="item.label"
-            :width="item.width"
-          >
-            <template slot-scope="scope">
-              <!-- 可自定义插槽名称，如未指定则默认为 operationSlot -->
-              <slot :name="item.slot || 'operationSlot'" :row="scope.row" />
-            </template>
-          </el-table-column>
+        <!-- 可展开 显示为一个可展开的按钮 -->
+        <el-table-column
+          v-else-if="item.type === 'expand'"
+          type="expand"
+          :key="index"
+          :width="item.width"
+          :label="item.label"
+          :fixed="item.fixed"
+        >
+          <template slot-scope="scope">
+            <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
+            <slot :name="item.slotName || item.type" :row="scope.row" />
+          </template>
+        </el-table-column>
 
-          <el-table-column
-            v-else
-            :label="item.label"
-            :prop="item.value"
-            :sortable="item.sortable"
-            :width="item.width"
-            show-overflow-tooltip
-          >
-            <template slot-scope="scope">
-              <div v-if="item.isSlot">
-                <slot :name="item.value" :row="scope.row" />
-              </div>
-              <div v-else>{{ scope.row[item.value] }}</div>
-            </template>
-          </el-table-column>
-        </div>
+        <!--  操作 默认按照顺序排列，不固定 -->
+        <el-table-column
+          v-else-if="item.type === 'operationSlot'"
+          :key="index"
+          :label="item.label"
+          :width="item.width"
+          :fixed="item.fixed"
+        >
+          <template slot-scope="scope">
+            <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
+            <slot :name="item.slotName || item.type" :row="scope.row" />
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          v-else
+          :key="index"
+          :label="item.label"
+          :prop="item.value"
+          :sortable="item.sortable"
+          :width="item.width"
+          :fixed="item.fixed"
+          show-overflow-tooltip
+        >
+          <template slot-scope="scope">
+            <div v-if="item.isSlot">
+              <slot :name="item.value" :row="scope.row" />
+            </div>
+            <div v-else>{{ scope.row[item.value] }}</div>
+          </template>
+        </el-table-column>
       </template>
     </el-table>
   </div>
@@ -136,6 +155,7 @@ export default {
   data() {
     return {
       ids: [], // 选中的行的ids数组
+      expandRowKeys: [], // 存储展开行的 keys
     };
   },
   methods: {
