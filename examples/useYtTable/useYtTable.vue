@@ -6,17 +6,20 @@
 <template>
   <div class="uesYtTable">
     <ytTable
+      expandOnly
       idName="deId"
       :tableData="tableData"
       :tableConfig="tableConfig"
-      :height="'350'"
+      :height="tableHeight"
       :tableDataColumn="tableDataColumn"
       @handleSelectionChange="handleSelectionChange"
     >
+      <!-- 自定义类型插槽 -->
       <template slot="type" slot-scope="scope">
         <span> {{ scope.row.type | changeType }} </span>
       </template>
 
+      <!-- 展开 -->
       <template slot="expand" slot-scope="scope">
         <el-form label-position="left" inline class="demo-table-expand">
           <el-form-item label="行id：">
@@ -46,6 +49,7 @@
         </el-form>
       </template>
 
+      <!-- 操作 -->
       <template slot="operationSlot" slot-scope="scope">
         <el-button
           type="text"
@@ -61,6 +65,15 @@
           @click="doSomething(scope.row, '修改')"
           >修改
         </el-button>
+      </template>
+
+      <!-- 自定义表头插槽 -->
+      <template slot="slotHeader" slot-scope="">
+        <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
+      </template>
+
+      <template slot="slotContent" slot-scope="scope">
+        {{ scope.row.desc }}
       </template>
     </ytTable>
   </div>
@@ -81,9 +94,10 @@ export default {
   data() {
     return {
       tableData: [], // 表格数据
+      tableHeight: "500", // 表格高度
       tableConfig: {
         loading: false,
-        stripe: false, // 是否为斑马纹 table
+        stripe: true, // 是否为斑马纹 table
         border: true, // 是否带有纵向边框
         resizable: true, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
       }, // 表格的配置项
@@ -108,6 +122,12 @@ export default {
         { label: "描述", value: "description", width: "200", sortable: false },
         { label: "更新时间", value: "updateTime", sortable: false },
         {
+          type: "customSlot",
+          slotHeader: "slotHeader",
+          slotContent: "slotContent",
+          value: "",
+        },
+        {
           type: "operationSlot",
           label: "操作",
           width: "400",
@@ -117,6 +137,7 @@ export default {
       ], // 表头配置项
       total: 0,
       ids: [],
+      search: "search",
     };
   },
   methods: {
@@ -199,10 +220,12 @@ export default {
 .demo-table-expand {
   font-size: 0;
 }
+
 .demo-table-expand label {
   width: 90px;
   color: #99a9bf;
 }
+
 .demo-table-expand .el-form-item {
   margin-right: 0;
   margin-bottom: 0;

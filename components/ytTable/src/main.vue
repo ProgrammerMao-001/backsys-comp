@@ -28,13 +28,15 @@
       :resizable="tableConfig.resizable"
       :height="height"
       :data="tableData"
+      :expand-row-keys="expandRowKeys"
       :row-key="handleRowKey"
+      @expand-change="handleExpandChange"
       @cell-click="handleCellClick"
       @cell-dblclick="handleCellDbClick"
       @selection-change="handleSelectionChange"
     >
       <template v-for="(item, index) in tableDataColumn">
-        <!--  序号 默认按照顺序排列，不固定  -->
+        <!--  序号 默认按照顺序排列，不固定 index -->
         <el-table-column
           v-if="item.type === 'index'"
           type="index"
@@ -45,7 +47,7 @@
           :width="item.width"
         />
 
-        <!--  多选  -->
+        <!--  多选 selection -->
         <el-table-column
           v-else-if="item.type === 'selection'"
           type="selection"
@@ -55,7 +57,7 @@
           :fixed="item.fixed"
         />
 
-        <!-- 可展开 显示为一个可展开的按钮 -->
+        <!-- 可展开 显示为一个可展开的按钮 expand -->
         <el-table-column
           v-else-if="item.type === 'expand'"
           type="expand"
@@ -70,7 +72,36 @@
           </template>
         </el-table-column>
 
-        <!--  操作 默认按照顺序排列，不固定 -->
+        <!-- 自定义表头 customSlot -->
+        <el-table-column
+          v-else-if="item.type === 'customSlot'"
+          :key="index"
+          :width="item.width"
+          :fixed="item.fixed"
+        >
+          <template slot="header" slot-scope="scope">
+            <!-- 表头 -->
+            <slot :name="item.slotHeader" :row="scope" />
+          </template>
+
+          <template slot-scope="scope">
+            <!-- 内容 -->
+            <slot :name="item.slotContent" :row="scope.row" />
+          </template>
+          <!--          <template slot="header" slot-scope="">-->
+          <!--            <el-input-->
+          <!--                :model.sync="search"-->
+          <!--                size="mini"-->
+          <!--                placeholder="关键字"/>-->
+          <!--          </template>-->
+
+          <!--          <template slot-scope="scope">-->
+          <!--            &lt;!&ndash; 内容 &ndash;&gt;-->
+          <!--            <slot :name="item.slotContent" :row="scope.row"/>-->
+          <!--          </template>-->
+        </el-table-column>
+
+        <!--  操作 默认按照顺序排列，不固定 operationSlot -->
         <el-table-column
           v-else-if="item.type === 'operationSlot'"
           :key="index"
@@ -151,14 +182,41 @@ export default {
         };
       },
     }, // 分页参数
+    expandOnly: {
+      type: Boolean,
+      default: false,
+    }, // 是否只允许展开一行
   },
   data() {
     return {
       ids: [], // 选中的行的ids数组
       expandRowKeys: [], // 存储展开行的 keys
+      search: "",
     };
   },
   methods: {
+    /**
+     * @Event 当用户对某一行展开或者关闭的时候会触发该事件
+     * @description: 展开行时，回调的第二个参数为 expandedRows；树形表格时第二个参数为 expanded
+     * @author: mhf
+     * @time: 2023-11-12 14:08:29
+     **/
+    handleExpandChange(row) {
+      if (!this.expandOnly) {
+        return;
+      }
+      const rowKey = row[this.idName];
+      if (this.expandRowKeys === [] || this.expandRowKeys.length === 0) {
+        // 如果没有行展开，则添加当前行的 key 到 expandRowKeys 中
+        this.expandRowKeys.push(rowKey);
+      } else {
+        // 如何再次点击当前行，就收起当前行 : 如果第一次点击这一行，就将当前行的 key 放入 expandRowKeys 中
+        this.expandRowKeys = this.expandRowKeys.includes(rowKey)
+          ? []
+          : [rowKey];
+      }
+    },
+
     /**
      * @Event 方法
      * @description: 删除操作
