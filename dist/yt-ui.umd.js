@@ -1750,9 +1750,9 @@ function handleTree(data, id, parentId, children) {
  * @time: 2023-11-01 16:06:18
  **/
 function arrayToTree(list, callback = () => {}, props = {
-  id: 'id',
-  pid: 'pid',
-  children: 'children'
+  id: "id",
+  pid: "pid",
+  children: "children"
 }) {
   function sortArr(a, b) {
     return a.orderNum - b.orderNum;
@@ -3210,8 +3210,8 @@ ytTableBtn_src_main.install = Vue => {
   Vue.component(ytTableBtn_src_main.name, ytTableBtn_src_main);
 };
 /* harmony default export */ var ytTableBtn = (ytTableBtn_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=3c6e7567&scoped=true
-var mainvue_type_template_id_3c6e7567_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=05b4dd5a&scoped=true
+var mainvue_type_template_id_05b4dd5a_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3246,7 +3246,7 @@ var mainvue_type_template_id_3c6e7567_scoped_true_render = function render() {
     }
   })]);
 };
-var mainvue_type_template_id_3c6e7567_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_05b4dd5a_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytIsShowForm_src_mainvue_type_script_lang_js = ({
@@ -3309,13 +3309,13 @@ var mainvue_type_template_id_3c6e7567_scoped_true_staticRenderFns = [];
     changeColor(status) {
       let box = document.querySelector(".ytIsShowForm");
       let icon = document.querySelector(".ytIsShowForm-icon");
-      if (status === 'enter') {
+      if (status === "enter") {
         this.$nextTick(() => {
           box.style.color = this.showSetting.color;
           icon.style.color = this.showSetting.color;
         });
       }
-      if (status === 'out') {
+      if (status === "out") {
         if (this.showSearch) {
           this.$nextTick(() => {
             box.style.color = this.hideSetting.color;
@@ -3333,10 +3333,10 @@ var mainvue_type_template_id_3c6e7567_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytIsShowForm_src_mainvue_type_script_lang_js = (ytIsShowForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=3c6e7567&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=05b4dd5a&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=3c6e7567&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=05b4dd5a&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue
 
@@ -3349,11 +3349,11 @@ var mainvue_type_template_id_3c6e7567_scoped_true_staticRenderFns = [];
 
 var ytIsShowForm_src_main_component = normalizeComponent(
   components_ytIsShowForm_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_3c6e7567_scoped_true_render,
-  mainvue_type_template_id_3c6e7567_scoped_true_staticRenderFns,
+  mainvue_type_template_id_05b4dd5a_scoped_true_render,
+  mainvue_type_template_id_05b4dd5a_scoped_true_staticRenderFns,
   false,
   null,
-  "3c6e7567",
+  "05b4dd5a",
   null
   
 )
@@ -3365,8 +3365,8 @@ ytIsShowForm_src_main.install = Vue => {
   Vue.component(ytIsShowForm_src_main.name, ytIsShowForm_src_main);
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=04df4b74&scoped=true
-var mainvue_type_template_id_04df4b74_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=19057d64&scoped=true
+var mainvue_type_template_id_19057d64_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3375,48 +3375,91 @@ var mainvue_type_template_id_04df4b74_scoped_true_render = function render() {
     directives: [{
       name: "loading",
       rawName: "v-loading",
-      value: _vm.tableConfig.isLoading,
-      expression: "tableConfig.isLoading"
+      value: _vm.tableConfig.loading,
+      expression: "tableConfig.loading"
     }],
     ref: "tableRef",
     attrs: {
-      "border": "",
+      "border": _vm.tableConfig.border,
+      "stripe": _vm.tableConfig.stripe,
+      "resizable": _vm.tableConfig.resizable,
       "height": _vm.height,
       "data": _vm.tableData,
+      "expand-row-keys": _vm.expandRowKeys,
       "row-key": _vm.handleRowKey
     },
     on: {
+      "expand-change": _vm.handleExpandChange,
       "cell-click": _vm.handleCellClick,
       "cell-dblclick": _vm.handleCellDbClick,
       "selection-change": _vm.handleSelectionChange
     }
   }, [_vm._l(_vm.tableDataColumn, function (item, index) {
-    return [_c('div', {
-      key: index
-    }, [item.name === '序号' ? _c('el-table-column', {
-      attrs: {
-        "type": "index",
-        "label": item.name,
-        "index": _vm.indexMethod,
-        "fixed": "left"
-      }
-    }) : item.name === '多选' ? _c('el-table-column', {
-      attrs: {
-        "reserve-selection": true,
-        "type": "selection"
-      }
-    }) : item.name === '操作' ? _c('el-table-column', {
+    return [item.type === 'index' ? _c('el-table-column', {
       key: index,
       attrs: {
-        "label": "操作",
-        "align": "right",
-        "width": _vm.btnWidth,
-        "fixed": "right"
+        "type": "index",
+        "index": _vm.indexMethod,
+        "label": item.label,
+        "fixed": item.fixed,
+        "width": item.width
+      }
+    }) : item.type === 'selection' ? _c('el-table-column', {
+      key: index,
+      attrs: {
+        "type": "selection",
+        "reserve-selection": true,
+        "width": item.width,
+        "fixed": item.fixed
+      }
+    }) : item.type === 'expand' ? _c('el-table-column', {
+      key: index,
+      attrs: {
+        "type": "expand",
+        "width": item.width,
+        "label": item.label,
+        "fixed": item.fixed
       },
       scopedSlots: _vm._u([{
         key: "default",
         fn: function (scope) {
-          return [_vm._t("operationSlot", null, {
+          return [_vm._t(item.slotName || item.type, null, {
+            "row": scope.row
+          })];
+        }
+      }], null, true)
+    }) : item.type === 'customSlot' ? _c('el-table-column', {
+      key: index,
+      attrs: {
+        "width": item.width,
+        "fixed": item.fixed
+      },
+      scopedSlots: _vm._u([{
+        key: "header",
+        fn: function (scope) {
+          return [_vm._t(item.slotHeader, null, {
+            "row": scope
+          })];
+        }
+      }, {
+        key: "default",
+        fn: function (scope) {
+          return [_vm._t(item.slotContent, null, {
+            "row": scope.row
+          })];
+        }
+      }], null, true)
+    }) : item.type === 'operationSlot' ? _c('el-table-column', {
+      key: index,
+      attrs: {
+        "label": item.label,
+        "width": item.width,
+        "fixed": item.fixed
+      },
+      scopedSlots: _vm._u([{
+        key: "default",
+        fn: function (scope) {
+          return [_vm._t(item.slotName || item.type, null, {
             "row": scope.row
           })];
         }
@@ -3424,10 +3467,11 @@ var mainvue_type_template_id_04df4b74_scoped_true_render = function render() {
     }) : _c('el-table-column', {
       key: index,
       attrs: {
-        "label": item.name,
+        "label": item.label,
         "prop": item.value,
-        "width": item.width,
         "sortable": item.sortable,
+        "width": item.width,
+        "fixed": item.fixed,
         "show-overflow-tooltip": ""
       },
       scopedSlots: _vm._u([{
@@ -3438,20 +3482,16 @@ var mainvue_type_template_id_04df4b74_scoped_true_render = function render() {
           })], 2) : _c('div', [_vm._v(_vm._s(scope.row[item.value]))])];
         }
       }], null, true)
-    })], 1)];
+    })];
   })], 2)], 1);
 };
-var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
+
 /* harmony default export */ var ytTable_src_mainvue_type_script_lang_js = ({
   name: "ytTable",
   props: {
-    btnWidth: {
-      type: String,
-      default: "240px"
-    },
-    // 操作栏宽度
     tableData: {
       type: Array,
       default: () => {
@@ -3468,11 +3508,20 @@ var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
     // 表头数据
     tableConfig: {
       type: Object,
+      required: true,
       default: () => {
-        return {};
+        return {
+          loading: false,
+          stripe: true,
+          // 是否为斑马纹 table
+          border: true,
+          // 是否带有纵向边框
+          resizable: true // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+        };
       }
     },
-    // loading配置
+
+    // 表格的配置项
     height: {
       type: String,
       default: "45vh"
@@ -3491,10 +3540,43 @@ var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
           pageSize: 10
         };
       }
-    } // 分页参数
+    },
+    // 分页参数
+    expandOnly: {
+      type: Boolean,
+      default: false
+    } // 是否只允许展开一行
   },
 
+  data() {
+    return {
+      ids: [],
+      // 选中的行的ids数组
+      expandRowKeys: [],
+      // 存储展开行的 keys
+      search: ""
+    };
+  },
   methods: {
+    /**
+     * @Event 当用户对某一行展开或者关闭的时候会触发该事件
+     * @description: 展开行时，回调的第二个参数为 expandedRows；树形表格时第二个参数为 expanded
+     * @author: mhf
+     * @time: 2023-11-12 14:08:29
+     **/
+    handleExpandChange(row) {
+      if (!this.expandOnly) {
+        return;
+      }
+      const rowKey = row[this.idName];
+      if (this.expandRowKeys === [] || this.expandRowKeys.length === 0) {
+        // 如果没有行展开，则添加当前行的 key 到 expandRowKeys 中
+        this.expandRowKeys.push(rowKey);
+      } else {
+        // 如何再次点击当前行，就收起当前行 : 如果第一次点击这一行，就将当前行的 key 放入 expandRowKeys 中
+        this.expandRowKeys = this.expandRowKeys.includes(rowKey) ? [] : [rowKey];
+      }
+    },
     /**
      * @Event 方法
      * @description: 删除操作
@@ -3510,18 +3592,25 @@ var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
       this.$emit("handleUpdateData", row);
     },
     /**
-     * @Event 方法
-     * @description: 切换分页时，保持选中状态的标识
+     * @Event 切换分页时，保持选中状态的标识
+     * @description:
      * */
     handleRowKey(row) {
       return row[this.idName];
     },
     /**
      * @Event 监听多选操作
-     * @description:
+     * @description: 将选中行组成的ids数组和选中行的数据传递出去
      * */
-    handleSelectionChange(val) {
-      this.$emit("handleSelectionChange", val);
+    handleSelectionChange(selection) {
+      let ids = selection.map(row => row[this.idName]);
+      let passData = {
+        ids: ids,
+        // 选中行组成的ids数组
+        selection // 选中行的数据
+      };
+
+      this.$emit("handleSelectionChange", passData);
     },
     /**
      * @Event 当某个单元格被点击时会触发该事件
@@ -3559,10 +3648,10 @@ var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTable_src_mainvue_type_script_lang_js = (ytTable_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=04df4b74&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=19057d64&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=04df4b74&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=19057d64&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue
 
@@ -3575,11 +3664,11 @@ var mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns = [];
 
 var ytTable_src_main_component = normalizeComponent(
   components_ytTable_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_04df4b74_scoped_true_render,
-  mainvue_type_template_id_04df4b74_scoped_true_staticRenderFns,
+  mainvue_type_template_id_19057d64_scoped_true_render,
+  mainvue_type_template_id_19057d64_scoped_true_staticRenderFns,
   false,
   null,
-  "04df4b74",
+  "19057d64",
   null
   
 )
