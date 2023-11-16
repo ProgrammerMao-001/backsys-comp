@@ -5,7 +5,11 @@
 -->
 <template>
   <div class="uesYtTable">
+    <el-button type="primary" @click="handleResetSelection">
+      {{ isSelectAll ? "全选" : "取消全选" }}
+    </el-button>
     <ytTable
+      ref="ytTable"
       expandOnly
       idName="deId"
       :tableData="tableData"
@@ -13,6 +17,7 @@
       :height="tableHeight"
       :tableDataColumn="tableDataColumn"
       @handleSelectionChange="handleSelectionChange"
+      @handleCellDbClick="handleCellDbClick"
     >
       <!-- 自定义类型插槽 -->
       <template slot="type" slot-scope="scope">
@@ -68,8 +73,10 @@
       </template>
 
       <!-- 自定义表头插槽 -->
-      <template slot="slotHeader" slot-scope="">
-        <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
+      <template slot="slotHeader">
+        <el-tag type="success">标签二</el-tag>
+        <!-- 目前只支持自定义静态表头，后续再更新输入框等其它组件 -->
+        <!-- <el-input v-model="inputValue" size="mini" placeholder="输入关键字搜索" /> -->
       </template>
 
       <template slot="slotContent" slot-scope="scope">
@@ -137,14 +144,53 @@ export default {
       ], // 表头配置项
       total: 0,
       ids: [],
-      search: "search",
+      isSelectAll: true, // 是否全选
+      // inputValue: "",
     };
   },
   methods: {
+    /**
+     * @Event 获取选中行组成的ids数组和选中行的数据
+     * @description: passData = {
+     *         ids: ids, // 选中行组成的ids数组
+     *         selection, // 选中行的数据
+     *       }
+     * @author: mhf
+     * @time: 2023-11-16 23:10:39
+     **/
     handleSelectionChange(data) {
       console.log(data);
     },
 
+    /**
+     * @Event 表格单行双击事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-16 23:15:00
+     **/
+    handleCellDbClick(rowData) {
+      console.log(rowData);
+    },
+
+    /**
+     * @Event 表格多选框全部取消选中
+     * @description:
+     * @author: mhf
+     * @time: 2023-11-16 23:19:24
+     **/
+    handleResetSelection() {
+      this.$refs.ytTable.handleResetSelection(
+        this.isSelectAll ? this.tableData : null
+      );
+      this.isSelectAll = !this.isSelectAll;
+    },
+
+    /**
+     * @Event 表格单行的操作按钮点击事件
+     * @description: data单行数据 type操作按钮类型
+     * @author: mhf
+     * @time: 2023-11-16 23:11:22
+     **/
     doSomething(data, type) {
       console.log(data, type);
     },
@@ -157,7 +203,7 @@ export default {
             deId: 1,
             typeName: "名称1",
             description: "描述1",
-            updateTime: "更新时间1",
+            updateTime: "更新时间1更新时间1更新时间1",
             type: "type1",
             desc: "荷兰优质淡奶，奶香浓而不腻1",
             shop: "王小虎夫妻店1",

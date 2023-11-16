@@ -26,12 +26,12 @@
       :border="tableConfig.border"
       :stripe="tableConfig.stripe"
       :resizable="tableConfig.resizable"
+      :isAddIndex="tableConfig.isAddIndex"
       :height="height"
       :data="tableData"
       :expand-row-keys="expandRowKeys"
       :row-key="handleRowKey"
       @expand-change="handleExpandChange"
-      @cell-click="handleCellClick"
       @cell-dblclick="handleCellDbClick"
       @selection-change="handleSelectionChange"
     >
@@ -88,17 +88,6 @@
             <!-- 内容 -->
             <slot :name="item.slotContent" :row="scope.row" />
           </template>
-          <!--          <template slot="header" slot-scope="">-->
-          <!--            <el-input-->
-          <!--                :model.sync="search"-->
-          <!--                size="mini"-->
-          <!--                placeholder="关键字"/>-->
-          <!--          </template>-->
-
-          <!--          <template slot-scope="scope">-->
-          <!--            &lt;!&ndash; 内容 &ndash;&gt;-->
-          <!--            <slot :name="item.slotContent" :row="scope.row"/>-->
-          <!--          </template>-->
         </el-table-column>
 
         <!--  操作 默认按照顺序排列，不固定 operationSlot -->
@@ -162,6 +151,7 @@ export default {
           stripe: true, // 是否为斑马纹 table
           border: true, // 是否带有纵向边框
           resizable: true, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+          isAddIndex: true, // 是否将分页后的序号进行累加（如为true则分页后有10条数据，第二页第一条的数据序号为11）
         };
       },
     }, // 表格的配置项
@@ -218,22 +208,6 @@ export default {
     },
 
     /**
-     * @Event 方法
-     * @description: 删除操作
-     * */
-    handleDeleteData(row) {
-      this.$emit("handleDeleteData", row);
-    },
-
-    /**
-     * @Event 方法
-     * @description: 编辑操作
-     * */
-    handleUpdateData(row) {
-      this.$emit("handleUpdateData", row);
-    },
-
-    /**
      * @Event 切换分页时，保持选中状态的标识
      * @description:
      * */
@@ -255,27 +229,25 @@ export default {
     },
 
     /**
-     * @Event 当某个单元格被点击时会触发该事件
-     * @description:
-     * */
-    handleCellClick(val) {
-      console.log(val);
-    },
-
-    /**
      * @Event 当某个单元格被双击时会触发该事件
      * @description:
      * */
-    handleCellDbClick(val) {
-      console.log(val);
+    handleCellDbClick(rowData) {
+      this.$emit("handleCellDbClick", rowData);
     },
 
     /**
-     * @Event 方法
-     * @description: 表格 -> 取消选择
+     * @Event 表格多选框全选/全部取消选中
+     * @description: rows: 表格数据
      * */
-    handleResetSelection() {
-      this.$refs.tableRef.clearSelection();
+    handleResetSelection(rows) {
+      if (rows) {
+        rows.forEach((row) => {
+          this.$refs.tableRef.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.tableRef.clearSelection();
+      }
     },
 
     /**
@@ -283,7 +255,9 @@ export default {
      * @description: 设置表格后一页的index在前一页的index基础上累加
      * */
     indexMethod(index) {
-      // return index + 1 // 如果不想要累加效果，请打开此项
+      if (!this.tableConfig.isAddIndex) {
+        return index + 1;
+      }
       return (
         index +
         this.paginationConfig.pageSize * (this.paginationConfig.pageNum - 1) +
