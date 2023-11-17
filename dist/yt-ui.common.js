@@ -3355,8 +3355,8 @@ ytIsShowForm_src_main.install = Vue => {
   Vue.component(ytIsShowForm_src_main.name, ytIsShowForm_src_main);
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=19057d64&scoped=true
-var mainvue_type_template_id_19057d64_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=45d5b0e1&scoped=true
+var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3373,6 +3373,7 @@ var mainvue_type_template_id_19057d64_scoped_true_render = function render() {
       "border": _vm.tableConfig.border,
       "stripe": _vm.tableConfig.stripe,
       "resizable": _vm.tableConfig.resizable,
+      "isAddIndex": _vm.tableConfig.isAddIndex,
       "height": _vm.height,
       "data": _vm.tableData,
       "expand-row-keys": _vm.expandRowKeys,
@@ -3380,7 +3381,6 @@ var mainvue_type_template_id_19057d64_scoped_true_render = function render() {
     },
     on: {
       "expand-change": _vm.handleExpandChange,
-      "cell-click": _vm.handleCellClick,
       "cell-dblclick": _vm.handleCellDbClick,
       "selection-change": _vm.handleSelectionChange
     }
@@ -3475,7 +3475,7 @@ var mainvue_type_template_id_19057d64_scoped_true_render = function render() {
     })];
   })], 2)], 1);
 };
-var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
 
@@ -3506,7 +3506,9 @@ var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
           // 是否为斑马纹 table
           border: true,
           // 是否带有纵向边框
-          resizable: true // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+          resizable: true,
+          // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+          isAddIndex: true // 是否将分页后的序号进行累加（如为true则分页后有10条数据，第二页第一条的数据序号为11）
         };
       }
     },
@@ -3568,20 +3570,6 @@ var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
       }
     },
     /**
-     * @Event 方法
-     * @description: 删除操作
-     * */
-    handleDeleteData(row) {
-      this.$emit("handleDeleteData", row);
-    },
-    /**
-     * @Event 方法
-     * @description: 编辑操作
-     * */
-    handleUpdateData(row) {
-      this.$emit("handleUpdateData", row);
-    },
-    /**
      * @Event 切换分页时，保持选中状态的标识
      * @description:
      * */
@@ -3603,32 +3591,33 @@ var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
       this.$emit("handleSelectionChange", passData);
     },
     /**
-     * @Event 当某个单元格被点击时会触发该事件
-     * @description:
-     * */
-    handleCellClick(val) {
-      console.log(val);
-    },
-    /**
      * @Event 当某个单元格被双击时会触发该事件
      * @description:
      * */
-    handleCellDbClick(val) {
-      console.log(val);
+    handleCellDbClick(rowData) {
+      this.$emit("handleCellDbClick", rowData);
     },
     /**
-     * @Event 方法
-     * @description: 表格 -> 取消选择
+     * @Event 表格多选框全选/全部取消选中
+     * @description: rows: 表格数据
      * */
-    handleResetSelection() {
-      this.$refs.tableRef.clearSelection();
+    handleResetSelection(rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.tableRef.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.tableRef.clearSelection();
+      }
     },
     /**
      * @Event 方法
      * @description: 设置表格后一页的index在前一页的index基础上累加
      * */
     indexMethod(index) {
-      // return index + 1 // 如果不想要累加效果，请打开此项
+      if (!this.tableConfig.isAddIndex) {
+        return index + 1;
+      }
       return index + this.paginationConfig.pageSize * (this.paginationConfig.pageNum - 1) + 1;
     }
   },
@@ -3638,10 +3627,10 @@ var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTable_src_mainvue_type_script_lang_js = (ytTable_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=19057d64&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=45d5b0e1&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=19057d64&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=45d5b0e1&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue
 
@@ -3654,11 +3643,11 @@ var mainvue_type_template_id_19057d64_scoped_true_staticRenderFns = [];
 
 var ytTable_src_main_component = normalizeComponent(
   components_ytTable_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_19057d64_scoped_true_render,
-  mainvue_type_template_id_19057d64_scoped_true_staticRenderFns,
+  mainvue_type_template_id_45d5b0e1_scoped_true_render,
+  mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns,
   false,
   null,
-  "19057d64",
+  "45d5b0e1",
   null
   
 )

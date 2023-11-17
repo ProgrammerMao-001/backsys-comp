@@ -104,9 +104,10 @@ export default {
       tableHeight: "500", // 表格高度
       tableConfig: {
         loading: false,
-        stripe: true, // 是否为斑马纹 table
-        border: true, // 是否带有纵向边框
+        stripe: false, // 是否为斑马纹 table
+        border: false, // 是否带有纵向边框
         resizable: true, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+        isAddIndex: true, // 是否将分页后的序号进行累加
       }, // 表格的配置项
       tableDataColumn: [
         { type: "selection", width: 50, fixed: "left" },

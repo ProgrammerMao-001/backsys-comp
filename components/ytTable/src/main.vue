@@ -3,21 +3,6 @@
  * @Author: mhf
  * @Date: 2023/11/10 22:44
 -->
-
-<!--:header-row-style="{-->
-<!--background: '#F7F8FA',-->
-<!--boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',-->
-<!--fontFamily: 'MicrosoftYaHei-Bold, MicrosoftYaHei',-->
-<!--fontWeight: 'bold',-->
-<!--color: '#333333',-->
-<!--}"-->
-<!--:row-style="{-->
-<!--background: '#FFFFFF',-->
-<!--boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',-->
-<!--fontFamily: 'MicrosoftYaHei',-->
-<!--color: '#333333',-->
-<!--}"-->
-
 <template>
   <div class="page">
     <el-table
@@ -34,6 +19,16 @@
       @expand-change="handleExpandChange"
       @cell-dblclick="handleCellDbClick"
       @selection-change="handleSelectionChange"
+
+
+      :header-row-style="{
+background: '#ff0000',
+boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
+fontFamily: 'MicrosoftYaHei-Bold, MicrosoftYaHei',
+fontWeight: 'bold',
+color: '#333333',
+}"
+      :row-style="rowStyle"
     >
       <template v-for="(item, index) in tableDataColumn">
         <!--  序号 默认按照顺序排列，不固定 index -->
@@ -155,6 +150,17 @@ export default {
         };
       },
     }, // 表格的配置项
+    rowStyle: {
+      type: Object,
+      default: () => {
+        return {
+          background: '#efff1c',
+          boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
+          fontFamily: 'MicrosoftYaHei',
+          color: '#ff0000',
+        };
+      },
+    }, // 表格行样式
     height: {
       type: String,
       default: "45vh",
