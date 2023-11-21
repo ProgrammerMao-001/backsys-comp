@@ -70,6 +70,7 @@ color: '#333333',
         <!-- 自定义表头 customSlot -->
         <el-table-column
           v-else-if="item.type === 'customSlot'"
+          show-overflow-tooltip
           :key="index"
           :width="item.width"
           :fixed="item.fixed"
@@ -102,12 +103,12 @@ color: '#333333',
         <el-table-column
           v-else
           :key="index"
+          show-overflow-tooltip
           :label="item.label"
           :prop="item.value"
           :sortable="item.sortable"
           :width="item.width"
           :fixed="item.fixed"
-          show-overflow-tooltip
         >
           <template slot-scope="scope">
             <div v-if="item.isSlot">
@@ -154,10 +155,13 @@ export default {
       type: Object,
       default: () => {
         return {
-          background: '#efff1c',
+          background: '#fafafa',
           boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
           fontFamily: 'MicrosoftYaHei',
-          color: '#ff0000',
+          color: '#606266',
+          height: "24px",
+
+
         };
       },
     }, // 表格行样式
@@ -272,7 +276,7 @@ export default {
     },
   },
   created() {
-    console.log(this.tableDataColumn);
+    // console.log(this.tableDataColumn);
   },
 };
 </script>

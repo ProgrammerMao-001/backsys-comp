@@ -21,7 +21,11 @@
     >
       <!-- 自定义类型插槽 -->
       <template slot="type" slot-scope="scope">
-        <span> {{ scope.row.type | changeType }} </span>
+        <span
+        :style="{
+          color: changeColor(scope.row.type)
+        }"
+        > {{ scope.row.type | changeType }} </span>
       </template>
 
       <!-- 展开 -->
@@ -204,7 +208,7 @@ export default {
             deId: 1,
             typeName: "名称1",
             description: "描述1",
-            updateTime: "更新时间1更新时间1更新时间1",
+            updateTime: "更新时间1更新时间1更新时间1更新时间1更新时间1更新时间1更新时间111更新时间11更新时间1更新时间1更新时间1更新时间1",
             type: "type1",
             desc: "荷兰优质淡奶，奶香浓而不腻1",
             shop: "王小虎夫妻店1",
@@ -214,15 +218,15 @@ export default {
             deId: 2,
             typeName: "名称2",
             description: "描述2",
-            updateTime: "更新时间2",
+            updateTime: "更新时间2更新时间2更新时间2更新时间2更新时间2",
             type: "type2",
-            desc: "荷兰优质淡奶，奶香浓而不腻2",
+            desc: "荷兰优质淡奶，奶香浓而不腻2荷兰优质淡奶，荷兰优质淡奶，奶香浓而不腻2荷兰优质淡奶，奶香浓而不腻2荷兰优质淡奶，奶香浓而不腻2荷兰优质淡奶，奶香浓而不腻2",
             shop: "王小虎夫妻店2",
             category: "江浙小吃、小吃零食2",
           },
           {
             deId: 3,
-            typeName: "名称3",
+            typeName: "名称3名称3名称3名称3名称3名称3名称3名称3",
             description: "描述3",
             updateTime: "更新时间3",
             type: "type3",
@@ -233,7 +237,7 @@ export default {
           {
             deId: 4,
             typeName: "名称4",
-            description: "描述4",
+            description: "描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4",
             updateTime: "更新时间4",
             type: "type4",
             desc: "荷兰优质淡奶，奶香浓而不腻4",
@@ -254,6 +258,23 @@ export default {
         this.tableConfig.loading = false;
       }, 200);
     },
+
+    changeColor(item) {
+      switch (item) {
+        case 'type1':
+          return 'lightgreen'
+        case 'type2':
+          return 'lightblue'
+        case 'type3':
+          return 'red'
+        case 'type4':
+          return 'purple'
+        case 'type5':
+          return 'pink'
+        default:
+          return 'yellow'
+      }
+    }
   },
   created() {
     this.getTableData();
