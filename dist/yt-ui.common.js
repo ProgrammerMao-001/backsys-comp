@@ -3355,8 +3355,8 @@ ytIsShowForm_src_main.install = Vue => {
   Vue.component(ytIsShowForm_src_main.name, ytIsShowForm_src_main);
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=45d5b0e1&scoped=true
-var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=670929fd&scoped=true
+var mainvue_type_template_id_670929fd_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3377,7 +3377,15 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
       "height": _vm.height,
       "data": _vm.tableData,
       "expand-row-keys": _vm.expandRowKeys,
-      "row-key": _vm.handleRowKey
+      "row-key": _vm.handleRowKey,
+      "header-row-style": {
+        background: '#ff0000',
+        boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
+        fontFamily: 'MicrosoftYaHei-Bold, MicrosoftYaHei',
+        fontWeight: 'bold',
+        color: '#333333'
+      },
+      "row-style": _vm.rowStyle
     },
     on: {
       "expand-change": _vm.handleExpandChange,
@@ -3421,6 +3429,7 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
     }) : item.type === 'customSlot' ? _c('el-table-column', {
       key: index,
       attrs: {
+        "show-overflow-tooltip": "",
         "width": item.width,
         "fixed": item.fixed
       },
@@ -3457,12 +3466,12 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
     }) : _c('el-table-column', {
       key: index,
       attrs: {
+        "show-overflow-tooltip": "",
         "label": item.label,
         "prop": item.value,
         "sortable": item.sortable,
         "width": item.width,
-        "fixed": item.fixed,
-        "show-overflow-tooltip": ""
+        "fixed": item.fixed
       },
       scopedSlots: _vm._u([{
         key: "default",
@@ -3475,7 +3484,7 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_render = function render() {
     })];
   })], 2)], 1);
 };
-var mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_670929fd_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
 
@@ -3514,6 +3523,19 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns = [];
     },
 
     // 表格的配置项
+    rowStyle: {
+      type: Object,
+      default: () => {
+        return {
+          background: '#fafafa',
+          boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
+          fontFamily: 'MicrosoftYaHei',
+          color: '#606266',
+          height: "24px"
+        };
+      }
+    },
+    // 表格行样式
     height: {
       type: String,
       default: "45vh"
@@ -3622,15 +3644,15 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns = [];
     }
   },
   created() {
-    console.log(this.tableDataColumn);
+    // console.log(this.tableDataColumn);
   }
 });
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTable_src_mainvue_type_script_lang_js = (ytTable_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=45d5b0e1&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=670929fd&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=45d5b0e1&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=670929fd&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue
 
@@ -3643,11 +3665,11 @@ var mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns = [];
 
 var ytTable_src_main_component = normalizeComponent(
   components_ytTable_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_45d5b0e1_scoped_true_render,
-  mainvue_type_template_id_45d5b0e1_scoped_true_staticRenderFns,
+  mainvue_type_template_id_670929fd_scoped_true_render,
+  mainvue_type_template_id_670929fd_scoped_true_staticRenderFns,
   false,
   null,
-  "45d5b0e1",
+  "670929fd",
   null
   
 )
