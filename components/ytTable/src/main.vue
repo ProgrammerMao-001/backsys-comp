@@ -111,10 +111,10 @@ color: '#333333',
           :fixed="item.fixed"
         >
           <template slot-scope="scope">
-            <div v-if="item.isSlot">
+            <span v-if="item.isSlot">
               <slot :name="item.value" :row="scope.row" />
-            </div>
-            <div v-else>{{ scope.row[item.value] }}</div>
+            </span>
+            <span v-else>{{ scope.row[item.value] }}</span>
           </template>
         </el-table-column>
       </template>
