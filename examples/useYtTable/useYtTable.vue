@@ -16,16 +16,26 @@
       :tableConfig="tableConfig"
       :height="tableHeight"
       :tableDataColumn="tableDataColumn"
+      :rowStyle="{}"
+      :headerRowStyle="{
+        background: '#F7F8FA',
+        boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
+        fontFamily: 'MicrosoftYaHei-Bold, MicrosoftYaHei',
+        fontWeight: 'bold',
+        color: '#515a6e',
+      }"
       @handleSelectionChange="handleSelectionChange"
       @handleCellDbClick="handleCellDbClick"
     >
       <!-- 自定义类型插槽 -->
       <template slot="type" slot-scope="scope">
         <span
-        :style="{
-          color: changeColor(scope.row.type)
-        }"
-        > {{ scope.row.type | changeType }} </span>
+          :style="{
+            color: changeColor(scope.row.type),
+          }"
+        >
+          {{ scope.row.type | changeType }}
+        </span>
       </template>
 
       <!-- 展开 -->
@@ -108,7 +118,7 @@ export default {
       tableHeight: "500", // 表格高度
       tableConfig: {
         loading: false,
-        stripe: false, // 是否为斑马纹 table
+        stripe: true, // 是否为斑马纹 table
         border: false, // 是否带有纵向边框
         resizable: true, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
         isAddIndex: true, // 是否将分页后的序号进行累加
@@ -123,12 +133,12 @@ export default {
           slotName: "",
         },
         { type: "index", label: "序号", width: 50, fixed: "left" },
-        { label: "名称", value: "typeName", width: 100, sortable: true },
+        { label: "名称", value: "typeName", width: 100, sortable: false },
         {
           label: "类型",
           value: "type",
           width: "250",
-          sortable: true,
+          sortable: false,
           isSlot: true,
         },
         { label: "描述", value: "description", width: "200", sortable: false },
@@ -208,7 +218,8 @@ export default {
             deId: 1,
             typeName: "名称1",
             description: "描述1",
-            updateTime: "更新时间1更新时间1更新时间1更新时间1更新时间1更新时间1更新时间111更新时间11更新时间1更新时间1更新时间1更新时间1",
+            updateTime:
+              "更新时间1更新时间1更新时间1更新时间1更新时间1更新时间1更新时间111更新时间11更新时间1更新时间1更新时间1更新时间1",
             type: "type1",
             desc: "荷兰优质淡奶，奶香浓而不腻1",
             shop: "王小虎夫妻店1",
@@ -237,7 +248,8 @@ export default {
           {
             deId: 4,
             typeName: "名称4",
-            description: "描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4",
+            description:
+              "描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4描述4",
             updateTime: "更新时间4",
             type: "type4",
             desc: "荷兰优质淡奶，奶香浓而不腻4",
@@ -261,20 +273,20 @@ export default {
 
     changeColor(item) {
       switch (item) {
-        case 'type1':
-          return 'lightgreen'
-        case 'type2':
-          return 'lightblue'
-        case 'type3':
-          return 'red'
-        case 'type4':
-          return 'purple'
-        case 'type5':
-          return 'pink'
+        case "type1":
+          return "lightgreen";
+        case "type2":
+          return "lightblue";
+        case "type3":
+          return "red";
+        case "type4":
+          return "purple";
+        case "type5":
+          return "pink";
         default:
-          return 'yellow'
+          return "yellow";
       }
-    }
+    },
   },
   created() {
     this.getTableData();

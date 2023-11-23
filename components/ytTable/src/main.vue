@@ -19,15 +19,7 @@
       @expand-change="handleExpandChange"
       @cell-dblclick="handleCellDbClick"
       @selection-change="handleSelectionChange"
-
-
-      :header-row-style="{
-background: '#ff0000',
-boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
-fontFamily: 'MicrosoftYaHei-Bold, MicrosoftYaHei',
-fontWeight: 'bold',
-color: '#333333',
-}"
+      :header-row-style="headerRowStyle"
       :row-style="rowStyle"
     >
       <template v-for="(item, index) in tableDataColumn">
@@ -155,16 +147,22 @@ export default {
       type: Object,
       default: () => {
         return {
-          background: '#fafafa',
-          boxShadow: 'inset 0px -1px 0px 0px #EEEEEE',
-          fontFamily: 'MicrosoftYaHei',
-          color: '#606266',
+          background: "#fafafa",
+          boxShadow: "inset 0px -1px 0px 0px #EEEEEE",
+          fontFamily: "MicrosoftYaHei",
+          color: "#606266",
           height: "24px",
-
-
         };
       },
     }, // 表格行样式
+    headerRowStyle: {
+      type: Object,
+      default: () => {
+        return {
+          color: "#333333",
+        };
+      },
+    }, // 表头样式
     height: {
       type: String,
       default: "45vh",
@@ -282,12 +280,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//::v-deep .el-table--border .el-table__cell {
-//  border: none !important;
-//}
-//
-//::v-deep .el-table--group,
-//.el-table--border {
-//  border: none !important;
-//}
+::v-deep .el-table th.el-table__cell {
+  $table-header-bg-color: #f8f8f9;
+  background-color: $table-header-bg-color;
+}
 </style>
