@@ -157,7 +157,6 @@ export default {
           slotName: "",
         },
       ], // 表头配置项
-      total: 0,
       ids: [],
       isSelectAll: true, // 是否全选
       // inputValue: "",

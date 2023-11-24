@@ -132,7 +132,6 @@ export default {
     }, // 表头数据
     tableConfig: {
       type: Object,
-      required: true,
       default: () => {
         return {
           loading: false,
