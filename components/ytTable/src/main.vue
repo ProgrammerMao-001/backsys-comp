@@ -4,112 +4,112 @@
  * @Date: 2023/11/10 22:44
 -->
 <template>
-    <el-table
-      ref="tableRef"
-      v-loading="tableConfig.loading"
-      :border="tableConfig.border"
-      :stripe="tableConfig.stripe"
-      :resizable="tableConfig.resizable"
-      :isAddIndex="tableConfig.isAddIndex"
-      :height="height"
-      :data="tableData"
-      :expand-row-keys="expandRowKeys"
-      :row-key="handleRowKey"
-      @expand-change="handleExpandChange"
-      @cell-dblclick="handleCellDbClick"
-      @selection-change="handleSelectionChange"
-      :header-row-style="headerRowStyle"
-      :row-style="rowStyle"
-    >
-      <template v-for="(item, index) in tableDataColumn">
-        <!--  序号 默认按照顺序排列，不固定 index -->
-        <el-table-column
-          v-if="item.type === 'index'"
-          type="index"
-          :key="index"
-          :index="indexMethod"
-          :label="item.label"
-          :fixed="item.fixed"
-          :width="item.width"
-        />
+  <el-table
+    ref="tableRef"
+    v-loading="tableConfig.loading"
+    :border="tableConfig.border"
+    :stripe="tableConfig.stripe"
+    :resizable="tableConfig.resizable"
+    :isAddIndex="tableConfig.isAddIndex"
+    :height="height"
+    :data="tableData"
+    :expand-row-keys="expandRowKeys"
+    :row-key="handleRowKey"
+    @expand-change="handleExpandChange"
+    @cell-dblclick="handleCellDbClick"
+    @selection-change="handleSelectionChange"
+    :header-row-style="headerRowStyle"
+    :row-style="rowStyle"
+  >
+    <template v-for="(item, index) in tableDataColumn">
+      <!--  序号 默认按照顺序排列，不固定 index -->
+      <el-table-column
+        v-if="item.type === 'index'"
+        type="index"
+        :key="index"
+        :index="indexMethod"
+        :label="item.label"
+        :fixed="item.fixed"
+        :width="item.width"
+      />
 
-        <!--  多选 selection -->
-        <el-table-column
-          v-else-if="item.type === 'selection'"
-          type="selection"
-          :key="index"
-          :reserve-selection="true"
-          :width="item.width"
-          :fixed="item.fixed"
-        />
+      <!--  多选 selection -->
+      <el-table-column
+        v-else-if="item.type === 'selection'"
+        type="selection"
+        :key="index"
+        :reserve-selection="true"
+        :width="item.width"
+        :fixed="item.fixed"
+      />
 
-        <!-- 可展开 显示为一个可展开的按钮 expand -->
-        <el-table-column
-          v-else-if="item.type === 'expand'"
-          type="expand"
-          :key="index"
-          :width="item.width"
-          :label="item.label"
-          :fixed="item.fixed"
-        >
-          <template slot-scope="scope">
-            <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
-            <slot :name="item.slotName || item.type" :row="scope.row" />
-          </template>
-        </el-table-column>
+      <!-- 可展开 显示为一个可展开的按钮 expand -->
+      <el-table-column
+        v-else-if="item.type === 'expand'"
+        type="expand"
+        :key="index"
+        :width="item.width"
+        :label="item.label"
+        :fixed="item.fixed"
+      >
+        <template slot-scope="scope">
+          <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
+          <slot :name="item.slotName || item.type" :row="scope.row" />
+        </template>
+      </el-table-column>
 
-        <!-- 自定义表头 customSlot -->
-        <el-table-column
-          v-else-if="item.type === 'customSlot'"
-          show-overflow-tooltip
-          :key="index"
-          :width="item.width"
-          :fixed="item.fixed"
-        >
-          <template slot="header" slot-scope="scope">
-            <!-- 表头 -->
-            <slot :name="item.slotHeader" :row="scope" />
-          </template>
+      <!-- 自定义表头 customSlot -->
+      <el-table-column
+        v-else-if="item.type === 'customSlot'"
+        show-overflow-tooltip
+        :key="index"
+        :width="item.width"
+        :fixed="item.fixed"
+      >
+        <template slot="header" slot-scope="scope">
+          <!-- 表头 -->
+          <slot :name="item.slotHeader" :row="scope" />
+        </template>
 
-          <template slot-scope="scope">
-            <!-- 内容 -->
-            <slot :name="item.slotContent" :row="scope.row" />
-          </template>
-        </el-table-column>
+        <template slot-scope="scope">
+          <!-- 内容 -->
+          <slot :name="item.slotContent" :row="scope.row" />
+        </template>
+      </el-table-column>
 
-        <!--  操作 默认按照顺序排列，不固定 operationSlot -->
-        <el-table-column
-          v-else-if="item.type === 'operationSlot'"
-          :key="index"
-          :label="item.label"
-          :width="item.width"
-          :fixed="item.fixed"
-        >
-          <template slot-scope="scope">
-            <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
-            <slot :name="item.slotName || item.type" :row="scope.row" />
-          </template>
-        </el-table-column>
+      <!--  操作 默认按照顺序排列，不固定 operationSlot -->
+      <el-table-column
+        v-else-if="item.type === 'operationSlot'"
+        :key="index"
+        :label="item.label"
+        :width="item.width"
+        :fixed="item.fixed"
+      >
+        <template slot-scope="scope">
+          <!-- 可自定义插槽名称(slotName)，如未指定则默认为item.type(operationSlot) -->
+          <slot :name="item.slotName || item.type" :row="scope.row" />
+        </template>
+      </el-table-column>
 
-        <el-table-column
-          v-else
-          :key="index"
-          show-overflow-tooltip
-          :label="item.label"
-          :prop="item.value"
-          :sortable="item.sortable"
-          :width="item.width"
-          :fixed="item.fixed"
-        >
-          <template slot-scope="scope">
-            <span v-if="item.isSlot">
-              <slot :name="item.value" :row="scope.row" />
-            </span>
-            <span v-else>{{ scope.row[item.value] }}</span>
-          </template>
-        </el-table-column>
-      </template>
-    </el-table>
+      <el-table-column
+        v-else
+        :key="index"
+        show-overflow-tooltip
+        :label="item.label"
+        :prop="item.value"
+        :sortable="item.sortable"
+        :width="item.width"
+        :fixed="item.fixed"
+      >
+        <template slot-scope="scope">
+          <span v-if="item.isSlot">
+            <slot :name="item.value" :row="scope.row" />
+          </span>
+          <span v-else>{{ scope.row[item.value] }}</span>
+        </template>
+      </el-table-column>
+    </template>
+  </el-table>
 </template>
 
 <script>

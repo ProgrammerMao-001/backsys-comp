@@ -6,11 +6,13 @@
 <template>
   <div class="ytPagination">
     <ytPagination
-        :total="total"
-        :page.sync="queryParams.pageNum"
-        :limit.sync="queryParams.pageSize"
-        :page-sizes="pageSizes"
-        @pagination="getTableData"/>
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      :page-sizes="pageSizes"
+      :pagination-color="paginationColor"
+      @pagination="getTableData"
+    />
   </div>
 </template>
 
@@ -30,19 +32,21 @@ export default {
         pageNum: 1,
         pageSize: 10,
       },
+      paginationColor: {
+        "--activeBgColor": "lightblue",
+        "--fontColor": "orange",
+        "--hoverColor": "yellow",
+      },
     };
   },
   methods: {
     getTableData() {
-      console.log(this.queryParams)
+      console.log(this.queryParams);
     },
   },
-  created() {
-  },
-  mounted() {
-  },
-  destroyed() {
-  },
+  created() {},
+  mounted() {},
+  destroyed() {},
 };
 </script>
 
