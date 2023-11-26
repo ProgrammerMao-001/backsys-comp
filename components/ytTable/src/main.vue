@@ -4,7 +4,6 @@
  * @Date: 2023/11/10 22:44
 -->
 <template>
-  <div class="page">
     <el-table
       ref="tableRef"
       v-loading="tableConfig.loading"
@@ -111,7 +110,6 @@
         </el-table-column>
       </template>
     </el-table>
-  </div>
 </template>
 
 <script>

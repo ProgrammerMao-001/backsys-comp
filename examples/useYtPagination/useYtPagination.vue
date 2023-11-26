@@ -4,7 +4,14 @@
  * @Date: 2023/11/26 16:09
 -->
 <template>
-  <div>useYtPagination</div>
+  <div class="ytPagination">
+    <ytPagination
+        :total="total"
+        :page.sync="queryParams.pageNum"
+        :limit.sync="queryParams.pageSize"
+        :page-sizes="pageSizes"
+        @pagination="getTableData"/>
+  </div>
 </template>
 
 <script>
@@ -16,13 +23,31 @@ export default {
   watch: {},
   filters: {},
   data() {
-    return {};
+    return {
+      total: 120,
+      pageSizes: [5, 10, 15, 20],
+      queryParams: {
+        pageNum: 1,
+        pageSize: 10,
+      },
+    };
   },
-  methods: {},
-  created() {},
-  mounted() {},
-  destroyed() {},
+  methods: {
+    getTableData() {
+      console.log(this.queryParams)
+    },
+  },
+  created() {
+  },
+  mounted() {
+  },
+  destroyed() {
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ytPagination {
+  border: 1px solid red;
+}
+</style>

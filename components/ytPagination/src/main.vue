@@ -4,8 +4,8 @@
  * @Date: 2023/11/26 16:07
 -->
 <template>
-  <div :class="{ hidden: hidden }" class="pagination-container">
-    <el-pagination
+  <el-pagination
+      v-bind="$attrs"
       :background="background"
       :current-page.sync="currentPage"
       :page-size.sync="pageSize"
@@ -13,11 +13,9 @@
       :page-sizes="pageSizes"
       :pager-count="pagerCount"
       :total="total"
-      v-bind="$attrs"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-    />
-  </div>
+  />
 </template>
 
 <script>
@@ -25,9 +23,9 @@ export default {
   name: "ytPagination",
   props: {
     total: {
-      required: true,
       type: Number,
-    },
+      default: 0,
+    }, // 总条目数
     page: {
       type: Number,
       default: 1,
@@ -41,31 +39,24 @@ export default {
       default() {
         return [10, 20, 30, 50];
       },
-    },
-    // 移动端页码按钮的数量端默认值5
+    }, // 每页显示个数选择器的选项设置
     pagerCount: {
       type: Number,
       default: document.body.clientWidth < 992 ? 5 : 7,
-    },
+    }, // 页码按钮的数量，当总页数超过该值时会折叠(大于等于 5 且小于等于 21 的奇数)
     layout: {
       type: String,
       default: "total, sizes, prev, pager, next, jumper",
-    },
+    }, // 组件布局，子组件名用逗号分隔 (sizes, prev, pager, next, jumper, ->, total, slot)
     background: {
       type: Boolean,
       default: true,
-    },
-    autoScroll: {
-      type: Boolean,
-      default: true,
-    },
-    hidden: {
-      type: Boolean,
-      default: false,
-    },
+    }, // 是否为分页按钮添加背景色
   },
   data() {
-    return {};
+    return {
+
+    };
   },
   computed: {
     currentPage: {
@@ -90,27 +81,18 @@ export default {
       if (this.currentPage * val > this.total) {
         this.currentPage = 1;
       }
-      this.$emit("pagination", { page: this.currentPage, limit: val });
-      if (this.autoScroll) {
-        scrollTo(0, 800);
-      }
+      this.$emit("pagination", {page: this.currentPage, limit: val});
     },
     handleCurrentChange(val) {
-      this.$emit("pagination", { page: val, limit: this.pageSize });
-      if (this.autoScroll) {
-        scrollTo(0, 800);
-      }
+      this.$emit("pagination", {page: val, limit: this.pageSize});
     },
   },
 };
 </script>
 
-<style scoped>
-.pagination-container {
-  background: lightgreen;
-  padding: 32px 16px;
-}
-.pagination-container.hidden {
-  display: none;
+<style lang="scss" scoped>
+::v-deep .active {
+  background-color: lightgreen !important;
+  color: red !important;
 }
 </style>
