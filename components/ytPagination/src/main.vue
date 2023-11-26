@@ -5,17 +5,17 @@
 -->
 <template>
   <el-pagination
-    :style="pageColor"
-    v-bind="$attrs"
-    :background="background"
-    :current-page.sync="currentPage"
-    :page-size.sync="pageSize"
-    :layout="layout"
-    :page-sizes="pageSizes"
-    :pager-count="pagerCount"
-    :total="total"
-    @size-change="handleSizeChange"
-    @current-change="handleCurrentChange"
+      :style="pageColor"
+      v-bind="$attrs"
+      :background="background"
+      :current-page.sync="currentPage"
+      :page-size.sync="pageSize"
+      :layout="layout"
+      :page-sizes="pageSizes"
+      :pager-count="pagerCount"
+      :total="total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
   />
 </template>
 
@@ -58,7 +58,7 @@ export default {
       default() {
         return {
           "--activeBgColor": "pink", // 选中的背景色
-          "--fontColor": "#fff", // 选中的字体颜色
+          "--fontColor": "yellow", // 选中的字体颜色
           "--hoverColor": "#ff0000", // 鼠标悬停的字体颜色
         };
       },
@@ -93,10 +93,10 @@ export default {
       if (this.currentPage * val > this.total) {
         this.currentPage = 1;
       }
-      this.$emit("pagination", { page: this.currentPage, limit: val });
+      this.$emit("pagination", {page: this.currentPage, limit: val});
     },
     handleCurrentChange(val) {
-      this.$emit("pagination", { page: val, limit: this.pageSize });
+      this.$emit("pagination", {page: val, limit: this.pageSize});
     },
   },
 };

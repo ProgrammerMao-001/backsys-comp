@@ -6,6 +6,7 @@
 <template>
   <div class="ytPagination">
     <ytPagination
+      :background="false"
       :total="total"
       :page.sync="queryParams.pageNum"
       :limit.sync="queryParams.pageSize"
@@ -33,9 +34,9 @@ export default {
         pageSize: 10,
       },
       paginationColor: {
-        "--activeBgColor": "lightblue",
+        "--activeBgColor": "transparent",
         "--fontColor": "orange",
-        "--hoverColor": "yellow",
+        "--hoverColor": "green",
       },
     };
   },
@@ -52,6 +53,5 @@ export default {
 
 <style lang="scss" scoped>
 .ytPagination {
-  border: 1px solid red;
 }
 </style>
