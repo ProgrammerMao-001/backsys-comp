@@ -3355,13 +3355,11 @@ ytIsShowForm_src_main.install = Vue => {
   Vue.component(ytIsShowForm_src_main.name, ytIsShowForm_src_main);
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=983c62cc&scoped=true
-var mainvue_type_template_id_983c62cc_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=2d0ee757&scoped=true
+var mainvue_type_template_id_2d0ee757_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c('div', {
-    staticClass: "page"
-  }, [_c('el-table', {
+  return _c('el-table', {
     directives: [{
       name: "loading",
       rawName: "v-loading",
@@ -3476,9 +3474,9 @@ var mainvue_type_template_id_983c62cc_scoped_true_render = function render() {
         }
       }], null, true)
     })];
-  })], 2)], 1);
+  })], 2);
 };
-var mainvue_type_template_id_983c62cc_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_2d0ee757_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
 
@@ -3651,10 +3649,10 @@ var mainvue_type_template_id_983c62cc_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTable_src_mainvue_type_script_lang_js = (ytTable_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=983c62cc&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=2d0ee757&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=983c62cc&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=2d0ee757&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue
 
@@ -3667,11 +3665,11 @@ var mainvue_type_template_id_983c62cc_scoped_true_staticRenderFns = [];
 
 var ytTable_src_main_component = normalizeComponent(
   components_ytTable_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_983c62cc_scoped_true_render,
-  mainvue_type_template_id_983c62cc_scoped_true_staticRenderFns,
+  mainvue_type_template_id_2d0ee757_scoped_true_render,
+  mainvue_type_template_id_2d0ee757_scoped_true_staticRenderFns,
   false,
   null,
-  "983c62cc",
+  "2d0ee757",
   null
   
 )
@@ -3683,6 +3681,170 @@ ytTable_src_main.install = Vue => {
   Vue.component(ytTable_src_main.name, ytTable_src_main);
 };
 /* harmony default export */ var ytTable = (ytTable_src_main);
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=abf684f8&scoped=true
+var mainvue_type_template_id_abf684f8_scoped_true_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('el-pagination', _vm._b({
+    style: _vm.pageColor,
+    attrs: {
+      "background": _vm.background,
+      "current-page": _vm.currentPage,
+      "page-size": _vm.pageSize,
+      "layout": _vm.layout,
+      "page-sizes": _vm.pageSizes,
+      "pager-count": _vm.pagerCount,
+      "total": _vm.total
+    },
+    on: {
+      "update:currentPage": function ($event) {
+        _vm.currentPage = $event;
+      },
+      "update:current-page": function ($event) {
+        _vm.currentPage = $event;
+      },
+      "update:pageSize": function ($event) {
+        _vm.pageSize = $event;
+      },
+      "update:page-size": function ($event) {
+        _vm.pageSize = $event;
+      },
+      "size-change": _vm.handleSizeChange,
+      "current-change": _vm.handleCurrentChange
+    }
+  }, 'el-pagination', _vm.$attrs, false));
+};
+var mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=script&lang=js
+/* harmony default export */ var ytPagination_src_mainvue_type_script_lang_js = ({
+  name: "ytPagination",
+  props: {
+    total: {
+      type: Number,
+      default: 0
+    },
+    // 总条目数
+    page: {
+      type: Number,
+      default: 1
+    },
+    limit: {
+      type: Number,
+      default: 20
+    },
+    pageSizes: {
+      type: Array,
+      default() {
+        return [10, 20, 30, 50];
+      }
+    },
+    // 每页显示个数选择器的选项设置
+    pagerCount: {
+      type: Number,
+      default: document.body.clientWidth < 992 ? 5 : 7
+    },
+    // 页码按钮的数量，当总页数超过该值时会折叠(大于等于 5 且小于等于 21 的奇数)
+    layout: {
+      type: String,
+      default: "total, sizes, prev, pager, next, jumper"
+    },
+    // 组件布局，子组件名用逗号分隔 (sizes, prev, pager, next, jumper, ->, total, slot)
+    background: {
+      type: Boolean,
+      default: true
+    },
+    // 是否为分页按钮添加背景色
+    paginationColor: {
+      type: Object,
+      default() {
+        return {
+          "--activeBgColor": "pink",
+          // 选中的背景色
+          "--fontColor": "yellow",
+          // 选中的字体颜色
+          "--hoverColor": "#ff0000" // 鼠标悬停的字体颜色
+        };
+      }
+    } // 分页按钮的样式
+  },
+
+  data() {
+    return {};
+  },
+  computed: {
+    pageColor() {
+      return this.paginationColor;
+    },
+    currentPage: {
+      get() {
+        return this.page;
+      },
+      set(val) {
+        this.$emit("update:page", val);
+      }
+    },
+    pageSize: {
+      get() {
+        return this.limit;
+      },
+      set(val) {
+        this.$emit("update:limit", val);
+      }
+    }
+  },
+  methods: {
+    handleSizeChange(val) {
+      if (this.currentPage * val > this.total) {
+        this.currentPage = 1;
+      }
+      this.$emit("pagination", {
+        page: this.currentPage,
+        limit: val
+      });
+    },
+    handleCurrentChange(val) {
+      this.$emit("pagination", {
+        page: val,
+        limit: this.pageSize
+      });
+    }
+  }
+});
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=script&lang=js
+ /* harmony default export */ var components_ytPagination_src_mainvue_type_script_lang_js = (ytPagination_src_mainvue_type_script_lang_js); 
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=abf684f8&prod&lang=scss&scoped=true
+// extracted by mini-css-extract-plugin
+
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=abf684f8&prod&lang=scss&scoped=true
+
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue
+
+
+
+;
+
+
+/* normalize component */
+
+var ytPagination_src_main_component = normalizeComponent(
+  components_ytPagination_src_mainvue_type_script_lang_js,
+  mainvue_type_template_id_abf684f8_scoped_true_render,
+  mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns,
+  false,
+  null,
+  "abf684f8",
+  null
+  
+)
+
+/* harmony default export */ var ytPagination_src_main = (ytPagination_src_main_component.exports);
+;// CONCATENATED MODULE: ./components/ytPagination/index.js
+
+ytPagination_src_main.install = Vue => {
+  Vue.component(ytPagination_src_main.name, ytPagination_src_main);
+};
+/* harmony default export */ var ytPagination = (ytPagination_src_main);
 ;// CONCATENATED MODULE: ./components/index.js
 // 全局样式
 
@@ -3695,7 +3857,8 @@ ytTable_src_main.install = Vue => {
 
 
 
-const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn, ytIsShowForm, ytTable];
+
+const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn, ytIsShowForm, ytTable, ytPagination];
 // 定义install方法
 const install = function (Vue) {
   if (install.installed) return;
