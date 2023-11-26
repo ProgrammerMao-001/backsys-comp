@@ -5,6 +5,7 @@
 -->
 <template>
   <el-pagination
+      :style="pageColor"
       v-bind="$attrs"
       :background="background"
       :current-page.sync="currentPage"
@@ -54,11 +55,16 @@ export default {
     }, // 是否为分页按钮添加背景色
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
+    pageColor() {
+      return {
+        '--activeBgColor': 'pink',
+        '--fontColor': '#fff',
+        '--hoverColor': '#ff0000',
+      };
+    },
     currentPage: {
       get() {
         return this.page;
@@ -92,7 +98,11 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep .active {
-  background-color: lightgreen !important;
-  color: red !important;
+  background-color: var(--activeBgColor) !important;
+  color: var(--fontColor) !important;
+}
+
+::v-deep .el-pager li:hover {
+  color: var(--hoverColor) !important;
 }
 </style>
