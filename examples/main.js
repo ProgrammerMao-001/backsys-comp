@@ -16,12 +16,14 @@ import ytForm from "../components/ytForm";
 import ytTableBtn from "../components/ytTableBtn";
 import ytIsShowForm from "../components/ytIsShowForm";
 import ytTable from "../components/ytTable";
+import ytPagination from "../components/ytPagination";
 Vue.use(ytRealCanvas)
 Vue.use(ytFileUpload)
 Vue.use(ytForm)
 Vue.use(ytTableBtn)
 Vue.use(ytIsShowForm)
 Vue.use(ytTable)
+Vue.use(ytPagination)
 
 
 Vue.config.productionTip = false

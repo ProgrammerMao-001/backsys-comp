@@ -1,33 +1,57 @@
 <template>
   <div id="app">
-    <div class="container" v-if="showPage === 'useYtRealCanvas'">
+    <div>
+      <el-form ref="form" :model="formData" label-width="90px" inline>
+        <el-form-item label="选择组件：">
+          <el-select
+            v-model="formData.showPage"
+            placeholder="选择需要展示的组件"
+          >
+            <el-option
+              v-for="item in pageList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <div class="container" v-if="formData.showPage === 'useYtRealCanvas'">
       <h3>useYtRealCanvas</h3>
       <useYtRealCanvas ref="useYtRealCanvas" />
     </div>
 
-    <div class="container" v-if="showPage === 'useYtFileUpload'">
+    <div class="container" v-if="formData.showPage === 'useYtFileUpload'">
       <h3>useYtFileUpload</h3>
       <useYtFileUpload ref="useYtFileUpload" />
     </div>
 
-    <div class="container" v-if="showPage === 'useYtForm'">
+    <div class="container" v-if="formData.showPage === 'useYtForm'">
       <h3>useYtForm</h3>
       <useYtForm ref="useYtForm" />
     </div>
 
-    <div class="container" v-if="showPage === 'useYtTableBtn'">
+    <div class="container" v-if="formData.showPage === 'useYtTableBtn'">
       <h3>useYtTableBtn</h3>
       <useYtTableBtn ref="useYtTableBtn" />
     </div>
 
-    <div class="container" v-if="showPage === 'useYtIsShowForm'">
+    <div class="container" v-if="formData.showPage === 'useYtIsShowForm'">
       <h3>useYtIsShowForm</h3>
       <useYtIsShowForm ref="useYtIsShowForm" />
     </div>
 
-    <div class="container" v-if="showPage === 'useYtTable'">
+    <div class="container" v-if="formData.showPage === 'useYtTable'">
       <h3>useYtTable</h3>
       <useYtTable ref="useYtTable" />
+    </div>
+
+    <div class="container" v-if="formData.showPage === 'useYtPagination'">
+      <h3>useYtPagination</h3>
+      <useYtPagination ref="useYtPagination" />
     </div>
   </div>
 </template>
@@ -39,6 +63,8 @@ import useYtForm from "./useYtForm/useYtForm.vue";
 import useYtTableBtn from "./useYtTableBtn/useYtTableBtn.vue";
 import useYtIsShowForm from "./useYtIsShowForm/useYtIsShowForm.vue";
 import useYtTable from "./useYtTable/useYtTable.vue";
+import useYtPagination from "./useYtPagination/useYtPagination.vue";
+
 export default {
   name: "App",
   components: {
@@ -48,10 +74,22 @@ export default {
     useYtTableBtn,
     useYtIsShowForm,
     useYtTable,
+    useYtPagination,
   },
   data() {
     return {
-      showPage: "useYtTable",
+      formData: {
+        showPage: "useYtPagination",
+      },
+      pageList: [
+        { value: "useYtFileUpload" },
+        { value: "useYtRealCanvas" },
+        { value: "useYtForm" },
+        { value: "useYtTableBtn" },
+        { value: "useYtIsShowForm" },
+        { value: "useYtTable" },
+        { value: "useYtPagination" },
+      ],
     };
   },
 };
