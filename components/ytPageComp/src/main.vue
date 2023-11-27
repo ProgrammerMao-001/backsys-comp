@@ -32,7 +32,8 @@
           <yt-table-btn
             v-if="btnList.length > 0"
             :btn-list="btnList"
-            @sonClick="changeBtn"
+            :permiArr="permiArr"
+            @sendClick="changeBtn"
           >
           </yt-table-btn>
         </div>
@@ -110,6 +111,10 @@ export default {
       type: Array,
       default: () => [],
     }, // 工具栏按钮组(新增、删除、导入、导出等)
+    permiArr: {
+      type: Array,
+      default: () => [],
+    },
     tableData: {
       type: Array,
       default: () => [],
@@ -302,6 +307,7 @@ export default {
      * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
+      console.log(type)
       this.$emit("on-response", type);
 
       if (type === "新增") {
