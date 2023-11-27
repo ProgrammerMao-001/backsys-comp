@@ -71,7 +71,6 @@ import useYtIsShowForm from "./useYtIsShowForm/useYtIsShowForm.vue";
 import useYtTable from "./useYtTable/useYtTable.vue";
 import useYtPagination from "./useYtPagination/useYtPagination.vue";
 import useYtPageComp from "./useYtPageComp/useYtPageComp.vue";
-
 export default {
   name: "App",
   components: {

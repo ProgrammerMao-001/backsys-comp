@@ -4,9 +4,7 @@
  * @Date: 2023/11/27 22:04
 -->
 <template>
-  <div class="useYtPageComp">
-    <ytPageComp ref="ytPageComp"></ytPageComp>
-  </div>
+  <ytPageComp ref="ytPageComp" class="ytPageComp"></ytPageComp>
 </template>
 
 <script>
