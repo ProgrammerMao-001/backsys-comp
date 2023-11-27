@@ -10,6 +10,7 @@ import ytTableBtn from "./ytTableBtn";
 import ytIsShowForm from "./ytIsShowForm";
 import ytTable from "./ytTable";
 import ytPagination from "./ytPagination";
+import ytPageComp from "./ytPageComp";
 
 const components = [
   ytRealCanvas,
@@ -19,6 +20,7 @@ const components = [
   ytIsShowForm,
   ytTable,
   ytPagination,
+  ytPageComp,
 ];
 // 定义install方法
 const install = function (Vue) {

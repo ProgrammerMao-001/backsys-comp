@@ -53,6 +53,11 @@
       <h3>useYtPagination</h3>
       <useYtPagination ref="useYtPagination" />
     </div>
+
+    <div class="container" v-if="formData.showPage === 'useYtPageComp'">
+      <h3>useYtPageComp</h3>
+      <useYtPageComp ref="useYtPageComp" />
+    </div>
   </div>
 </template>
 
@@ -64,7 +69,7 @@ import useYtTableBtn from "./useYtTableBtn/useYtTableBtn.vue";
 import useYtIsShowForm from "./useYtIsShowForm/useYtIsShowForm.vue";
 import useYtTable from "./useYtTable/useYtTable.vue";
 import useYtPagination from "./useYtPagination/useYtPagination.vue";
-
+import useYtPageComp from "./useYtPageComp/useYtPageComp.vue";
 export default {
   name: "App",
   components: {
@@ -75,11 +80,12 @@ export default {
     useYtIsShowForm,
     useYtTable,
     useYtPagination,
+    useYtPageComp,
   },
   data() {
     return {
       formData: {
-        showPage: "useYtPagination",
+        showPage: "ytPageComp",
       },
       pageList: [
         { value: "useYtFileUpload" },
@@ -89,6 +95,7 @@ export default {
         { value: "useYtIsShowForm" },
         { value: "useYtTable" },
         { value: "useYtPagination" },
+        { value: "useYtPageComp" },
       ],
     };
   },
