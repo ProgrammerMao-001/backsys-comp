@@ -7,63 +7,74 @@
 <template>
   <div>
     <ytPageComp
-        ref="ytPageComp"
-        idName="id"
-        :formLabel="formLabel"
-        :btnList="btnList"
-        :permiArr="permiArr"
-        :tableData="tableData"
-        :tableConfig="tableConfig"
-        :tableDataColumn="tableDataColumn"
-        :total="total"
-        :paginationConfig.sync="paginationConfig"
-        :pageSizes="pageSizes"
-        :importData="importData"
-        :exportTypeAndUrl="exportTypeAndUrl"
-        @on-response="getBtnType"
-        @getTableData="getTableData"
-        @showPublicDialog="showPublicDialog"
-        @deleteRows="deleteRows"
+      ref="ytPageComp"
+      idName="id"
+      :formLabel="formLabel"
+      :btnList="btnList"
+      :permiArr="permiArr"
+      :tableData="tableData"
+      :tableConfig="tableConfig"
+      :tableDataColumn="tableDataColumn"
+      :total="total"
+      :paginationConfig.sync="paginationConfig"
+      :pageSizes="pageSizes"
+      :importData="importData"
+      :exportTypeAndUrl="exportTypeAndUrl"
+      @on-response="getBtnType"
+      @getTableData="getTableData"
+      @showPublicDialog="showPublicDialog"
+      @deleteRows="deleteRows"
     >
-<!--      <template slot="noticeType" slot-scope="scope">-->
-<!--        <dict-tag-->
-<!--            :options="dict.type.sys_notice_type"-->
-<!--            :value="scope.row.noticeType"-->
-<!--        />-->
-<!--      </template>-->
+      <!--      <template slot="noticeType" slot-scope="scope">-->
+      <!--        <dict-tag-->
+      <!--            :options="dict.type.sys_notice_type"-->
+      <!--            :value="scope.row.noticeType"-->
+      <!--        />-->
+      <!--      </template>-->
 
-<!--      <template slot="status" slot-scope="scope">-->
-<!--        <dict-tag-->
-<!--            :options="dict.type.sys_notice_status"-->
-<!--            :value="scope.row.status"-->
-<!--        />-->
-<!--      </template>-->
+      <!--      <template slot="status" slot-scope="scope">-->
+      <!--        <dict-tag-->
+      <!--            :options="dict.type.sys_notice_status"-->
+      <!--            :value="scope.row.status"-->
+      <!--        />-->
+      <!--      </template>-->
+
+      <template slot="img" slot-scope="scope">
+        <el-image
+          style="width: 80px; height: 110px"
+          :src="scope.row.img"
+          :preview-src-list="[scope.row.img]"
+          width="160"
+          height="220"
+        />
+      </template>
+
+      <template slot="sc" slot-scope="scope">
+        {{ scope.row.sc === 0 ? "暂无评分" : scope.row.sc }}
+      </template>
 
       <template slot="operationSlot" slot-scope="scope">
         <el-button
-            v-hasPermi="['system:user:resetPwd']"
-            type="text"
-            size="small"
-            icon="iconfont if-biaodancaozuo-xiangqing"
-            @click="doSomething(scope.row, '详情')"
-        >详情
+          type="text"
+          size="small"
+          icon="iconfont if-biaodancaozuo-xiangqing"
+          @click="doSomething(scope.row, '详情')"
+          >详情
         </el-button>
         <el-button
-            v-hasPermi="['system:user:resetPwd']"
-            type="text"
-            size="small"
-            icon="iconfont if-biaodancaozuo-xiugai"
-            @click="doSomething(scope.row, '修改')"
-        >修改
+          type="text"
+          size="small"
+          icon="iconfont if-biaodancaozuo-xiugai"
+          @click="doSomething(scope.row, '修改')"
+          >修改
         </el-button>
         <el-button
-            v-hasPermi="['system:user:resetPwd']"
-            type="text"
-            size="small"
-            icon="iconfont if-biaodancaozuo-shanchu"
-            style="color: #fc5c5c"
-            @click="doSomething(scope.row, '删除')"
-        >删除
+          type="text"
+          size="small"
+          icon="iconfont if-biaodancaozuo-shanchu"
+          style="color: #fc5c5c"
+          @click="doSomething(scope.row, '删除')"
+          >删除
         </el-button>
       </template>
     </ytPageComp>
@@ -71,9 +82,10 @@
 </template>
 
 <script>
+import tableData from "./tableData";
 
 export default {
-  name: "howToUse",
+  name: "useYtPageComp",
   components: {},
   props: {},
   dicts: [],
@@ -135,14 +147,14 @@ export default {
         loading: false,
       },
       tableDataColumn: [
-        {label: "多选", type: "selection"},
-        {label: "序号", type: "index"},
-        {label: "日期", value: "date"},
-        {label: "姓名", value: "name"},
-        {label: "省份", value: "province"},
-        {label: "地址", value: "address"},
-        {label: "邮编", value: "zip"},
-        {label: "操作", value: "operationSlot", isSlot: true},
+        { label: "多选", type: "selection" },
+        { label: "序号", type: "index" },
+        { label: "海报", value: "img", isSlot: true, width: 100 },
+        { label: "电影名", value: "nm" },
+        { label: "观众评分", value: "sc", isSlot: true },
+        { label: "主演", value: "star" },
+        { label: "演出信息", value: "showInfo" },
+        { label: "操作", value: "operationSlot", isSlot: true },
       ],
       total: 0,
       paginationConfig: {
@@ -167,58 +179,9 @@ export default {
     getTableData() {
       this.tableConfig.loading = true;
       setTimeout(() => {
-        this.tableData = [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }]
+        this.tableData = tableData;
         this.tableConfig.loading = false;
-      }, 500)
+      }, 500);
     },
 
     getBtnType(type) {
@@ -235,22 +198,20 @@ export default {
     },
 
     deleteRows(id) {
-      console.log(id)
+      console.log(id);
     },
 
     showPublicDialog(data, type) {
-      console.log(data, type)
+      console.log(data, type);
     },
 
     showDetailDialog(data, type) {
-      let passData = {data, type};
+      let passData = { data, type };
       console.log(passData, "passData");
     },
   },
-  created() {
-  },
-  mounted() {
-  },
+  created() {},
+  mounted() {},
 };
 </script>
 
