@@ -4,7 +4,7 @@
  * @Date: 2023/11/27 22:00
 -->
 <template>
-  <div class="app-container">
+  <div class="ytPageComp">
     <div class="search-box">
       <!-- 搜索条件 -->
       <yt-form
@@ -24,7 +24,7 @@
 
       <!-- 工具栏 -->
       <div
-        class="tools-config"
+        class="tools-config dfr"
         v-if="btnList.length > 0 || formLabel.length > 0"
       >
         <!-- 左侧按钮组 -->
@@ -184,7 +184,7 @@ export default {
   watch: {
     showSearch(newValue) {
       let fc = document.querySelector(".formComponent"); // 筛选条件那一栏
-      let ac = document.querySelector(".app-container"); // 最外层
+      let ac = document.querySelector(".ytPageComp"); // 最外层
       let sb = document.querySelector(".search-box"); // 搜索栏 + 功能按钮栏（显示隐藏）
       let pc = document.querySelector(".paginationComponent"); // 分页
       if (!newValue) {
@@ -307,7 +307,7 @@ export default {
      * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
-      console.log(type)
+      console.log(type);
       this.$emit("on-response", type);
 
       if (type === "新增") {
@@ -400,7 +400,7 @@ export default {
      * */
     initTableHeight() {
       this.$nextTick(() => {
-        let ac = document.querySelector(".app-container"); // 最外层
+        let ac = document.querySelector(".ytPageComp"); // 最外层
         let sb = document.querySelector(".search-box"); // 搜索栏 + 功能按钮栏（显示隐藏）
         let pc = document.querySelector(".paginationComponent"); // 分页
         this.tableHeight = `calc(${ac.clientHeight}px - ${
@@ -438,10 +438,10 @@ export default {
 </script>
 
 <style lang="scss">
-.app-container {
-  height: calc(100vh - 132px + 14px) !important;
+.ytPageComp {
+  width: 100%;
+  height: 100%;
   font-size: 14px !important;
-  font-family: "MicrosoftYaHei-Bold, MicrosoftYaHei";
 }
 
 ::v-deep .el-table .cell .el-dropdown .el-dropdown-link {
@@ -467,5 +467,12 @@ export default {
   background: #eeeeee;
   width: 100%;
   margin-bottom: 10px;
+}
+
+.tools-config {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 48px;
 }
 </style>

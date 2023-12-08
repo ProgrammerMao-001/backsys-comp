@@ -1,5 +1,27 @@
 export default [
     {
+        "id": 1368198,
+        "haspromotionTag": false,
+        "img": "https://p0.pipi.cn/mmdb/fb7386928ea33850c8c696fa5301602bf05e8.jpg?imageMogr2/thumbnail/2500x2500%3E",
+        "version": "v2d imax",
+        "nm": "拿破仑",
+        "preShow": false,
+        "sc": 0,
+        "globalReleased": false,
+        "wish": 36109,
+        "star": "杰昆·菲尼克斯,凡妮莎·柯比,塔哈·拉希姆",
+        "rt": "2023-12-01",
+        "showInfo": "2023-12-01 本周五上映",
+        "showst": 4,
+        "wishst": 0,
+        "comingTitle": "12月1日 周五",
+        "showStateButton": {
+            "color": "#3C9FE6",
+            "content": "预售",
+            "onlyPreShow": false
+        }
+    },
+    {
         "bingeWatch": 0,
         "boxInfo": "上映6天，累计票房6306万",
         "cat": "剧情",
@@ -767,23 +789,6 @@ export default [
         "comingTitle": "10月17日 周二",
         "showStateButton": {"color": "#F03D37", "content": "购票", "onlyPreShow": false}
     }, {
-        "id": 1502343,
-        "haspromotionTag": false,
-        "img": "https://p0.pipi.cn/mmdb/fb7386923390fa06d6d23c76e6a7f59140d73.jpg?imageMogr2/thumbnail/2500x2500%3E",
-        "version": "",
-        "nm": "画魔人",
-        "preShow": false,
-        "sc": 0,
-        "globalReleased": true,
-        "wish": 5361,
-        "star": "连凯,赵然,曾江",
-        "rt": "2023-10-27",
-        "showInfo": "今天1家影院放映1场",
-        "showst": 3,
-        "wishst": 0,
-        "comingTitle": "10月27日 周五",
-        "showStateButton": {"color": "#F03D37", "content": "购票", "onlyPreShow": false}
-    }, {
         "id": 1371010,
         "haspromotionTag": false,
         "img": "https://p0.pipi.cn/mmdb/fb738651b532ff0e133ba33fb8cff00145aa4.jpg?imageMogr2/thumbnail/2500x2500%3E",
@@ -834,29 +839,6 @@ export default [
         "wishst": 0,
         "comingTitle": "2021年12月20日 周一",
         "showStateButton": {"color": "#F03D37", "content": "购票", "onlyPreShow": false}
-    },
-
-    {
-        "id": 1368198,
-        "haspromotionTag": false,
-        "img": "https://p0.pipi.cn/mmdb/fb7386928ea33850c8c696fa5301602bf05e8.jpg?imageMogr2/thumbnail/2500x2500%3E",
-        "version": "v2d imax",
-        "nm": "拿破仑",
-        "preShow": false,
-        "sc": 0,
-        "globalReleased": false,
-        "wish": 36109,
-        "star": "杰昆·菲尼克斯,凡妮莎·柯比,塔哈·拉希姆",
-        "rt": "2023-12-01",
-        "showInfo": "2023-12-01 本周五上映",
-        "showst": 4,
-        "wishst": 0,
-        "comingTitle": "12月1日 周五",
-        "showStateButton": {
-            "color": "#3C9FE6",
-            "content": "预售",
-            "onlyPreShow": false
-        }
     },
     {
         "id": 1479147,

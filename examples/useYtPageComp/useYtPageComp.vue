@@ -5,8 +5,9 @@
 -->
 
 <template>
-  <div>
+  <div class="useYtPageComp">
     <ytPageComp
+      class="useYtPageComp-ytPageComp bgreen"
       ref="ytPageComp"
       idName="id"
       :formLabel="formLabel"
@@ -93,26 +94,87 @@ export default {
     return {
       formLabel: [
         {
-          label: "公告标题",
-          value: "noticeTitle",
+          label: "电影名",
+          value: "nm",
           type: "input",
         },
         {
-          label: "创建人",
-          value: "createBy",
+          label: "主演",
+          value: "star",
+          type: "input",
+        },
+        {
+          label: "导演",
+          value: "dir",
+          type: "input",
+        },
+        {
+          label: "版本",
+          value: "version",
           type: "select",
-          opts: [],
-          optLabel: "deptName",
-          optValue: "deptId",
+          opts: [
+            {
+              version: "v2d imax",
+            },
+            {
+              version: "v3d",
+            },
+          ],
+          optLabel: "version",
+          optValue: "version",
         },
         {
           label: "类型",
-          value: "noticeType",
+          value: "cat",
           type: "select",
-          opts: [],
-          dict: "sys_notice_type",
-          optLabel: "dictLabel",
-          optValue: "dictValue",
+          opts: [
+            {
+              cat: "剧情",
+            },
+            {
+              cat: "犯罪",
+            },
+            {
+              cat: "悬疑",
+            },
+            {
+              cat: "喜剧",
+            },
+            {
+              cat: "动画",
+            },
+            {
+              cat: "奇幻",
+            },
+            {
+              cat: "冒险",
+            },
+            {
+              cat: "谍战",
+            },
+            {
+              cat: "家庭",
+            },
+            {
+              cat: "科幻",
+            },
+            {
+              cat: "动作",
+            },
+            {
+              cat: "爱情",
+            },
+            {
+              cat: "青春",
+            },
+          ],
+          optLabel: "cat",
+          optValue: "cat",
+        },
+        {
+          label: "上映时间",
+          value: "rt",
+          type: "daterange",
         },
       ],
       btnList: [
@@ -151,9 +213,13 @@ export default {
         { label: "序号", type: "index" },
         { label: "海报", value: "img", isSlot: true, width: 100 },
         { label: "电影名", value: "nm" },
-        { label: "观众评分", value: "sc", isSlot: true },
+        { label: "类型", value: "cat" },
+        { label: "观众评分", value: "sc", sortable: true, isSlot: true },
         { label: "主演", value: "star" },
+        { label: "导演", value: "dir" },
+        { label: "版本", value: "version" },
         { label: "演出信息", value: "showInfo" },
+        { label: "上映时间", value: "rt" },
         { label: "操作", value: "operationSlot", isSlot: true },
       ],
       total: 0,
@@ -215,4 +281,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.useYtPageComp {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  &-ytPageComp {
+    width: calc(100vw - 220px);
+    height: calc(100vh - 70px);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+</style>

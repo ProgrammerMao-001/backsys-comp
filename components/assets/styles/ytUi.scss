@@ -1,0 +1,21 @@
+// 红色边框
+.bred {
+  border: 2px solid red;
+  box-sizing: border-box;
+}
+
+//绿色边框
+.bgreen {
+  border: 2px solid lightgreen;
+  box-sizing: border-box;
+}
+
+.dfr {
+  display: flex;
+  flex-direction: row;
+}
+
+.dfc {
+  display: flex;
+  flex-direction: column;
+}

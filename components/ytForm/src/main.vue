@@ -81,8 +81,8 @@
           :type="item.type"
           :picker-options="item.pickerOptions || pickerOptions"
           :range-separator="item.rangeSeparator"
-          :start-placeholder="item.startPlaceholder"
-          :end-placeholder="item.endPlaceholder"
+          :start-placeholder="item.startPlaceholder || '开始时间'"
+          :end-placeholder="item.endPlaceholder || '结束时间'"
           :align="item.align || 'center'"
           :value-format="item.valueFormat || 'yyyy-MM-dd HH:mm:ss'"
         />
