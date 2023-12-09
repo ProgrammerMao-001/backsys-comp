@@ -220,7 +220,7 @@ export default {
         { label: "版本", value: "version" },
         { label: "演出信息", value: "showInfo" },
         { label: "上映时间", value: "rt" },
-        { label: "操作", value: "operationSlot", isSlot: true },
+        { label: "操作", value: "operationSlot", isSlot: true, width: 120 },
       ],
       total: 0,
       paginationConfig: {
@@ -244,11 +244,12 @@ export default {
   methods: {
     getTableData() {
       this.tableConfig.loading = true;
+      console.log(this.paginationConfig, "paginationConfig")
       setTimeout(() => {
-        this.tableData = tableData;
+        this.tableData = tableData.slice((this.paginationConfig.pageNum - 1) * this.paginationConfig.pageSize, this.paginationConfig.pageNum * this.paginationConfig.pageSize);
         this.total = tableData.length;
         this.tableConfig.loading = false;
-      }, 500);
+      }, 200);
     },
 
     getBtnType(type) {
