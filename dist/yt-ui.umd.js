@@ -2774,8 +2774,8 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytFileUpload = (src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=a0ae1e40&scoped=true
-var mainvue_type_template_id_a0ae1e40_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=7a09f921&scoped=true
+var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -2884,8 +2884,8 @@ var mainvue_type_template_id_a0ae1e40_scoped_true_render = function render() {
         "type": item.type,
         "picker-options": item.pickerOptions || _vm.pickerOptions,
         "range-separator": item.rangeSeparator,
-        "start-placeholder": item.startPlaceholder,
-        "end-placeholder": item.endPlaceholder,
+        "start-placeholder": item.startPlaceholder || '开始时间',
+        "end-placeholder": item.endPlaceholder || '结束时间',
         "align": item.align || 'center',
         "value-format": item.valueFormat || 'yyyy-MM-dd HH:mm:ss'
       },
@@ -2918,7 +2918,7 @@ var mainvue_type_template_id_a0ae1e40_scoped_true_render = function render() {
     }
   }, [_vm._v("重置 ")]), _vm._t("btnSlot")], 2), _c('el-form-item'), _c('el-form-item', [_vm._t("otherSlot")], 2)], 1) : _vm._e()], 2)], 1);
 };
-var mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytForm_src_mainvue_type_script_lang_js = ({
@@ -3056,10 +3056,10 @@ var mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytForm_src_mainvue_type_script_lang_js = (ytForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=a0ae1e40&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=a0ae1e40&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue
 
@@ -3072,11 +3072,11 @@ var mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns = [];
 
 var src_main_component = normalizeComponent(
   components_ytForm_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_a0ae1e40_scoped_true_render,
-  mainvue_type_template_id_a0ae1e40_scoped_true_staticRenderFns,
+  mainvue_type_template_id_7a09f921_scoped_true_render,
+  mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns,
   false,
   null,
-  "a0ae1e40",
+  "7a09f921",
   null
   
 )
@@ -3088,8 +3088,8 @@ ytForm_src_main.install = Vue => {
   Vue.component(ytForm_src_main.name, ytForm_src_main);
 };
 /* harmony default export */ var ytForm = (ytForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=template&id=51943843&scoped=true
-var mainvue_type_template_id_51943843_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=template&id=55c9756d&scoped=true
+var mainvue_type_template_id_55c9756d_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3119,7 +3119,7 @@ var mainvue_type_template_id_51943843_scoped_true_render = function render() {
     }, [_vm._v(" " + _vm._s(item.name) + " ")])])]);
   }), 0)]);
 };
-var mainvue_type_template_id_51943843_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_55c9756d_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
 
@@ -3161,7 +3161,6 @@ var mainvue_type_template_id_51943843_scoped_true_staticRenderFns = [];
         if (!(key in item)) hasNotArr.push(item);
       });
       this.btnListNew = hasArr.concat(hasNotArr);
-      console.log(this.btnListNew);
     }
   },
   methods: {
@@ -3178,10 +3177,10 @@ var mainvue_type_template_id_51943843_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTableBtn_src_mainvue_type_script_lang_js = (ytTableBtn_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=51943843&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=55c9756d&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=51943843&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=55c9756d&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue
 
@@ -3194,11 +3193,11 @@ var mainvue_type_template_id_51943843_scoped_true_staticRenderFns = [];
 
 var ytTableBtn_src_main_component = normalizeComponent(
   components_ytTableBtn_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_51943843_scoped_true_render,
-  mainvue_type_template_id_51943843_scoped_true_staticRenderFns,
+  mainvue_type_template_id_55c9756d_scoped_true_render,
+  mainvue_type_template_id_55c9756d_scoped_true_staticRenderFns,
   false,
   null,
-  "51943843",
+  "55c9756d",
   null
   
 )
@@ -3691,8 +3690,8 @@ ytTable_src_main.install = Vue => {
   Vue.component(ytTable_src_main.name, ytTable_src_main);
 };
 /* harmony default export */ var ytTable = (ytTable_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=abf684f8&scoped=true
-var mainvue_type_template_id_abf684f8_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=619a8348&scoped=true
+var mainvue_type_template_id_619a8348_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('el-pagination', _vm._b({
@@ -3724,7 +3723,7 @@ var mainvue_type_template_id_abf684f8_scoped_true_render = function render() {
     }
   }, 'el-pagination', _vm.$attrs, false));
 };
-var mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_619a8348_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytPagination_src_mainvue_type_script_lang_js = ({
@@ -3823,10 +3822,10 @@ var mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPagination_src_mainvue_type_script_lang_js = (ytPagination_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=abf684f8&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=619a8348&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=abf684f8&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=619a8348&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue
 
@@ -3839,11 +3838,11 @@ var mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns = [];
 
 var ytPagination_src_main_component = normalizeComponent(
   components_ytPagination_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_abf684f8_scoped_true_render,
-  mainvue_type_template_id_abf684f8_scoped_true_staticRenderFns,
+  mainvue_type_template_id_619a8348_scoped_true_render,
+  mainvue_type_template_id_619a8348_scoped_true_staticRenderFns,
   false,
   null,
-  "abf684f8",
+  "619a8348",
   null
   
 )
@@ -3855,6 +3854,493 @@ ytPagination_src_main.install = Vue => {
   Vue.component(ytPagination_src_main.name, ytPagination_src_main);
 };
 /* harmony default export */ var ytPagination = (ytPagination_src_main);
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=2784273b
+var mainvue_type_template_id_2784273b_render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    staticClass: "ytPageComp"
+  }, [_c('div', {
+    staticClass: "search-box"
+  }, [_vm.formLabel.length > 0 ? _c('yt-form', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.showSearch,
+      expression: "showSearch"
+    }],
+    staticClass: "formComponent",
+    attrs: {
+      "form": _vm.paginationConfig,
+      "form-label": _vm.formLabel
+    },
+    on: {
+      "handleSearch": _vm.handleSearch,
+      "handleResetFrom": _vm.handleResetFrom
+    }
+  }) : _vm._e(), _vm.formLabel.length > 0 ? _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.showSearch,
+      expression: "showSearch"
+    }],
+    staticClass: "lineH"
+  }) : _vm._e(), _vm.btnList.length > 0 || _vm.formLabel.length > 0 ? _c('div', {
+    staticClass: "tools-config dfr"
+  }, [_c('div', {
+    staticClass: "left"
+  }, [_vm.btnList.length > 0 ? _c('yt-table-btn', {
+    attrs: {
+      "btn-list": _vm.btnList,
+      "permiArr": _vm.permiArr
+    },
+    on: {
+      "sendClick": _vm.changeBtn
+    }
+  }) : _vm._e()], 1), _c('div', {
+    staticClass: "right"
+  }, [_vm.formLabel.length > 0 ? _c('yt-is-show-form', {
+    attrs: {
+      "show-search": _vm.showSearch
+    },
+    on: {
+      "update:showSearch": function ($event) {
+        _vm.showSearch = $event;
+      },
+      "update:show-search": function ($event) {
+        _vm.showSearch = $event;
+      }
+    }
+  }) : _vm._e()], 1)]) : _vm._e()], 1), _c('transition', {
+    attrs: {
+      "name": "page-transition",
+      "mode": "out-in"
+    }
+  }, [_vm.showTable ? _c('yt-table', {
+    ref: "tableComponent",
+    staticClass: "tableComponent",
+    attrs: {
+      "table-data": _vm.tableData,
+      "table-config": _vm.tableConfig,
+      "table-data-column": _vm.tableDataColumn,
+      "height": _vm.tableHeight,
+      "idName": _vm.idName,
+      "paginationConfig": _vm.paginationConfig,
+      "btnWidth": _vm.btnWidth
+    },
+    on: {
+      "handleSelectionChange": _vm.handleSelectionChange
+    },
+    scopedSlots: _vm._u([_vm._l(_vm.tableSlotArr, function (item) {
+      return {
+        key: item.value,
+        fn: function (scope) {
+          return [_vm._t(item.value, null, {
+            "row": scope.row
+          })];
+        }
+      };
+    })], null, true)
+  }) : _vm._e()], 1), _c('div', {
+    staticClass: "paginationComponent dfr"
+  }, [_vm.total > 0 ? _c('yt-pagination', {
+    attrs: {
+      "total": _vm.total,
+      "page": _vm.paginationConfig.pageNum,
+      "limit": _vm.paginationConfig.pageSize,
+      "page-sizes": _vm.pageSizes
+    },
+    on: {
+      "pagination": _vm.handleChangePagination
+    }
+  }) : _vm._e()], 1)], 1);
+};
+var mainvue_type_template_id_2784273b_staticRenderFns = [];
+
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
+/* harmony default export */ var ytPageComp_src_mainvue_type_script_lang_js = ({
+  name: "ytPageComp",
+  dicts: [],
+  components: {},
+  props: {
+    formLabel: {
+      type: Array,
+      default: () => []
+    },
+    // 搜索条件
+    btnWidth: {
+      type: String,
+      default: "240px"
+    },
+    // 操作栏宽度
+    btnList: {
+      type: Array,
+      default: () => []
+    },
+    // 工具栏按钮组(新增、删除、导入、导出等)
+    permiArr: {
+      type: Array,
+      default: () => []
+    },
+    tableData: {
+      type: Array,
+      default: () => []
+    },
+    // 表格数据
+    tableConfig: {
+      type: Object,
+      default: () => {
+        return {
+          isLoading: false
+        };
+      }
+    },
+    // 表格loading配置项
+    tableDataColumn: {
+      type: Array,
+      default: () => []
+    },
+    // 表格的表头数据
+    total: {
+      type: Number,
+      default: 0
+    },
+    // 表格数据长度
+    paginationConfig: {
+      type: Object,
+      default: () => {
+        return {
+          pageNum: 1,
+          pageSize: 10
+        };
+      }
+    },
+    // 表格的分页参数
+    pageSizes: {
+      type: Array,
+      default: () => [5, 10, 15, 20]
+    },
+    // 表格分页大小
+    idName: {
+      type: String,
+      default: "id"
+    },
+    // 表格单行数据的唯一标识（默认为 id）
+    importData: {
+      type: Object,
+      default: () => {
+        return {
+          fileTitle: null,
+          // 导入的文件名称（即弹窗的标题） String
+          importType: null,
+          // 导入文件时选择的微服务类型 String
+          importUrl: null,
+          // 导入的接口地址 String
+          templateType: null,
+          // 模板下载使用的微服务名称 String
+          templateUrl: null // 模板下载地址 String
+        };
+      }
+    },
+
+    // 导入文件时需要的参数
+    exportTypeAndUrl: {
+      type: Object,
+      default: () => {
+        return {
+          isCustom: false,
+          // 是否需要其他的自定义传参
+          exportType: null,
+          // 导出文件时的微服务类型 String
+          exportUrl: null // 导出的接口地址 String
+        };
+      }
+    },
+
+    // 导出的文件接口路径 需要的格式如：{ exportType: 'forklift', exportUrl: '/forklift/driverInfo/exportCardInfo' }
+    customObj: {
+      type: Object,
+      default: () => {
+        return {};
+      }
+    } // 自定义导出文件的参数 exportTypeAndUrl.isCustom = true 的时候需要传递的参数
+  },
+
+  watch: {
+    showSearch(newValue) {
+      let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
+      // let fc = document.querySelector(".formComponent"); // 筛选条件那一栏
+      let sb = document.querySelector(".search-box"); // 左侧按钮组 + 右侧的显示隐藏那一栏
+      let pc = document.querySelector(".paginationComponent"); // 分页
+      if (!newValue) {
+        /* 筛选隐藏时 */
+        setTimeout(() => {
+          this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
+        }, 1);
+      } else {
+        /* 筛选显示时 */
+        setTimeout(() => {
+          this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
+        }, 1);
+      }
+    }
+  },
+  computed: {
+    tableSlotArr() {
+      /* 需要插槽（字典、操作栏）[tableDataColumn中isSlot===true组成的数组] */
+      return this.tableDataColumn.filter(item => item.isSlot);
+    } // 初始化插槽数组
+  },
+
+  data() {
+    return {
+      showSearch: true,
+      // 显示搜索条件
+      ids: [],
+      // 表格中选中的id
+      xlsData: {
+        title: null,
+        open: false,
+        url: null,
+        templateUrl: null
+      },
+      // 文件上传需要的参数
+
+      /* 完整的 xlsData demo */
+      // xlsData: {
+      //   title: "物资入库导入",
+      //   open: false,
+      //   url:
+      //     process.env.VUE_APP_BASE_API +
+      //     requestType.road +
+      //     "/direct/resourceApply/importApply", // 上传接口
+      //   templateUrl: requestType.road + "/direct/resourceApply/downTemplate", // 下载接口
+      // },
+      /* 完整的 xlsData demo */
+
+      tableHeight: "0",
+      // 表格的高度
+      resizeE: null,
+      // 监听器
+      showTable: false // 是否展示表格
+    };
+  },
+
+  methods: {
+    /**
+     * @Event 方法
+     * @description: 查询
+     * @more: 重置分页参数并查询指定的表单条件
+     * */
+    handleSearch(searchData) {
+      let updateData = {
+        ...searchData,
+        pageNum: 1,
+        pageSize: 10
+      };
+      this.$emit("update:paginationConfig", updateData);
+      this.getList();
+    },
+    /**
+     * @Event 方法
+     * @description: 重置表单并重新获取表格数据
+     * @more: 配合父组件中 .sync使用，:update实现更新父组件传递进来的数据
+     * */
+    handleResetFrom() {
+      let updateData = {
+        pageNum: 1,
+        pageSize: 10
+      }; // 分页参数
+      this.$emit("update:paginationConfig", updateData);
+      this.$refs.tableComponent.handleResetSelection();
+      this.$emit("resetForm"); // 父组件中自定义的重置筛选框的方法（如父组件中筛选项需设置默认值）
+      this.getList();
+    },
+    /**
+     * @Event 方法
+     * @description: 接收父组件传递来的 获取表格数据 的方法
+     * @use: @getTableData="父组件中获取表格数据的Event"
+     * */
+    async getList() {
+      this.showTable = false;
+      await this.$emit("getTableData");
+      this.$nextTick(() => {
+        this.showTable = true;
+      });
+    },
+    /**
+     * @Interface 接口
+     * @description: 初始化搜索栏的数据(字典)
+     * */
+    getCardTypeOptions() {
+      console.log(this.formLabel, "formLabel");
+      // this.formLabel.forEach((item) => {
+      //   if (item.dict) {
+      //     getDicts(item.dict).then((res) => {
+      //       item.opts = res.data;
+      //     });
+      //   }
+      // });
+    },
+
+    /**
+     * @Event 方法
+     * @description: 将点击的按钮的名称传递给父组件
+     * @use: 父组件中 @on-response="getBtnType" 用来接收按钮类型名称
+     * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
+     * */
+    changeBtn(type) {
+      this.$emit("on-response", type);
+      if (type === "新增") {
+        this.$emit("showPublicDialog", null, type);
+      }
+      // if (type === "导入") {
+      //   this.xlsData = {
+      //     title: this.importData.fileTitle,
+      //     open: false,
+      //     url:
+      //         process.env.VUE_APP_BASE_API +
+      //         requestType[this.importData.importType] +
+      //         this.importData.importUrl, // 文件上传接口
+      //     templateUrl:
+      //         requestType[this.importData.templateType] +
+      //         this.importData.templateUrl, // 模板下载接口
+      //   };
+      //   this.handleImport();
+      // }
+      // if (type === "导出") {
+      //   this.download(
+      //       requestType[this.exportTypeAndUrl.exportType] +
+      //       this.exportTypeAndUrl.exportUrl,
+      //       `xxx.xlsx`,
+      //       this.exportTypeAndUrl.isCustom
+      //           ? this.customObj
+      //           : this.paginationConfig
+      //   );
+
+      /* 完整的导出接口 demo */
+      // this.download(
+      //   requestType.road + "/maintainRoad/ManagementDevice/export",
+      //   `设备数据.xlsx`,
+      //   this.paginationConfig
+      // );
+      /* 完整的导出接口 demo */
+      // }
+      // if (type === "删除") {
+      //   if (this.ids.length === 0) {
+      //     this.$message.error("请先至少选择一条数据");
+      //   } else {
+      //     this.$emit("deleteRows", this.ids);
+      //   }
+      // }
+    },
+
+    /**
+     * @Event 方法
+     * @description: 分页变化事件
+     * */
+    handleChangePagination(obj) {
+      let updateData = {
+        ...this.paginationConfig,
+        pageNum: obj.page,
+        pageSize: obj.limit
+      };
+      this.$emit("update:paginationConfig", updateData);
+      this.getList();
+    },
+    /**
+     * @Event 方法
+     * @description: 接收 tableComponent 传来的选中行的数据
+     * @param: selection: 选中的表格的行数组， idName: 需要处理的id的名称（默认id）
+     * */
+    handleSelectionChange(selection) {
+      this.ids = selection.map(item => item[this.idName]);
+    },
+    /**
+     * @Event 方法
+     * @description: 打开导入组件
+     * */
+    handleImport() {
+      this.xlsData.open = true;
+    },
+    /**
+     * @Event 方法
+     * @description: 完成导入
+     * */
+    importSubmit() {
+      this.xlsData.open = false;
+      this.getList();
+    },
+    /**
+     * @Event 方法
+     * @description: 初始化表格高度
+     * */
+    initTableHeight() {
+      this.$nextTick(() => {
+        let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
+        let sb = document.querySelector(".search-box"); // 搜索栏 + 工具栏（左侧按钮组 + 右侧的显示隐藏）
+        let pc = document.querySelector(".paginationComponent"); // 分页
+        this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
+      });
+    }
+  },
+  created() {
+    function debounce(func, wait) {
+      //定时器变量
+      var timeout;
+      return function () {
+        //每次触发scrolle，先清除定时器
+        clearTimeout(timeout);
+        //指定多少秒后触发事件操作handler
+        timeout = setTimeout(func, wait);
+      };
+    }
+    this.getList(); // 获取表格数据
+    this.getCardTypeOptions(); // 获取搜索栏字典的数据
+    this.initTableHeight(); // 初始化表格高度
+    this.resizeE = debounce(this.initTableHeight, 300); // 防抖
+    window.addEventListener("resize", this.resizeE);
+  },
+  mounted() {},
+  beforeDestroy() {
+    window.removeEventListener("resize", this.resizeE);
+  }
+});
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=script&lang=js
+ /* harmony default export */ var components_ytPageComp_src_mainvue_type_script_lang_js = (ytPageComp_src_mainvue_type_script_lang_js); 
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=2784273b&prod&lang=scss
+// extracted by mini-css-extract-plugin
+
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=2784273b&prod&lang=scss
+
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue
+
+
+
+;
+
+
+/* normalize component */
+
+var ytPageComp_src_main_component = normalizeComponent(
+  components_ytPageComp_src_mainvue_type_script_lang_js,
+  mainvue_type_template_id_2784273b_render,
+  mainvue_type_template_id_2784273b_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var ytPageComp_src_main = (ytPageComp_src_main_component.exports);
+;// CONCATENATED MODULE: ./components/ytPageComp/index.js
+
+ytPageComp_src_main.install = Vue => {
+  Vue.component(ytPageComp_src_main.name, ytPageComp_src_main);
+};
+/* harmony default export */ var ytPageComp = (ytPageComp_src_main);
 ;// CONCATENATED MODULE: ./components/index.js
 // 全局样式
 
@@ -3868,7 +4354,8 @@ ytPagination_src_main.install = Vue => {
 
 
 
-const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn, ytIsShowForm, ytTable, ytPagination];
+
+const components = [ytRealCanvas, ytFileUpload, ytForm, ytTableBtn, ytIsShowForm, ytTable, ytPagination, ytPageComp];
 // 定义install方法
 const install = function (Vue) {
   if (install.installed) return;
