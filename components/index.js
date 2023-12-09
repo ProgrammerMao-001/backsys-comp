@@ -2,6 +2,8 @@
 import "./assets/styles/index.scss";
 // 公共方法
 import "./utils/publicFun";
+// 动画组件
+import collapseTransition from "./collapseTransition/collapseTransition";
 // 统一导入所有组件
 import ytRealCanvas from "./ytRealCanvas";
 import ytFileUpload from "./ytFileUpload";
@@ -13,6 +15,7 @@ import ytPagination from "./ytPagination";
 import ytPageComp from "./ytPageComp";
 
 const components = [
+  collapseTransition,
   ytRealCanvas,
   ytFileUpload,
   ytForm,

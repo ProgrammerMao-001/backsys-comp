@@ -9,6 +9,8 @@ Vue.use(ElementUI)
 
 /* 全局样式 */
 import "../components/assets/styles/index.scss"
+/* 动画组件 */
+import collapseTransition from "../components/collapseTransition/collapseTransition";
 /* 全局样式 */
 import ytRealCanvas from "../components/ytRealCanvas";
 import ytFileUpload from "../components/ytFileUpload";
@@ -18,6 +20,7 @@ import ytIsShowForm from "../components/ytIsShowForm";
 import ytTable from "../components/ytTable";
 import ytPagination from "../components/ytPagination";
 import ytPageComp from "../components/ytPageComp";
+Vue.component("collapseTransition", collapseTransition)
 Vue.use(ytRealCanvas)
 Vue.use(ytFileUpload)
 Vue.use(ytForm)

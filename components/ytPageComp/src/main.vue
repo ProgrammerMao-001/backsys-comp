@@ -7,15 +7,17 @@
   <div class="ytPageComp">
     <div class="search-box">
       <!-- 搜索条件 -->
-      <yt-form
-        class="formComponent"
-        v-show="showSearch"
-        v-if="formLabel.length > 0"
-        :form="paginationConfig"
-        :form-label="formLabel"
-        @handleSearch="handleSearch"
-        @handleResetFrom="handleResetFrom"
-      ></yt-form>
+      <collapseTransition mode="out-in">
+        <yt-form
+          class="formComponent"
+          v-show="showSearch"
+          v-if="formLabel.length > 0"
+          :form="paginationConfig"
+          :form-label="formLabel"
+          @handleSearch="handleSearch"
+          @handleResetFrom="handleResetFrom"
+        ></yt-form>
+      </collapseTransition>
       <!-- 搜索条件 -->
 
       <!-- 分割线 -->
@@ -397,6 +399,7 @@ export default {
         let sb = document.querySelector(".search-box"); // 搜索栏 + 工具栏（左侧按钮组 + 右侧的显示隐藏）
         let pc = document.querySelector(".paginationComponent"); // 分页
         this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
+        console.log(this.tableHeight);
       });
     },
   },
@@ -453,7 +456,7 @@ export default {
   height: 50px;
   align-items: center;
   flex-direction: row-reverse;
-  padding-right: 10px;
+  padding: 10px 10px 0 0;
 }
 
 .lineH {
