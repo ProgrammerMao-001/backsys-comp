@@ -74,7 +74,6 @@ export default {
         if (!(key in item)) hasNotArr.push(item);
       });
       this.btnListNew = hasArr.concat(hasNotArr);
-      console.log(this.btnListNew);
     }
   },
   methods: {
@@ -93,13 +92,10 @@ export default {
 
 <style lang="scss" scoped>
 .ytTableBtn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   &-box {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 10px;
 
     > div {

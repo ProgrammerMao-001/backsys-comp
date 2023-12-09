@@ -188,7 +188,7 @@ export default {
           name: "导入",
           icon: "el-icon-s-promotion",
           color: "#1492FF",
-          hasPermi: "system:user:input",
+          hasPermi: "system:user:import",
         },
         {
           name: "导出",
@@ -203,7 +203,7 @@ export default {
           hasPermi: "system:user:delete",
         },
       ],
-      permiArr: ["system:user:add", "system:user:delete"],
+      permiArr: ["system:user:add", "system:user:delete", "system:user:import"],
       tableData: [],
       tableConfig: {
         loading: false,
@@ -246,6 +246,7 @@ export default {
       this.tableConfig.loading = true;
       setTimeout(() => {
         this.tableData = tableData;
+        this.total = tableData.length;
         this.tableConfig.loading = false;
       }, 500);
     },
@@ -288,7 +289,7 @@ export default {
   position: relative;
 
   &-ytPageComp {
-    width: calc(100vw - 220px);
+    width: calc(100vw - 200px);
     height: calc(100vh - 70px);
     position: absolute;
     right: 0;

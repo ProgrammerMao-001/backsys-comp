@@ -69,10 +69,12 @@ public文件夹 ---> 存放组件的静态资源
     ytRealCanvas    canvas实时展示输入的内容
     ytTableBtn      自定义按钮组
     ytTable         基于el-table封装的表格组件（非树形结构）
+    ytPagination    分页组件
+    ytPageComp      快速搭建 搜索栏 + 表格 + 分页的页面
 ```
 
 ### 开发中...
 ```
- 1. ytChooseDialog 人员选择器（弹窗形式）
- 2. ytNewPage（快速搭建 搜索栏 + 表格 + 分页的页面） 
+ 1. ytChooseDialog 弹窗选择器（表格选择数据，可展示并保存对应的tags）
+ 2. ytPageComp（快速搭建 搜索栏 + 表格 + 分页的页面） 
 ```

@@ -79,9 +79,9 @@
     <!-- 表格数据 -->
 
     <!-- 分页区域 -->
-    <div class="paginationComponent">
+    <div class="paginationComponent dfr">
       <yt-pagination
-        :hidden="total <= 0"
+        v-if="total > 0"
         :total="total"
         :page="paginationConfig.pageNum"
         :limit="paginationConfig.pageSize"
@@ -183,26 +183,20 @@ export default {
   },
   watch: {
     showSearch(newValue) {
-      let fc = document.querySelector(".formComponent"); // 筛选条件那一栏
-      let ac = document.querySelector(".ytPageComp"); // 最外层
-      let sb = document.querySelector(".search-box"); // 搜索栏 + 功能按钮栏（显示隐藏）
+      let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
+      // let fc = document.querySelector(".formComponent"); // 筛选条件那一栏
+      let sb = document.querySelector(".search-box"); // 左侧按钮组 + 右侧的显示隐藏那一栏
       let pc = document.querySelector(".paginationComponent"); // 分页
       if (!newValue) {
         /* 筛选隐藏时 */
         setTimeout(() => {
-          this.tableHeight = `calc(${ac.clientHeight}px - ${
-            sb.clientHeight
-          }px - ${pc.clientHeight}px - ${2 * 20}px - 8px + ${
-            fc.clientHeight
-          }px)`;
+          this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
         }, 1);
       } else {
         /* 筛选显示时 */
         setTimeout(() => {
-          this.tableHeight = `calc(${ac.clientHeight}px - ${
-            sb.clientHeight
-          }px - ${pc.clientHeight}px - ${2 * 20}px - 8px)`;
-        }, 500);
+          this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
+        }, 1);
       }
     },
   },
@@ -307,7 +301,6 @@ export default {
      * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
-      console.log(type);
       this.$emit("on-response", type);
 
       if (type === "新增") {
@@ -400,12 +393,10 @@ export default {
      * */
     initTableHeight() {
       this.$nextTick(() => {
-        let ac = document.querySelector(".ytPageComp"); // 最外层
-        let sb = document.querySelector(".search-box"); // 搜索栏 + 功能按钮栏（显示隐藏）
+        let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
+        let sb = document.querySelector(".search-box"); // 搜索栏 + 工具栏（左侧按钮组 + 右侧的显示隐藏）
         let pc = document.querySelector(".paginationComponent"); // 分页
-        this.tableHeight = `calc(${ac.clientHeight}px - ${
-          sb.clientHeight
-        }px - ${pc.clientHeight}px - ${2 * 20}px - 8px)`;
+        this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
       });
     },
   },
@@ -460,6 +451,9 @@ export default {
 
 .paginationComponent {
   height: 50px;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding-right: 10px;
 }
 
 .lineH {
@@ -471,8 +465,15 @@ export default {
 
 .tools-config {
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 0 10px;
-  height: 48px;
+  min-height: 48px;
+
+  .left {
+  }
+
+  .right {
+    min-width: 84px;
+  }
 }
 </style>
