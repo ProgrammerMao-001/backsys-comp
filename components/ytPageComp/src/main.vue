@@ -193,12 +193,12 @@ export default {
         /* 筛选隐藏时 */
         setTimeout(() => {
           this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
-        }, 1);
+        }, 301);
       } else {
         /* 筛选显示时 */
         setTimeout(() => {
           this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
-        }, 1);
+        }, 301);
       }
     },
   },

@@ -1,0 +1,119 @@
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+/* fade */
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+/* fade-transform */
+
+/* breadcrumb */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-move {
+  transition: all .5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
+/* breadcrumb */
+
+/* page-transition */
+.page-transition-enter,
+.page-transition-leave-to {
+  opacity: 0;
+  transform: scale(.5, 1);
+}
+
+.page-transition-enter-active {
+  transition: all 0.1s ease;
+}
+
+.page-transition-leave-active {
+  transition: all 0.2s ease;
+}
+/* page-transition */
+
+/* collapseTransition */
+// <collapseTransition>
+// </collapseTransition>
+/* collapseTransition */
+
+/* sidebarLogoFade */
+.sidebarLogoFade-enter-active {
+  transition: opacity 1.5s;
+}
+
+.sidebarLogoFade-enter,
+.sidebarLogoFade-leave-to {
+  opacity: 0;
+}
+/* sidebarLogoFade */
+
+/* 设置左侧盒子显示/隐藏的动画  leftCompTransition */
+.leftCompTransition-enter {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+.leftCompTransition-leave-to {
+  opacity: 1;
+  transform: translateX(-480px);
+  // 解决页面从上往下位移问题
+  position: absolute;
+}
+
+.leftCompTransition-enter-active,
+.leftCompTransition-leave-active {
+  transition: all 0.5s ease;
+}
+/* 设置左侧盒子显示/隐藏的动画  */
+
+/* 设置右侧盒子显示/隐藏的动画  rightCompTransition */
+.rightCompTransition-enter {
+  opacity: 1;
+  transform: translateX(480px);
+}
+
+.rightCompTransition-leave-to {
+  opacity: 1;
+  transform: translateX(480px);
+  // 解决页面从上往下位移问题
+  position: absolute;
+}
+
+.rightCompTransition-enter-active,
+.rightCompTransition-leave-active {
+  transition: all 0.5s ease;
+}
+/* 设置右侧盒子显示/隐藏的动画  */

@@ -294,6 +294,7 @@ export default {
     position: absolute;
     right: 0;
     bottom: 0;
+    overflow: hidden;
   }
 }
 </style>
