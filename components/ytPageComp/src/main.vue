@@ -55,32 +55,33 @@
     </div>
 
     <!-- 表格数据 -->
-    <transition name="page-transition" mode="out-in">
-      <yt-table
-        v-if="showTable"
-        class="tableComponent"
-        ref="tableComponent"
-        :table-data="tableData"
-        :table-config="tableConfig"
-        :table-data-column="tableDataColumn"
-        :height="tableHeight"
-        :idName="idName"
-        :paginationConfig="paginationConfig"
-        :btnWidth="btnWidth"
-        @handleSelectionChange="handleSelectionChange"
+    <!--    <transition name="page-transition" mode="out-in">-->
+    <yt-table
+      v-if="showTable"
+      class="tableComponent"
+      ref="tableComponent"
+      :table-data="tableData"
+      :table-config="tableConfig"
+      :table-data-column="tableDataColumn"
+      :height="tableHeight"
+      :idName="idName"
+      :paginationConfig="paginationConfig"
+      :btnWidth="btnWidth"
+      :rowStyle="rowStyle"
+      @handleSelectionChange="handleSelectionChange"
+    >
+      <template
+        v-for="item in tableSlotArr"
+        :slot="item.value"
+        slot-scope="scope"
       >
-        <template
-          v-for="item in tableSlotArr"
-          :slot="item.value"
-          slot-scope="scope"
-        >
-          <slot :name="item.value" :row="scope.row" />
-        </template>
-      </yt-table>
-    </transition>
+        <slot :name="item.value" :row="scope.row" />
+      </template>
+    </yt-table>
+    <!--    </transition>-->
     <!-- 表格数据 -->
 
-    <!-- 分页区域 -->
+    <!-- 分页 -->
     <div class="paginationComponent dfr">
       <yt-pagination
         v-if="total > 0"
@@ -92,13 +93,14 @@
       >
       </yt-pagination>
     </div>
-    <!-- 分页区域 -->
+    <!-- 分页 -->
   </div>
 </template>
 <script>
+import { debounce } from "../../utils/publicFun";
+
 export default {
   name: "ytPageComp",
-  dicts: [],
   components: {},
   props: {
     formLabel: {
@@ -125,10 +127,14 @@ export default {
       type: Object,
       default: () => {
         return {
-          isLoading: false,
+          loading: false,
+          stripe: true, // 是否为斑马纹 table
+          border: true, // 是否带有纵向边框
+          resizable: true, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+          isAddIndex: true, // 是否将分页后的序号进行累加（如为true则分页后有10条数据，第二页第一条的数据序号为11）
         };
       },
-    }, // 表格loading配置项
+    }, // 表格的配置项
     tableDataColumn: {
       type: Array,
       default: () => [],
@@ -182,11 +188,16 @@ export default {
         return {};
       },
     }, // 自定义导出文件的参数 exportTypeAndUrl.isCustom = true 的时候需要传递的参数
+    rowStyle: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    }
   },
   watch: {
     showSearch(newValue) {
       let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
-      // let fc = document.querySelector(".formComponent"); // 筛选条件那一栏
       let sb = document.querySelector(".search-box"); // 左侧按钮组 + 右侧的显示隐藏那一栏
       let pc = document.querySelector(".paginationComponent"); // 分页
       if (!newValue) {
@@ -212,25 +223,6 @@ export default {
     return {
       showSearch: true, // 显示搜索条件
       ids: [], // 表格中选中的id
-      xlsData: {
-        title: null,
-        open: false,
-        url: null,
-        templateUrl: null,
-      }, // 文件上传需要的参数
-
-      /* 完整的 xlsData demo */
-      // xlsData: {
-      //   title: "物资入库导入",
-      //   open: false,
-      //   url:
-      //     process.env.VUE_APP_BASE_API +
-      //     requestType.road +
-      //     "/direct/resourceApply/importApply", // 上传接口
-      //   templateUrl: requestType.road + "/direct/resourceApply/downTemplate", // 下载接口
-      // },
-      /* 完整的 xlsData demo */
-
       tableHeight: "0", // 表格的高度
       resizeE: null, // 监听器
       showTable: false, // 是否展示表格
@@ -274,25 +266,10 @@ export default {
      * @use: @getTableData="父组件中获取表格数据的Event"
      * */
     async getList() {
-      this.showTable = false;
+      // this.showTable = false;
       await this.$emit("getTableData");
-      this.$nextTick(() => {
-        this.showTable = true;
-      });
-    },
-
-    /**
-     * @Interface 接口
-     * @description: 初始化搜索栏的数据(字典)
-     * */
-    getCardTypeOptions() {
-      console.log(this.formLabel, "formLabel");
-      // this.formLabel.forEach((item) => {
-      //   if (item.dict) {
-      //     getDicts(item.dict).then((res) => {
-      //       item.opts = res.data;
-      //     });
-      //   }
+      // this.$nextTick(() => {
+      //   this.showTable = true;
       // });
     },
 
@@ -304,49 +281,9 @@ export default {
      * */
     changeBtn(type) {
       this.$emit("on-response", type);
-
       if (type === "新增") {
         this.$emit("showPublicDialog", null, type);
       }
-      // if (type === "导入") {
-      //   this.xlsData = {
-      //     title: this.importData.fileTitle,
-      //     open: false,
-      //     url:
-      //         process.env.VUE_APP_BASE_API +
-      //         requestType[this.importData.importType] +
-      //         this.importData.importUrl, // 文件上传接口
-      //     templateUrl:
-      //         requestType[this.importData.templateType] +
-      //         this.importData.templateUrl, // 模板下载接口
-      //   };
-      //   this.handleImport();
-      // }
-      // if (type === "导出") {
-      //   this.download(
-      //       requestType[this.exportTypeAndUrl.exportType] +
-      //       this.exportTypeAndUrl.exportUrl,
-      //       `xxx.xlsx`,
-      //       this.exportTypeAndUrl.isCustom
-      //           ? this.customObj
-      //           : this.paginationConfig
-      //   );
-
-      /* 完整的导出接口 demo */
-      // this.download(
-      //   requestType.road + "/maintainRoad/ManagementDevice/export",
-      //   `设备数据.xlsx`,
-      //   this.paginationConfig
-      // );
-      /* 完整的导出接口 demo */
-      // }
-      // if (type === "删除") {
-      //   if (this.ids.length === 0) {
-      //     this.$message.error("请先至少选择一条数据");
-      //   } else {
-      //     this.$emit("deleteRows", this.ids);
-      //   }
-      // }
     },
 
     /**
@@ -369,24 +306,8 @@ export default {
      * @param: selection: 选中的表格的行数组， idName: 需要处理的id的名称（默认id）
      * */
     handleSelectionChange(selection) {
-      this.ids = selection.map((item) => item[this.idName]);
-    },
-
-    /**
-     * @Event 方法
-     * @description: 打开导入组件
-     * */
-    handleImport() {
-      this.xlsData.open = true;
-    },
-
-    /**
-     * @Event 方法
-     * @description: 完成导入
-     * */
-    importSubmit() {
-      this.xlsData.open = false;
-      this.getList();
+      console.log(selection, "selection");
+      // this.ids = selection.map((item) => item[this.idName]);
     },
 
     /**
@@ -399,25 +320,13 @@ export default {
         let sb = document.querySelector(".search-box"); // 搜索栏 + 工具栏（左侧按钮组 + 右侧的显示隐藏）
         let pc = document.querySelector(".paginationComponent"); // 分页
         this.tableHeight = `calc(${ac.clientHeight}px - ${sb.clientHeight}px - ${pc.clientHeight}px)`;
-        console.log(this.tableHeight);
+        this.showTable = true;
       });
     },
   },
 
   created() {
-    function debounce(func, wait) {
-      //定时器变量
-      var timeout;
-      return function () {
-        //每次触发scrolle，先清除定时器
-        clearTimeout(timeout);
-        //指定多少秒后触发事件操作handler
-        timeout = setTimeout(func, wait);
-      };
-    }
-
     this.getList(); // 获取表格数据
-    this.getCardTypeOptions(); // 获取搜索栏字典的数据
     this.initTableHeight(); // 初始化表格高度
     this.resizeE = debounce(this.initTableHeight, 300); // 防抖
     window.addEventListener("resize", this.resizeE);

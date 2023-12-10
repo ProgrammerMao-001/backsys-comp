@@ -9,7 +9,7 @@
     <ytPageComp
       class="useYtPageComp-ytPageComp bgreen"
       ref="ytPageComp"
-      idName="id"
+      idName="movieId"
       :formLabel="formLabel"
       :btnList="btnList"
       :permiArr="permiArr"
@@ -207,11 +207,16 @@ export default {
       tableData: [],
       tableConfig: {
         loading: false,
+        stripe: true, // 是否为斑马纹 table
+        border: false, // 是否带有纵向边框
+        resizable: false, // 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真）
+        isAddIndex: true, // 是否将分页后的序号进行累加（如为true则分页后有10条数据，第二页第一条的数据序号为11）
       },
       tableDataColumn: [
         { label: "多选", type: "selection" },
         { label: "序号", type: "index" },
         { label: "海报", value: "img", isSlot: true, width: 100 },
+        { label: "唯一标识", value: "movieId" },
         { label: "电影名", value: "nm" },
         { label: "类型", value: "cat" },
         { label: "观众评分", value: "sc", sortable: true, isSlot: true },
@@ -244,9 +249,11 @@ export default {
   methods: {
     getTableData() {
       this.tableConfig.loading = true;
-      console.log(this.paginationConfig, "paginationConfig")
       setTimeout(() => {
-        this.tableData = tableData.slice((this.paginationConfig.pageNum - 1) * this.paginationConfig.pageSize, this.paginationConfig.pageNum * this.paginationConfig.pageSize);
+        this.tableData = tableData.slice(
+          (this.paginationConfig.pageNum - 1) * this.paginationConfig.pageSize,
+          this.paginationConfig.pageNum * this.paginationConfig.pageSize
+        );
         this.total = tableData.length;
         this.tableConfig.loading = false;
       }, 200);

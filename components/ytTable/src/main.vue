@@ -270,9 +270,7 @@ export default {
       );
     },
   },
-  created() {
-    // console.log(this.tableDataColumn);
-  },
+  created() {},
 };
 </script>
 

@@ -99,3 +99,17 @@ export function arrayToTree(
 
   return tree;
 }
+
+/**
+ * @Event 简单防抖
+ * @param: func 回调函数 wait 延迟时间
+ * @author: mhf
+ * @time: 2023-12-10 21:44:25
+ **/
+export function debounce(func, wait) {
+  let timeout;
+  return function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, wait);
+  };
+}
