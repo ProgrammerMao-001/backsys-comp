@@ -222,7 +222,7 @@ export default {
   data() {
     return {
       showSearch: true, // 显示搜索条件
-      ids: [], // 表格中选中的id
+      selectionObj: {}, // 保存多选选中的行的数据 {ids: [], selection: []}
       tableHeight: "0", // 表格的高度
       resizeE: null, // 监听器
       showTable: false, // 是否展示表格
@@ -306,8 +306,7 @@ export default {
      * @param: selection: 选中的表格的行数组， idName: 需要处理的id的名称（默认id）
      * */
     handleSelectionChange(selection) {
-      console.log(selection, "selection");
-      // this.ids = selection.map((item) => item[this.idName]);
+      this.selectionObj = selection
     },
 
     /**
