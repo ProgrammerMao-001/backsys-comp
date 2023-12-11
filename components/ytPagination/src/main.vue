@@ -57,9 +57,9 @@ export default {
       type: Object,
       default() {
         return {
-          "--activeBgColor": "pink", // 选中的背景色
-          "--fontColor": "yellow", // 选中的字体颜色
-          "--hoverColor": "#ff0000", // 鼠标悬停的字体颜色
+          "--activeBgColor": "#409eff", // 选中的背景色
+          "--fontColor": "#ffffff", // 选中的字体颜色
+          "--hoverColor": "#409eff", // 鼠标悬停的字体颜色
         };
       },
     }, // 分页按钮的样式

@@ -6,7 +6,7 @@
 <template>
   <div class="ytPageComp">
     <div class="search-box">
-      <!-- 搜索条件 -->
+      <!-- 顶部搜索栏 -->
       <collapseTransition mode="out-in">
         <yt-form
           class="formComponent"
@@ -18,13 +18,13 @@
           @handleResetFrom="handleResetFrom"
         ></yt-form>
       </collapseTransition>
-      <!-- 搜索条件 -->
+      <!-- 顶部搜索栏 -->
 
-      <!-- 分割线 -->
+      <!-- hr 分割线 -->
       <div class="lineH" v-show="showSearch" v-if="formLabel.length > 0" />
-      <!-- 分割线 -->
+      <!-- hr 分割线 -->
 
-      <!-- 工具栏 -->
+      <!-- 顶部按钮工具栏 -->
       <div
         class="tools-config dfr"
         v-if="btnList.length > 0 || formLabel.length > 0"
@@ -51,7 +51,7 @@
         </div>
         <!-- 右侧显示/隐藏 -->
       </div>
-      <!-- 工具栏 -->
+      <!-- 顶部按钮工具栏 -->
     </div>
 
     <!-- 表格数据 -->
@@ -66,7 +66,6 @@
       :height="tableHeight"
       :idName="idName"
       :paginationConfig="paginationConfig"
-      :btnWidth="btnWidth"
       :rowStyle="rowStyle"
       @handleSelectionChange="handleSelectionChange"
     >
@@ -89,6 +88,7 @@
         :page="paginationConfig.pageNum"
         :limit="paginationConfig.pageSize"
         :page-sizes="pageSizes"
+        :paginationColor="paginationColor"
         @pagination="handleChangePagination"
       >
       </yt-pagination>
@@ -97,7 +97,7 @@
   </div>
 </template>
 <script>
-import { debounce } from "../../utils/publicFun";
+import { debounce, isEmptyArray } from "../../utils/publicFun";
 
 export default {
   name: "ytPageComp",
@@ -107,10 +107,6 @@ export default {
       type: Array,
       default: () => [],
     }, // 搜索条件
-    btnWidth: {
-      type: String,
-      default: "240px",
-    }, // 操作栏宽度
     btnList: {
       type: Array,
       default: () => [],
@@ -160,40 +156,26 @@ export default {
       type: String,
       default: "id",
     }, // 表格单行数据的唯一标识（默认为 id）
-    importData: {
-      type: Object,
-      default: () => {
-        return {
-          fileTitle: null, // 导入的文件名称（即弹窗的标题） String
-          importType: null, // 导入文件时选择的微服务类型 String
-          importUrl: null, // 导入的接口地址 String
-          templateType: null, // 模板下载使用的微服务名称 String
-          templateUrl: null, // 模板下载地址 String
-        };
-      },
-    }, // 导入文件时需要的参数
-    exportTypeAndUrl: {
-      type: Object,
-      default: () => {
-        return {
-          isCustom: false, // 是否需要其他的自定义传参
-          exportType: null, // 导出文件时的微服务类型 String
-          exportUrl: null, // 导出的接口地址 String
-        };
-      },
-    }, // 导出的文件接口路径 需要的格式如：{ exportType: 'forklift', exportUrl: '/forklift/driverInfo/exportCardInfo' }
-    customObj: {
-      type: Object,
-      default: () => {
-        return {};
-      },
-    }, // 自定义导出文件的参数 exportTypeAndUrl.isCustom = true 的时候需要传递的参数
     rowStyle: {
       type: Object,
       default: () => {
         return {};
       },
-    }
+    },
+    paginationColor: {
+      type: Object,
+      default() {
+        return {
+          "--activeBgColor": "#409eff", // 选中的背景色
+          "--fontColor": "#ffffff", // 选中的字体颜色
+          "--hoverColor": "#409eff", // 鼠标悬停的字体颜色
+        };
+      },
+    }, // 分页按钮的样式
+    noSelection: {
+      type: String,
+      default: "请先选择要删除的数据！",
+    }, // 没有选择数据时的提示信息
   },
   watch: {
     showSearch(newValue) {
@@ -222,7 +204,10 @@ export default {
   data() {
     return {
       showSearch: true, // 显示搜索条件
-      selectionObj: {}, // 保存多选选中的行的数据 {ids: [], selection: []}
+      selectionObj: {
+        ids: [], //  保存多选选中的行的id
+        selection: [], // 保存多选选中的行的数据
+      },
       tableHeight: "0", // 表格的高度
       resizeE: null, // 监听器
       showTable: false, // 是否展示表格
@@ -277,12 +262,19 @@ export default {
      * @Event 方法
      * @description: 将点击的按钮的名称传递给父组件
      * @use: 父组件中 @on-response="getBtnType" 用来接收按钮类型名称
-     * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
+     * @warning!!!: 目前 新增、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
       this.$emit("on-response", type);
       if (type === "新增") {
         this.$emit("showPublicDialog", null, type);
+      }
+      if (type === "删除") {
+        if (!isEmptyArray(this.selectionObj.ids)) {
+          this.$emit("deleteRows");
+        } else {
+          this.$message.error(this.noSelection);
+        }
       }
     },
 
@@ -306,7 +298,7 @@ export default {
      * @param: selection: 选中的表格的行数组， idName: 需要处理的id的名称（默认id）
      * */
     handleSelectionChange(selection) {
-      this.selectionObj = selection
+      this.selectionObj = selection;
     },
 
     /**

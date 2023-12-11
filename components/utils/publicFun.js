@@ -9,6 +9,17 @@ export function isEmptyObject(obj) {
 }
 
 /**
+ * @Event 判断是否是空数组
+ * @description:
+ * @author: mhf
+ * @time: 2023-11-16 17:26:31
+ **/
+export function isEmptyArray(arr) {
+  if (Object.prototype.toString.call(arr) !== "[object Array]") return;
+  return arr.length === 0;
+}
+
+/**
  * 构造树型结构数据
  * @param {*} data 数据源
  * @param {*} id id字段 默认 'id'

@@ -9,7 +9,7 @@
     <ytPageComp
       class="useYtPageComp-ytPageComp bgreen"
       ref="ytPageComp"
-      idName="movieId"
+      :idName="idName"
       :formLabel="formLabel"
       :btnList="btnList"
       :permiArr="permiArr"
@@ -19,27 +19,12 @@
       :total="total"
       :paginationConfig.sync="paginationConfig"
       :pageSizes="pageSizes"
-      :importData="importData"
-      :exportTypeAndUrl="exportTypeAndUrl"
+      :paginationColor="paginationColor"
       @on-response="getBtnType"
       @getTableData="getTableData"
       @showPublicDialog="showPublicDialog"
       @deleteRows="deleteRows"
     >
-      <!--      <template slot="noticeType" slot-scope="scope">-->
-      <!--        <dict-tag-->
-      <!--            :options="dict.type.sys_notice_type"-->
-      <!--            :value="scope.row.noticeType"-->
-      <!--        />-->
-      <!--      </template>-->
-
-      <!--      <template slot="status" slot-scope="scope">-->
-      <!--        <dict-tag-->
-      <!--            :options="dict.type.sys_notice_status"-->
-      <!--            :value="scope.row.status"-->
-      <!--        />-->
-      <!--      </template>-->
-
       <template slot="img" slot-scope="scope">
         <el-image
           style="width: 80px; height: 110px"
@@ -233,21 +218,18 @@ export default {
         pageSize: 10,
       },
       pageSizes: [5, 10, 15, 20],
-      importData: {
-        fileTitle: "用户导入",
-        importType: "system",
-        importUrl: "/system/user/importData",
-        templateType: "system",
-        templateUrl: "/system/user/importTemplate",
+      paginationColor: {
+        "--activeBgColor": "pink", // 选中的背景色
+        "--fontColor": "yellow", // 选中的字体颜色
+        "--hoverColor": "#ff0000", // 鼠标悬停的字体颜色
       },
-      exportTypeAndUrl: {
-        exportType: "system",
-        exportUrl: "/system/user/export",
-      },
+      idName: "movieId", // id唯一标识
     };
   },
   methods: {
     getTableData() {
+      this.$message.success("查询表格");
+      console.log(this.paginationConfig, "paginationConfig");
       this.tableConfig.loading = true;
       setTimeout(() => {
         this.tableData = tableData.slice(
@@ -268,12 +250,21 @@ export default {
       if (type === "详情" || type === "修改") {
         this.showPublicDialog(data, type);
       } else if (type === "删除") {
-        this.deleteRows(data.id);
+        this.deleteRows(data[this.idName]);
       }
     },
 
+    /**
+     * @Event 固定写法，方法名可自定义
+     * @description: 删除数据，可多选删除或者删除单行数据
+     * @author: mhf
+     * @time: 2023-12-11 23:32:14
+     **/
     deleteRows(id) {
-      console.log(id);
+      let ids = id || this.$refs.ytPageComp.selectionObj.ids;
+      console.log(ids, "ids");
+      // doSomething ...
+      this.$message.success(`删除数据: ${ids}`);
     },
 
     showPublicDialog(data, type) {

@@ -973,28 +973,6 @@ export default [
         }
     },
     {
-        "movieId": 1397103,
-        "haspromotionTag": false,
-        "img": "https://p0.pipi.cn/mmdb/fb738692dddddd395bc7eda968cabeb4d75d5.jpg?imageMogr2/thumbnail/2500x2500%3E",
-        "version": "",
-        "nm": "古庙迷杀",
-        "preShow": false,
-        "sc": 0,
-        "globalReleased": true,
-        "wish": 14546,
-        "star": "金子,由立平,王亚楠",
-        "rt": "2023-11-17",
-        "showInfo": "今天4家影院放映4场",
-        "showst": 3,
-        "wishst": 0,
-        "comingTitle": "11月17日 周五",
-        "showStateButton": {
-            "color": "#F03D37",
-            "content": "购票",
-            "onlyPreShow": false
-        }
-    },
-    {
         "movieId": 1300093,
         "haspromotionTag": false,
         "img": "https://p0.pipi.cn/mmdb/fb738692c7e92311e5f0eeb707e12c5a3f4de.jpg?imageMogr2/thumbnail/2500x2500%3E",

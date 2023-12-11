@@ -1698,6 +1698,17 @@ function isEmptyObject(obj) {
 }
 
 /**
+ * @Event 判断是否是空数组
+ * @description:
+ * @author: mhf
+ * @time: 2023-11-16 17:26:31
+ **/
+function isEmptyArray(arr) {
+  if (Object.prototype.toString.call(arr) !== "[object Array]") return;
+  return arr.length === 0;
+}
+
+/**
  * 构造树型结构数据
  * @param {*} data 数据源
  * @param {*} id id字段 默认 'id'
@@ -1866,7 +1877,7 @@ const Transition = {
     return h("transition", data, children);
   }
 });
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=00486725&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=template&id=00486725&scoped=true
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -2192,7 +2203,7 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var mainvue_type_script_lang_js = ({
   name: "ytRealCanvas",
@@ -2499,12 +2510,12 @@ var staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var src_mainvue_type_script_lang_js = (mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=00486725&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=00486725&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytRealCanvas/src/main.vue?vue&type=style&index=0&id=00486725&prod&lang=scss&scoped=true
 
-;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/runtime/componentNormalizer.js
+;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
@@ -2629,7 +2640,7 @@ main.install = Vue => {
   Vue.component(main.name, main);
 };
 /* harmony default export */ var ytRealCanvas = (main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=template&id=f42ef46c&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=template&id=f42ef46c&scoped=true
 var mainvue_type_template_id_f42ef46c_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -2660,7 +2671,7 @@ var mainvue_type_template_id_f42ef46c_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_f42ef46c_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var ytFileUpload_src_mainvue_type_script_lang_js = ({
   name: "ytFileUpload",
@@ -2828,7 +2839,7 @@ var mainvue_type_template_id_f42ef46c_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytFileUpload_src_mainvue_type_script_lang_js = (ytFileUpload_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=f42ef46c&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=f42ef46c&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytFileUpload/src/main.vue?vue&type=style&index=0&id=f42ef46c&prod&lang=scss&scoped=true
@@ -2860,7 +2871,7 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytFileUpload = (src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=7a09f921&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=7a09f921&scoped=true
 var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -3006,7 +3017,7 @@ var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytForm_src_mainvue_type_script_lang_js = ({
   name: "ytForm",
   props: {
@@ -3142,7 +3153,7 @@ var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytForm_src_mainvue_type_script_lang_js = (ytForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
@@ -3174,7 +3185,7 @@ ytForm_src_main.install = Vue => {
   Vue.component(ytForm_src_main.name, ytForm_src_main);
 };
 /* harmony default export */ var ytForm = (ytForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=template&id=55c9756d&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=template&id=55c9756d&scoped=true
 var mainvue_type_template_id_55c9756d_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -3207,7 +3218,7 @@ var mainvue_type_template_id_55c9756d_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_55c9756d_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var ytTableBtn_src_mainvue_type_script_lang_js = ({
   name: "ytTableBtn",
@@ -3263,7 +3274,7 @@ var mainvue_type_template_id_55c9756d_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTableBtn_src_mainvue_type_script_lang_js = (ytTableBtn_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=55c9756d&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=55c9756d&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytTableBtn/src/main.vue?vue&type=style&index=0&id=55c9756d&prod&lang=scss&scoped=true
@@ -3295,7 +3306,7 @@ ytTableBtn_src_main.install = Vue => {
   Vue.component(ytTableBtn_src_main.name, ytTableBtn_src_main);
 };
 /* harmony default export */ var ytTableBtn = (ytTableBtn_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=05b4dd5a&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=template&id=05b4dd5a&scoped=true
 var mainvue_type_template_id_05b4dd5a_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -3333,7 +3344,7 @@ var mainvue_type_template_id_05b4dd5a_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_05b4dd5a_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytIsShowForm_src_mainvue_type_script_lang_js = ({
   name: "ytIsShowForm",
   props: {
@@ -3418,7 +3429,7 @@ var mainvue_type_template_id_05b4dd5a_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytIsShowForm_src_mainvue_type_script_lang_js = (ytIsShowForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=05b4dd5a&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=05b4dd5a&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytIsShowForm/src/main.vue?vue&type=style&index=0&id=05b4dd5a&prod&lang=scss&scoped=true
@@ -3450,7 +3461,7 @@ ytIsShowForm_src_main.install = Vue => {
   Vue.component(ytIsShowForm_src_main.name, ytIsShowForm_src_main);
 };
 /* harmony default export */ var ytIsShowForm = (ytIsShowForm_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=a92575d8&scoped=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=template&id=a92575d8&scoped=true
 var mainvue_type_template_id_a92575d8_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -3573,7 +3584,7 @@ var mainvue_type_template_id_a92575d8_scoped_true_render = function render() {
 };
 var mainvue_type_template_id_a92575d8_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var ytTable_src_mainvue_type_script_lang_js = ({
   name: "ytTable",
@@ -3742,7 +3753,7 @@ var mainvue_type_template_id_a92575d8_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytTable_src_mainvue_type_script_lang_js = (ytTable_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=a92575d8&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytTable/src/main.vue?vue&type=style&index=0&id=a92575d8&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
 ;// CONCATENATED MODULE: ./components/ytTable/src/main.vue?vue&type=style&index=0&id=a92575d8&prod&lang=scss&scoped=true
@@ -3774,8 +3785,8 @@ ytTable_src_main.install = Vue => {
   Vue.component(ytTable_src_main.name, ytTable_src_main);
 };
 /* harmony default export */ var ytTable = (ytTable_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=619a8348&scoped=true
-var mainvue_type_template_id_619a8348_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=268d368a&scoped=true
+var mainvue_type_template_id_268d368a_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('el-pagination', _vm._b({
@@ -3807,9 +3818,9 @@ var mainvue_type_template_id_619a8348_scoped_true_render = function render() {
     }
   }, 'el-pagination', _vm.$attrs, false));
 };
-var mainvue_type_template_id_619a8348_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytPagination_src_mainvue_type_script_lang_js = ({
   name: "ytPagination",
   props: {
@@ -3852,11 +3863,11 @@ var mainvue_type_template_id_619a8348_scoped_true_staticRenderFns = [];
       type: Object,
       default() {
         return {
-          "--activeBgColor": "pink",
+          "--activeBgColor": "#409eff",
           // 选中的背景色
-          "--fontColor": "yellow",
+          "--fontColor": "#ffffff",
           // 选中的字体颜色
-          "--hoverColor": "#ff0000" // 鼠标悬停的字体颜色
+          "--hoverColor": "#409eff" // 鼠标悬停的字体颜色
         };
       }
     } // 分页按钮的样式
@@ -3906,10 +3917,10 @@ var mainvue_type_template_id_619a8348_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPagination_src_mainvue_type_script_lang_js = (ytPagination_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=619a8348&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=268d368a&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=619a8348&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=268d368a&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue
 
@@ -3922,11 +3933,11 @@ var mainvue_type_template_id_619a8348_scoped_true_staticRenderFns = [];
 
 var ytPagination_src_main_component = normalizeComponent(
   components_ytPagination_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_619a8348_scoped_true_render,
-  mainvue_type_template_id_619a8348_scoped_true_staticRenderFns,
+  mainvue_type_template_id_268d368a_scoped_true_render,
+  mainvue_type_template_id_268d368a_scoped_true_staticRenderFns,
   false,
   null,
-  "619a8348",
+  "268d368a",
   null
   
 )
@@ -3938,8 +3949,8 @@ ytPagination_src_main.install = Vue => {
   Vue.component(ytPagination_src_main.name, ytPagination_src_main);
 };
 /* harmony default export */ var ytPagination = (ytPagination_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=4656da22
-var mainvue_type_template_id_4656da22_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=b840ef72
+var mainvue_type_template_id_b840ef72_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -4010,7 +4021,6 @@ var mainvue_type_template_id_4656da22_render = function render() {
       "height": _vm.tableHeight,
       "idName": _vm.idName,
       "paginationConfig": _vm.paginationConfig,
-      "btnWidth": _vm.btnWidth,
       "rowStyle": _vm.rowStyle
     },
     on: {
@@ -4033,16 +4043,17 @@ var mainvue_type_template_id_4656da22_render = function render() {
       "total": _vm.total,
       "page": _vm.paginationConfig.pageNum,
       "limit": _vm.paginationConfig.pageSize,
-      "page-sizes": _vm.pageSizes
+      "page-sizes": _vm.pageSizes,
+      "paginationColor": _vm.paginationColor
     },
     on: {
       "pagination": _vm.handleChangePagination
     }
   }) : _vm._e()], 1)], 1);
 };
-var mainvue_type_template_id_4656da22_staticRenderFns = [];
+var mainvue_type_template_id_b840ef72_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
 
 /* harmony default export */ var ytPageComp_src_mainvue_type_script_lang_js = ({
   name: "ytPageComp",
@@ -4053,11 +4064,6 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
       default: () => []
     },
     // 搜索条件
-    btnWidth: {
-      type: String,
-      default: "240px"
-    },
-    // 操作栏宽度
     btnList: {
       type: Array,
       default: () => []
@@ -4119,52 +4125,32 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
       default: "id"
     },
     // 表格单行数据的唯一标识（默认为 id）
-    importData: {
-      type: Object,
-      default: () => {
-        return {
-          fileTitle: null,
-          // 导入的文件名称（即弹窗的标题） String
-          importType: null,
-          // 导入文件时选择的微服务类型 String
-          importUrl: null,
-          // 导入的接口地址 String
-          templateType: null,
-          // 模板下载使用的微服务名称 String
-          templateUrl: null // 模板下载地址 String
-        };
-      }
-    },
-
-    // 导入文件时需要的参数
-    exportTypeAndUrl: {
-      type: Object,
-      default: () => {
-        return {
-          isCustom: false,
-          // 是否需要其他的自定义传参
-          exportType: null,
-          // 导出文件时的微服务类型 String
-          exportUrl: null // 导出的接口地址 String
-        };
-      }
-    },
-
-    // 导出的文件接口路径 需要的格式如：{ exportType: 'forklift', exportUrl: '/forklift/driverInfo/exportCardInfo' }
-    customObj: {
-      type: Object,
-      default: () => {
-        return {};
-      }
-    },
-    // 自定义导出文件的参数 exportTypeAndUrl.isCustom = true 的时候需要传递的参数
     rowStyle: {
       type: Object,
       default: () => {
         return {};
       }
-    }
+    },
+    paginationColor: {
+      type: Object,
+      default() {
+        return {
+          "--activeBgColor": "#409eff",
+          // 选中的背景色
+          "--fontColor": "#ffffff",
+          // 选中的字体颜色
+          "--hoverColor": "#409eff" // 鼠标悬停的字体颜色
+        };
+      }
+    },
+
+    // 分页按钮的样式
+    noSelection: {
+      type: String,
+      default: "请先选择要删除的数据！"
+    } // 没有选择数据时的提示信息
   },
+
   watch: {
     showSearch(newValue) {
       let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
@@ -4194,8 +4180,12 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
     return {
       showSearch: true,
       // 显示搜索条件
-      selectionObj: {},
-      // 保存多选选中的行的数据 {ids: [], selection: []}
+      selectionObj: {
+        ids: [],
+        //  保存多选选中的行的id
+        selection: [] // 保存多选选中的行的数据
+      },
+
       tableHeight: "0",
       // 表格的高度
       resizeE: null,
@@ -4251,12 +4241,19 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
      * @Event 方法
      * @description: 将点击的按钮的名称传递给父组件
      * @use: 父组件中 @on-response="getBtnType" 用来接收按钮类型名称
-     * @warning!!!: 目前 新增、导入、导出、删除 已经实现功能，无需在父组件中重复编写
+     * @warning!!!: 目前 新增、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
       this.$emit("on-response", type);
       if (type === "新增") {
         this.$emit("showPublicDialog", null, type);
+      }
+      if (type === "删除") {
+        if (!isEmptyArray(this.selectionObj.ids)) {
+          this.$emit("deleteRows");
+        } else {
+          this.$message.error(this.noSelection);
+        }
       }
     },
     /**
@@ -4307,10 +4304,10 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPageComp_src_mainvue_type_script_lang_js = (ytPageComp_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/cli-service/node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=4656da22&prod&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=b840ef72&prod&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=4656da22&prod&lang=scss
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=b840ef72&prod&lang=scss
 
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue
 
@@ -4323,8 +4320,8 @@ var mainvue_type_template_id_4656da22_staticRenderFns = [];
 
 var ytPageComp_src_main_component = normalizeComponent(
   components_ytPageComp_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_4656da22_render,
-  mainvue_type_template_id_4656da22_staticRenderFns,
+  mainvue_type_template_id_b840ef72_render,
+  mainvue_type_template_id_b840ef72_staticRenderFns,
   false,
   null,
   null,
