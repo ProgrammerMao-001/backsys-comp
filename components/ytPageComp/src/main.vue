@@ -12,17 +12,20 @@
           class="formComponent"
           v-show="showSearch"
           v-if="formLabel.length > 0"
+          :inline="true"
           :form="paginationConfig"
           :form-label="formLabel"
+          :form-rules="formRules"
+          :label-width="labelWidth"
           @handleSearch="handleSearch"
           @handleResetFrom="handleResetFrom"
         ></yt-form>
       </collapseTransition>
       <!-- 顶部搜索栏 -->
 
-      <!-- hr 分割线 -->
+      <!-- 水平分割线 -->
       <div class="lineH" v-show="showSearch" v-if="formLabel.length > 0" />
-      <!-- hr 分割线 -->
+      <!-- 水平分割线 -->
 
       <!-- 顶部按钮工具栏 -->
       <div
@@ -107,6 +110,14 @@ export default {
       type: Array,
       default: () => [],
     }, // 搜索条件
+    formRules: {
+      type: Object,
+      default: () => {},
+    }, // 表单规则校验对象
+    labelWidth: {
+      type: String,
+      default: "",
+    }, // 表单标签label宽度
     btnList: {
       type: Array,
       default: () => [],
