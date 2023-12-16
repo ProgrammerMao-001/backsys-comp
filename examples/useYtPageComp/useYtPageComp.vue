@@ -23,6 +23,7 @@
       :tableData="tableData"
       :tableConfig="tableConfig"
       :tableDataColumn="tableDataColumn"
+      :isNeedRowDbClick="isNeedRowDbClick"
       :total="total"
       :paginationConfig.sync="paginationConfig"
       :pageSizes="pageSizes"
@@ -32,14 +33,13 @@
       @showPublicDialog="showPublicDialog"
       @deleteRows="deleteRows"
       @getTableData="getTableData"
+      @handleCellDbClick="handleCellDbClick"
     >
       <template slot="img" slot-scope="scope">
         <el-image
           style="width: 80px; height: 110px"
           :src="scope.row.img"
           :preview-src-list="[scope.row.img]"
-          width="160"
-          height="220"
         />
       </template>
 
@@ -237,7 +237,7 @@ export default {
       tableDataColumn: [
         { label: "多选", type: "selection" },
         { label: "序号", type: "index" },
-        { label: "海报", value: "img", isSlot: true, width: 100 },
+        // { label: "海报", value: "img", isSlot: true, width: 100 },
         { label: "唯一标识", value: "movieId" },
         { label: "电影名", value: "nm" },
         { label: "类型", value: "cat" },
@@ -250,6 +250,7 @@ export default {
         { label: "操作", value: "operationSlot", isSlot: true, width: 120 },
       ],
       total: 0,
+      isNeedRowDbClick: true,
       paginationConfig: {
         pageNum: 1,
         pageSize: 10,
@@ -297,8 +298,17 @@ export default {
       this.$refs.demoDialog.showDialog({ data, type });
     },
 
+    /**
+     * @Event yt-table 組件中表格单行的双击事件（需要先设置isNeedRowDbClick为true）
+     * @description:
+     * @author: mhf
+     * @time: 2023-12-17 02:59:43
+     **/
+    handleCellDbClick(rowData) {
+      this.$message.success(`你双击了该行数据${JSON.stringify(rowData)}`);
+    },
+
     getTableData() {
-      console.log(this.paginationConfig, "paginationConfig");
       this.tableConfig.loading = true;
       setTimeout(() => {
         this.$message.success("查询表格");

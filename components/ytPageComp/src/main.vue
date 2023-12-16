@@ -69,13 +69,15 @@
       class="tableComponent"
       ref="tableComponent"
       :table-data="tableData"
-      :table-config="tableConfig"
       :table-data-column="tableDataColumn"
+      :table-config="tableConfig"
+      :row-style="rowStyle"
+      :header-row-style="headerRowStyle"
       :height="tableHeight"
       :idName="idName"
-      :paginationConfig="paginationConfig"
-      :rowStyle="rowStyle"
+      :pagination-config="paginationConfig"
       @handleSelectionChange="handleSelectionChange"
+      @handleCellDbClick="handleCellDbClick"
     >
       <template
         v-for="item in tableSlotArr"
@@ -156,6 +158,10 @@ export default {
       type: Array,
       default: () => [],
     }, // 表格数据
+    tableDataColumn: {
+      type: Array,
+      default: () => [],
+    }, // 表格的表头数据
     tableConfig: {
       type: Object,
       default: () => {
@@ -168,14 +174,24 @@ export default {
         };
       },
     }, // 表格的配置项
-    tableDataColumn: {
-      type: Array,
-      default: () => [],
-    }, // 表格的表头数据
-    total: {
-      type: Number,
-      default: 0,
-    }, // 表格数据长度
+    rowStyle: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    }, // 表格行样式 (如若需自定义样式，请注意设置tableConfig.stripe为false)
+    headerRowStyle: {
+      type: Object,
+      default: () => {
+        return {
+          color: "#333333",
+        };
+      },
+    }, // 表头样式
+    idName: {
+      type: String,
+      default: "id",
+    }, // 表格单行数据的唯一标识（默认为 id）
     paginationConfig: {
       type: Object,
       default: () => {
@@ -185,20 +201,19 @@ export default {
         };
       },
     }, // 表格的分页参数
+    isNeedRowDbClick: {
+      type: Boolean,
+      default: false,
+    }, // 是否需要设置表格单行的双击事件
+
+    total: {
+      type: Number,
+      default: 0,
+    }, // 表格数据长度
     pageSizes: {
       type: Array,
       default: () => [5, 10, 15, 20],
     }, // 表格分页大小
-    idName: {
-      type: String,
-      default: "id",
-    }, // 表格单行数据的唯一标识（默认为 id）
-    rowStyle: {
-      type: Object,
-      default: () => {
-        return {};
-      },
-    },
     paginationColor: {
       type: Object,
       default() {
@@ -215,6 +230,11 @@ export default {
     }, // 没有选择数据时的提示信息
   },
   watch: {
+    /**
+     * @Event 监听显示隐藏筛选的变化，设置动态表格高度
+     * @author: mhf
+     * @time: 2023-12-17 02:49:19
+     **/
     showSearch(newValue) {
       let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
       let sb = document.querySelector(".search-box"); // 左侧按钮组 + 右侧的显示隐藏那一栏
@@ -273,7 +293,7 @@ export default {
         pageSize: 10,
       };
       this.$emit("update:paginationConfig", updateData);
-      this.getList();
+      this.getTableData();
     },
 
     /**
@@ -289,7 +309,7 @@ export default {
       this.$emit("update:paginationConfig", updateData);
       this.$refs.tableComponent.handleResetSelection();
       this.$emit("resetForm"); // 父组件中自定义的重置筛选框的方法（如父组件中筛选项需设置默认值）
-      this.getList();
+      this.getTableData();
     },
 
     /**
@@ -297,7 +317,7 @@ export default {
      * @description: 接收父组件传递来的 获取表格数据 的方法
      * @use: @getTableData="父组件中获取表格数据的Event"
      * */
-    async getList() {
+    async getTableData() {
       // this.showTable = false;
       await this.$emit("getTableData");
       // this.$nextTick(() => {
@@ -306,7 +326,7 @@ export default {
     },
 
     /**
-     * @Event 方法
+     * @Event yt-table-btn 组件中获取按钮点击的类型
      * @description: 将点击的按钮的名称传递给父组件
      * @use: 父组件中 @getBtnType="getBtnType" 用来接收按钮类型名称
      * @warning: 新增、删除 已经实现功能，无需在父组件中重复编写
@@ -326,6 +346,18 @@ export default {
     },
 
     /**
+     * @Event yt-table 组件中获取表格行的双击事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-12-17 02:54:07
+     **/
+    handleCellDbClick(rowData) {
+      if (this.isNeedRowDbClick) {
+        this.$emit("handleCellDbClick", rowData);
+      }
+    },
+
+    /**
      * @Event 方法
      * @description: 分页变化事件
      * */
@@ -336,7 +368,7 @@ export default {
         pageSize: obj.limit,
       };
       this.$emit("update:paginationConfig", updateData);
-      this.getList();
+      this.getTableData();
     },
 
     /**
@@ -364,7 +396,7 @@ export default {
   },
 
   created() {
-    this.getList(); // 获取表格数据
+    this.getTableData(); // 获取表格数据
     this.initTableHeight(); // 初始化表格高度
     this.resizeE = debounce(this.initTableHeight, 300); // 防抖
     window.addEventListener("resize", this.resizeE);
