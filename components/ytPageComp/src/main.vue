@@ -143,7 +143,6 @@ export default {
       type: String,
       default: "重置",
     }, // 重置按钮名称
-
     btnList: {
       type: Array,
       default: () => [],
@@ -151,7 +150,8 @@ export default {
     permiArr: {
       type: Array,
       default: () => [],
-    },
+    }, // 工具栏按钮组权限数组（权限字符组成的数组，只会展示有权限的按钮）
+
     tableData: {
       type: Array,
       default: () => [],
@@ -308,11 +308,11 @@ export default {
     /**
      * @Event 方法
      * @description: 将点击的按钮的名称传递给父组件
-     * @use: 父组件中 @on-response="getBtnType" 用来接收按钮类型名称
-     * @warning!!!: 目前 新增、删除 已经实现功能，无需在父组件中重复编写
+     * @use: 父组件中 @getBtnType="getBtnType" 用来接收按钮类型名称
+     * @warning: 新增、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
-      this.$emit("on-response", type);
+      this.$emit("getBtnType", type);
       if (type === "新增") {
         this.$emit("showPublicDialog", null, type);
       }

@@ -27,11 +27,11 @@
       :paginationConfig.sync="paginationConfig"
       :pageSizes="pageSizes"
       :paginationColor="paginationColor"
-      @on-response="getBtnType"
-      @getTableData="getTableData"
       @selectClick="selectClick"
+      @getBtnType="getBtnType"
       @showPublicDialog="showPublicDialog"
       @deleteRows="deleteRows"
+      @getTableData="getTableData"
     >
       <template slot="img" slot-scope="scope">
         <el-image
@@ -72,15 +72,16 @@
         </el-button>
       </template>
     </ytPageComp>
+    <demoDialog ref="demoDialog" />
   </div>
 </template>
 
 <script>
 import tableData from "./tableData";
-
+import demoDialog from "./demoDialog.vue";
 export default {
   name: "useYtPageComp",
-  components: {},
+  components: { demoDialog },
   props: {},
   dicts: [],
   data() {
@@ -223,7 +224,7 @@ export default {
           color: "#fc5c5c",
           hasPermi: "system:user:delete",
         },
-      ],
+      ], // 工具栏按钮组(新增、删除、导入、导出等)
       permiArr: ["system:user:add", "system:user:delete", "system:user:import"],
       tableData: [],
       tableConfig: {
@@ -274,11 +275,33 @@ export default {
       console.log(checked, "checked");
     },
 
+    /**
+     * @Event yt-table-btn 组件中，获取按钮点击的类型
+     * @description: 点击获取按钮的类型，需注意 新增和删除按钮已经封装好对应的方法，其他的按钮需要自行判断
+     * @param: 新增：传入showPublicDialog()方法
+     * @param: 删除：传入deleteRows()方法
+     * @author: mhf
+     * @time: 2023-12-17 00:40:18
+     **/
+    getBtnType(type) {
+      if (type === "导入") this.$message.success("你点击了导入按钮");
+    },
+
+    /**
+     * @Event yt-table-btn 组件中,传入的新增按钮的点击事件
+     * @description: 新增、修改、详情按钮的点击事件（前提是新增、修改、详情的弹窗是公共的）
+     * @author: mhf
+     * @time: 2023-12-17 00:44:53
+     **/
+    showPublicDialog(data, type) {
+      this.$refs.demoDialog.showDialog({ data, type });
+    },
+
     getTableData() {
-      this.$message.success("查询表格");
       console.log(this.paginationConfig, "paginationConfig");
       this.tableConfig.loading = true;
       setTimeout(() => {
+        this.$message.success("查询表格");
         this.tableData = tableData.slice(
           (this.paginationConfig.pageNum - 1) * this.paginationConfig.pageSize,
           this.paginationConfig.pageNum * this.paginationConfig.pageSize
@@ -288,12 +311,7 @@ export default {
       }, 200);
     },
 
-    getBtnType(type) {
-      console.log(type);
-    },
-
     doSomething(data, type) {
-      console.log(data, type);
       if (type === "详情" || type === "修改") {
         this.showPublicDialog(data, type);
       } else if (type === "删除") {
@@ -312,15 +330,6 @@ export default {
       console.log(ids, "ids");
       // doSomething ...
       this.$message.success(`删除数据: ${ids}`);
-    },
-
-    showPublicDialog(data, type) {
-      console.log(data, type);
-    },
-
-    showDetailDialog(data, type) {
-      let passData = { data, type };
-      console.log(passData, "passData");
     },
   },
   created() {},
