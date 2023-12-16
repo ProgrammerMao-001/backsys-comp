@@ -99,13 +99,14 @@
             :size="formSize"
             icon="el-icon-search"
             @click="handleSearch"
-            >查询
+            >{{ searchBtnName }}
           </el-button>
           <el-button
             :size="formSize"
             icon="el-icon-refresh"
             @click="handleResetFrom"
-            >重置
+          >
+            {{ resetBtnName }}
           </el-button>
           <slot name="btnSlot" />
         </el-form-item>
@@ -158,6 +159,14 @@ export default {
       type: Boolean,
       default: true,
     }, // 是否展示 (查询、重置)按钮
+    searchBtnName: {
+      type: String,
+      default: "查询",
+    }, // 查询按钮名称
+    resetBtnName: {
+      type: String,
+      default: "重置",
+    }, // 重置按钮名称
   },
   computed: {
     formData() {
@@ -219,7 +228,6 @@ export default {
      **/
     selectClick(item, items) {
       this.$emit("selectClick", { item, items });
-      console.log(item, items, "item, items");
     },
 
     /**

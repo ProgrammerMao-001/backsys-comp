@@ -10,7 +10,14 @@
       class="useYtPageComp-ytPageComp bgreen"
       ref="ytPageComp"
       :idName="idName"
+      :inline="inline"
       :formLabel="formLabel"
+      :formRules="formRules"
+      :labelWidth="labelWidth"
+      :formSize="formSize"
+      :showOperationBtn="showOperationBtn"
+      :searchBtnName="searchBtnName"
+      :resetBtnName="resetBtnName"
       :btnList="btnList"
       :permiArr="permiArr"
       :tableData="tableData"
@@ -22,6 +29,7 @@
       :paginationColor="paginationColor"
       @on-response="getBtnType"
       @getTableData="getTableData"
+      @selectClick="selectClick"
       @showPublicDialog="showPublicDialog"
       @deleteRows="deleteRows"
     >
@@ -77,6 +85,7 @@ export default {
   dicts: [],
   data() {
     return {
+      inline: true, // （可省略） 行内表单模式 true / false
       formLabel: [
         {
           label: "电影名",
@@ -115,42 +124,55 @@ export default {
           opts: [
             {
               cat: "剧情",
+              value: "1",
             },
             {
               cat: "犯罪",
+              value: "2",
             },
             {
               cat: "悬疑",
+              value: "3",
             },
             {
               cat: "喜剧",
+              value: "4",
             },
             {
               cat: "动画",
+              value: "5",
             },
             {
               cat: "奇幻",
+              value: "6",
             },
             {
               cat: "冒险",
+              value: "7",
             },
             {
               cat: "谍战",
+              value: "8",
             },
             {
               cat: "家庭",
+              value: "9",
             },
             {
               cat: "科幻",
+              value: "10",
             },
             {
               cat: "动作",
+              value: "11",
             },
             {
               cat: "爱情",
+              value: "12",
             },
             {
               cat: "青春",
+              value: "13",
             },
           ],
           optLabel: "cat",
@@ -161,7 +183,21 @@ export default {
           value: "rt",
           type: "daterange",
         },
-      ],
+      ], // 搜索条件
+      formRules: {
+        nm: [
+          {
+            required: true,
+            message: "请输入电影名",
+            trigger: "blur",
+          },
+        ],
+      }, // （可省略）表单规则校验对象
+      labelWidth: "", //（可省略） 表单标签label宽度
+      formSize: "mini", //（可省略） 组件尺寸 small(默认) / mini / medium
+      showOperationBtn: true, //（可省略） 是否展示 (查询、重置)按钮
+      searchBtnName: "搜索", //（可省略） 查询按钮名称
+      resetBtnName: "重置", //（可省略） 重置按钮名称
       btnList: [
         {
           name: "新增",
@@ -227,6 +263,17 @@ export default {
     };
   },
   methods: {
+    /**
+     * @Event yt-form 组件中 下拉列表里面的项点击
+     * @description: 组件下拉列表里面的项点击事件
+     * @param: item: formLabel里被点击的那个对象，items: formLabel里被点击的那个对象（opt数组）中选中的那个对象
+     * @author: mhf
+     * @time: 2023-10-29 13:30:25
+     **/
+    selectClick(checked) {
+      console.log(checked, "checked");
+    },
+
     getTableData() {
       this.$message.success("查询表格");
       console.log(this.paginationConfig, "paginationConfig");

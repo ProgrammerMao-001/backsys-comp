@@ -12,11 +12,16 @@
           class="formComponent"
           v-show="showSearch"
           v-if="formLabel.length > 0"
-          :inline="true"
+          :inline="inline"
           :form="paginationConfig"
           :form-label="formLabel"
           :form-rules="formRules"
+          :form-size="formSize"
           :label-width="labelWidth"
+          :show-operation-btn="showOperationBtn"
+          :reset-btn-name="resetBtnName"
+          :search-btn-name="searchBtnName"
+          @selectClick="selectClick"
           @handleSearch="handleSearch"
           @handleResetFrom="handleResetFrom"
         ></yt-form>
@@ -106,6 +111,10 @@ export default {
   name: "ytPageComp",
   components: {},
   props: {
+    inline: {
+      type: Boolean,
+      default: true,
+    }, // 行内表单模式 true / false
     formLabel: {
       type: Array,
       default: () => [],
@@ -118,6 +127,23 @@ export default {
       type: String,
       default: "",
     }, // 表单标签label宽度
+    formSize: {
+      type: String,
+      default: "small",
+    }, // 组件尺寸 small / mini / medium
+    showOperationBtn: {
+      type: Boolean,
+      default: true,
+    }, // 是否展示 (查询、重置)按钮
+    searchBtnName: {
+      type: String,
+      default: "查询",
+    }, // 查询按钮名称
+    resetBtnName: {
+      type: String,
+      default: "重置",
+    }, // 重置按钮名称
+
     btnList: {
       type: Array,
       default: () => [],
@@ -226,9 +252,19 @@ export default {
   },
   methods: {
     /**
-     * @Event 方法
-     * @description: 查询
-     * @more: 重置分页参数并查询指定的表单条件
+     * @Event yt-form 组件中 下拉列表里面的项点击
+     * @description: 组件下拉列表里面的项点击事件
+     * @param: item: formLabel里被点击的那个对象，items: formLabel里被点击的那个对象（opt数组）中选中的那个对象
+     * @author: mhf
+     * @time: 2023-10-29 13:30:25
+     **/
+    selectClick(selected) {
+      this.$emit("selectClick", selected);
+    },
+
+    /**
+     * @Event yt-form 组件中重置按钮点击
+     * @description: 查询按钮的点击事件
      * */
     handleSearch(searchData) {
       let updateData = {
@@ -241,7 +277,7 @@ export default {
     },
 
     /**
-     * @Event 方法
+     * @Event yt-form 组件中
      * @description: 重置表单并重新获取表格数据
      * @more: 配合父组件中 .sync使用，:update实现更新父组件传递进来的数据
      * */
