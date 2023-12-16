@@ -98,6 +98,9 @@
         :page="paginationConfig.pageNum"
         :limit="paginationConfig.pageSize"
         :page-sizes="pageSizes"
+        :page-count="pageCount"
+        :layout="layout"
+        :background="background"
         :paginationColor="paginationColor"
         @pagination="handleChangePagination"
       >
@@ -200,7 +203,7 @@ export default {
           pageSize: 10,
         };
       },
-    }, // 表格的分页参数
+    }, // 表格的分页参数 + 搜索条件
     isNeedRowDbClick: {
       type: Boolean,
       default: false,
@@ -214,6 +217,18 @@ export default {
       type: Array,
       default: () => [5, 10, 15, 20],
     }, // 表格分页大小
+    pageCount: {
+      type: Number,
+      default: document.body.clientWidth < 992 ? 5 : 7,
+    }, // 页码按钮的数量，当总页数超过该值时会折叠(大于等于 5 且小于等于 21 的奇数)
+    layout: {
+      type: String,
+      default: "total, sizes, prev, pager, next, jumper",
+    }, // 组件布局，子组件名用逗号分隔 (sizes, prev, pager, next, jumper, ->, total, slot)
+    background: {
+      type: Boolean,
+      default: true,
+    }, // 是否为分页按钮添加背景色
     paginationColor: {
       type: Object,
       default() {
@@ -228,6 +243,10 @@ export default {
       type: String,
       default: "请先选择要删除的数据！",
     }, // 没有选择数据时的提示信息
+    initTableData: {
+      type: Boolean,
+      default: true,
+    }, // 是否需要在created生命周期中，初始化表格数据
   },
   watch: {
     /**
@@ -315,7 +334,7 @@ export default {
     /**
      * @Event 方法
      * @description: 接收父组件传递来的 获取表格数据 的方法
-     * @use: @getTableData="父组件中获取表格数据的Event"
+     * @use: @getTableData="父组件中获取表格数据的事件"
      * */
     async getTableData() {
       // this.showTable = false;
@@ -396,9 +415,11 @@ export default {
   },
 
   created() {
-    this.getTableData(); // 获取表格数据
+    if (this.initTableData) {
+      this.getTableData(); // 获取表格数据
+    }
     this.initTableHeight(); // 初始化表格高度
-    this.resizeE = debounce(this.initTableHeight, 300); // 防抖
+    this.resizeE = debounce(this.initTableHeight, 300);
     window.addEventListener("resize", this.resizeE);
   },
 

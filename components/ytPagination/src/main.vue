@@ -12,7 +12,7 @@
     :page-size.sync="pageSize"
     :layout="layout"
     :page-sizes="pageSizes"
-    :pager-count="pagerCount"
+    :page-count="pageCount"
     :total="total"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
@@ -41,7 +41,7 @@ export default {
         return [10, 20, 30, 50];
       },
     }, // 每页显示个数选择器的选项设置
-    pagerCount: {
+    pageCount: {
       type: Number,
       default: document.body.clientWidth < 992 ? 5 : 7,
     }, // 页码按钮的数量，当总页数超过该值时会折叠(大于等于 5 且小于等于 21 的奇数)
@@ -65,11 +65,17 @@ export default {
     }, // 分页按钮的样式
   },
   data() {
-    return {};
+    return {
+      customColor: {
+        "--activeBgColor": "#409eff", // 选中的背景色
+        "--fontColor": "#ffffff", // 选中的字体颜色
+        "--hoverColor": "#409eff", // 鼠标悬停的字体颜色
+      },
+    };
   },
   computed: {
     pageColor() {
-      return this.paginationColor;
+      return this.background ? this.paginationColor : this.customColor;
     },
     currentPage: {
       get() {

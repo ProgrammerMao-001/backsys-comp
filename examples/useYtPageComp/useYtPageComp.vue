@@ -28,6 +28,7 @@
       :paginationConfig.sync="paginationConfig"
       :pageSizes="pageSizes"
       :paginationColor="paginationColor"
+      :init-table-data="true"
       @selectClick="selectClick"
       @getBtnType="getBtnType"
       @showPublicDialog="showPublicDialog"
@@ -237,7 +238,7 @@ export default {
       tableDataColumn: [
         { label: "多选", type: "selection" },
         { label: "序号", type: "index" },
-        // { label: "海报", value: "img", isSlot: true, width: 100 },
+        { label: "海报", value: "img", isSlot: true, width: 100 },
         { label: "唯一标识", value: "movieId" },
         { label: "电影名", value: "nm" },
         { label: "类型", value: "cat" },
