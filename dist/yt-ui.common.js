@@ -3784,8 +3784,8 @@ ytTable_src_main.install = Vue => {
   Vue.component(ytTable_src_main.name, ytTable_src_main);
 };
 /* harmony default export */ var ytTable = (ytTable_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=268d368a&scoped=true
-var mainvue_type_template_id_268d368a_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=template&id=0c155a1b&scoped=true
+var mainvue_type_template_id_0c155a1b_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('el-pagination', _vm._b({
@@ -3796,7 +3796,7 @@ var mainvue_type_template_id_268d368a_scoped_true_render = function render() {
       "page-size": _vm.pageSize,
       "layout": _vm.layout,
       "page-sizes": _vm.pageSizes,
-      "pager-count": _vm.pagerCount,
+      "page-count": _vm.pageCount,
       "total": _vm.total
     },
     on: {
@@ -3817,7 +3817,7 @@ var mainvue_type_template_id_268d368a_scoped_true_render = function render() {
     }
   }, 'el-pagination', _vm.$attrs, false));
 };
-var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_0c155a1b_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytPagination_src_mainvue_type_script_lang_js = ({
@@ -3843,7 +3843,7 @@ var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
       }
     },
     // 每页显示个数选择器的选项设置
-    pagerCount: {
+    pageCount: {
       type: Number,
       default: document.body.clientWidth < 992 ? 5 : 7
     },
@@ -3873,11 +3873,20 @@ var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
   },
 
   data() {
-    return {};
+    return {
+      customColor: {
+        "--activeBgColor": "#409eff",
+        // 选中的背景色
+        "--fontColor": "#ffffff",
+        // 选中的字体颜色
+        "--hoverColor": "#409eff" // 鼠标悬停的字体颜色
+      }
+    };
   },
+
   computed: {
     pageColor() {
-      return this.paginationColor;
+      return this.background ? this.paginationColor : this.customColor;
     },
     currentPage: {
       get() {
@@ -3916,10 +3925,10 @@ var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPagination_src_mainvue_type_script_lang_js = (ytPagination_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=268d368a&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPagination/src/main.vue?vue&type=style&index=0&id=0c155a1b&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=268d368a&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue?vue&type=style&index=0&id=0c155a1b&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytPagination/src/main.vue
 
@@ -3932,11 +3941,11 @@ var mainvue_type_template_id_268d368a_scoped_true_staticRenderFns = [];
 
 var ytPagination_src_main_component = normalizeComponent(
   components_ytPagination_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_268d368a_scoped_true_render,
-  mainvue_type_template_id_268d368a_scoped_true_staticRenderFns,
+  mainvue_type_template_id_0c155a1b_scoped_true_render,
+  mainvue_type_template_id_0c155a1b_scoped_true_staticRenderFns,
   false,
   null,
-  "268d368a",
+  "0c155a1b",
   null
   
 )
@@ -3948,8 +3957,8 @@ ytPagination_src_main.install = Vue => {
   Vue.component(ytPagination_src_main.name, ytPagination_src_main);
 };
 /* harmony default export */ var ytPagination = (ytPagination_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=622a1568
-var mainvue_type_template_id_622a1568_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=19421b36
+var mainvue_type_template_id_19421b36_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -4023,15 +4032,17 @@ var mainvue_type_template_id_622a1568_render = function render() {
     staticClass: "tableComponent",
     attrs: {
       "table-data": _vm.tableData,
-      "table-config": _vm.tableConfig,
       "table-data-column": _vm.tableDataColumn,
+      "table-config": _vm.tableConfig,
+      "row-style": _vm.rowStyle,
+      "header-row-style": _vm.headerRowStyle,
       "height": _vm.tableHeight,
       "idName": _vm.idName,
-      "paginationConfig": _vm.paginationConfig,
-      "rowStyle": _vm.rowStyle
+      "pagination-config": _vm.paginationConfig
     },
     on: {
-      "handleSelectionChange": _vm.handleSelectionChange
+      "handleSelectionChange": _vm.handleSelectionChange,
+      "handleCellDbClick": _vm.handleCellDbClick
     },
     scopedSlots: _vm._u([_vm._l(_vm.tableSlotArr, function (item) {
       return {
@@ -4051,6 +4062,9 @@ var mainvue_type_template_id_622a1568_render = function render() {
       "page": _vm.paginationConfig.pageNum,
       "limit": _vm.paginationConfig.pageSize,
       "page-sizes": _vm.pageSizes,
+      "page-count": _vm.pageCount,
+      "layout": _vm.layout,
+      "background": _vm.background,
       "paginationColor": _vm.paginationColor
     },
     on: {
@@ -4058,7 +4072,7 @@ var mainvue_type_template_id_622a1568_render = function render() {
     }
   }) : _vm._e()], 1)], 1);
 };
-var mainvue_type_template_id_622a1568_staticRenderFns = [];
+var mainvue_type_template_id_19421b36_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
 
@@ -4122,6 +4136,11 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
       default: () => []
     },
     // 表格数据
+    tableDataColumn: {
+      type: Array,
+      default: () => []
+    },
+    // 表格的表头数据
     tableConfig: {
       type: Object,
       default: () => {
@@ -4139,16 +4158,27 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
     },
 
     // 表格的配置项
-    tableDataColumn: {
-      type: Array,
-      default: () => []
+    rowStyle: {
+      type: Object,
+      default: () => {
+        return {};
+      }
     },
-    // 表格的表头数据
-    total: {
-      type: Number,
-      default: 0
+    // 表格行样式 (如若需自定义样式，请注意设置tableConfig.stripe为false)
+    headerRowStyle: {
+      type: Object,
+      default: () => {
+        return {
+          color: "#333333"
+        };
+      }
     },
-    // 表格数据长度
+    // 表头样式
+    idName: {
+      type: String,
+      default: "id"
+    },
+    // 表格单行数据的唯一标识（默认为 id）
     paginationConfig: {
       type: Object,
       default: () => {
@@ -4158,23 +4188,38 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
         };
       }
     },
-    // 表格的分页参数
+    // 表格的分页参数 + 搜索条件
+    isNeedRowDbClick: {
+      type: Boolean,
+      default: false
+    },
+    // 是否需要设置表格单行的双击事件
+
+    total: {
+      type: Number,
+      default: 0
+    },
+    // 表格数据长度
     pageSizes: {
       type: Array,
       default: () => [5, 10, 15, 20]
     },
     // 表格分页大小
-    idName: {
+    pageCount: {
+      type: Number,
+      default: document.body.clientWidth < 992 ? 5 : 7
+    },
+    // 页码按钮的数量，当总页数超过该值时会折叠(大于等于 5 且小于等于 21 的奇数)
+    layout: {
       type: String,
-      default: "id"
+      default: "total, sizes, prev, pager, next, jumper"
     },
-    // 表格单行数据的唯一标识（默认为 id）
-    rowStyle: {
-      type: Object,
-      default: () => {
-        return {};
-      }
+    // 组件布局，子组件名用逗号分隔 (sizes, prev, pager, next, jumper, ->, total, slot)
+    background: {
+      type: Boolean,
+      default: true
     },
+    // 是否为分页按钮添加背景色
     paginationColor: {
       type: Object,
       default() {
@@ -4192,10 +4237,20 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
     noSelection: {
       type: String,
       default: "请先选择要删除的数据！"
-    } // 没有选择数据时的提示信息
+    },
+    // 没有选择数据时的提示信息
+    initTableData: {
+      type: Boolean,
+      default: true
+    } // 是否需要在created生命周期中，初始化表格数据
   },
 
   watch: {
+    /**
+     * @Event 监听显示隐藏筛选的变化，设置动态表格高度
+     * @author: mhf
+     * @time: 2023-12-17 02:49:19
+     **/
     showSearch(newValue) {
       let ac = document.querySelector(".ytPageComp"); // 最外层整个盒子
       let sb = document.querySelector(".search-box"); // 左侧按钮组 + 右侧的显示隐藏那一栏
@@ -4260,7 +4315,7 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
         pageSize: 10
       };
       this.$emit("update:paginationConfig", updateData);
-      this.getList();
+      this.getTableData();
     },
     /**
      * @Event yt-form 组件中
@@ -4275,14 +4330,14 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
       this.$emit("update:paginationConfig", updateData);
       this.$refs.tableComponent.handleResetSelection();
       this.$emit("resetForm"); // 父组件中自定义的重置筛选框的方法（如父组件中筛选项需设置默认值）
-      this.getList();
+      this.getTableData();
     },
     /**
      * @Event 方法
      * @description: 接收父组件传递来的 获取表格数据 的方法
-     * @use: @getTableData="父组件中获取表格数据的Event"
+     * @use: @getTableData="父组件中获取表格数据的事件"
      * */
-    async getList() {
+    async getTableData() {
       // this.showTable = false;
       await this.$emit("getTableData");
       // this.$nextTick(() => {
@@ -4291,7 +4346,7 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
     },
 
     /**
-     * @Event 方法
+     * @Event yt-table-btn 组件中获取按钮点击的类型
      * @description: 将点击的按钮的名称传递给父组件
      * @use: 父组件中 @getBtnType="getBtnType" 用来接收按钮类型名称
      * @warning: 新增、删除 已经实现功能，无需在父组件中重复编写
@@ -4310,6 +4365,17 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
       }
     },
     /**
+     * @Event yt-table 组件中获取表格行的双击事件
+     * @description:
+     * @author: mhf
+     * @time: 2023-12-17 02:54:07
+     **/
+    handleCellDbClick(rowData) {
+      if (this.isNeedRowDbClick) {
+        this.$emit("handleCellDbClick", rowData);
+      }
+    },
+    /**
      * @Event 方法
      * @description: 分页变化事件
      * */
@@ -4320,7 +4386,7 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
         pageSize: obj.limit
       };
       this.$emit("update:paginationConfig", updateData);
-      this.getList();
+      this.getTableData();
     },
     /**
      * @Event 方法
@@ -4345,9 +4411,12 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
     }
   },
   created() {
-    this.getList(); // 获取表格数据
+    if (this.initTableData) {
+      this.getTableData(); // 获取表格数据
+    }
+
     this.initTableHeight(); // 初始化表格高度
-    this.resizeE = debounce(this.initTableHeight, 300); // 防抖
+    this.resizeE = debounce(this.initTableHeight, 300);
     window.addEventListener("resize", this.resizeE);
   },
   mounted() {},
@@ -4357,10 +4426,10 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPageComp_src_mainvue_type_script_lang_js = (ytPageComp_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=622a1568&prod&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=19421b36&prod&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=622a1568&prod&lang=scss
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=19421b36&prod&lang=scss
 
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue
 
@@ -4373,8 +4442,8 @@ var mainvue_type_template_id_622a1568_staticRenderFns = [];
 
 var ytPageComp_src_main_component = normalizeComponent(
   components_ytPageComp_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_622a1568_render,
-  mainvue_type_template_id_622a1568_staticRenderFns,
+  mainvue_type_template_id_19421b36_render,
+  mainvue_type_template_id_19421b36_staticRenderFns,
   false,
   null,
   null,
