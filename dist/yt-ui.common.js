@@ -2861,8 +2861,8 @@ src_main.install = Vue => {
   Vue.component(src_main.name, src_main);
 };
 /* harmony default export */ var ytFileUpload = (src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=7a09f921&scoped=true
-var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=template&id=3907b8a8&scoped=true
+var mainvue_type_template_id_3907b8a8_scoped_true_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -2995,7 +2995,7 @@ var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
     on: {
       "click": _vm.handleSearch
     }
-  }, [_vm._v("查询 ")]), _c('el-button', {
+  }, [_vm._v(_vm._s(_vm.searchBtnName) + " ")]), _c('el-button', {
     attrs: {
       "size": _vm.formSize,
       "icon": "el-icon-refresh"
@@ -3003,9 +3003,9 @@ var mainvue_type_template_id_7a09f921_scoped_true_render = function render() {
     on: {
       "click": _vm.handleResetFrom
     }
-  }, [_vm._v("重置 ")]), _vm._t("btnSlot")], 2), _c('el-form-item'), _c('el-form-item', [_vm._t("otherSlot")], 2)], 1) : _vm._e()], 2)], 1);
+  }, [_vm._v(" " + _vm._s(_vm.resetBtnName) + " ")]), _vm._t("btnSlot")], 2), _c('el-form-item'), _c('el-form-item', [_vm._t("otherSlot")], 2)], 1) : _vm._e()], 2)], 1);
 };
-var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
+var mainvue_type_template_id_3907b8a8_scoped_true_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=script&lang=js
 /* harmony default export */ var ytForm_src_mainvue_type_script_lang_js = ({
@@ -3052,7 +3052,17 @@ var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
     showOperationBtn: {
       type: Boolean,
       default: true
-    } // 是否展示 (查询、重置)按钮
+    },
+    // 是否展示 (查询、重置)按钮
+    searchBtnName: {
+      type: String,
+      default: "查询"
+    },
+    // 查询按钮名称
+    resetBtnName: {
+      type: String,
+      default: "重置"
+    } // 重置按钮名称
   },
 
   computed: {
@@ -3112,7 +3122,6 @@ var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
         item,
         items
       });
-      console.log(item, items, "item, items");
     },
     /**
      * @Event 表单查询
@@ -3143,10 +3152,10 @@ var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytForm_src_mainvue_type_script_lang_js = (ytForm_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytForm/src/main.vue?vue&type=style&index=0&id=3907b8a8&prod&lang=scss&scoped=true
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=7a09f921&prod&lang=scss&scoped=true
+;// CONCATENATED MODULE: ./components/ytForm/src/main.vue?vue&type=style&index=0&id=3907b8a8&prod&lang=scss&scoped=true
 
 ;// CONCATENATED MODULE: ./components/ytForm/src/main.vue
 
@@ -3159,11 +3168,11 @@ var mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns = [];
 
 var src_main_component = normalizeComponent(
   components_ytForm_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_7a09f921_scoped_true_render,
-  mainvue_type_template_id_7a09f921_scoped_true_staticRenderFns,
+  mainvue_type_template_id_3907b8a8_scoped_true_render,
+  mainvue_type_template_id_3907b8a8_scoped_true_staticRenderFns,
   false,
   null,
-  "7a09f921",
+  "3907b8a8",
   null
   
 )
@@ -3939,8 +3948,8 @@ ytPagination_src_main.install = Vue => {
   Vue.component(ytPagination_src_main.name, ytPagination_src_main);
 };
 /* harmony default export */ var ytPagination = (ytPagination_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=b840ef72
-var mainvue_type_template_id_b840ef72_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=622a1568
+var mainvue_type_template_id_622a1568_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -3960,10 +3969,18 @@ var mainvue_type_template_id_b840ef72_render = function render() {
     }],
     staticClass: "formComponent",
     attrs: {
+      "inline": _vm.inline,
       "form": _vm.paginationConfig,
-      "form-label": _vm.formLabel
+      "form-label": _vm.formLabel,
+      "form-rules": _vm.formRules,
+      "form-size": _vm.formSize,
+      "label-width": _vm.labelWidth,
+      "show-operation-btn": _vm.showOperationBtn,
+      "reset-btn-name": _vm.resetBtnName,
+      "search-btn-name": _vm.searchBtnName
     },
     on: {
+      "selectClick": _vm.selectClick,
       "handleSearch": _vm.handleSearch,
       "handleResetFrom": _vm.handleResetFrom
     }
@@ -4041,7 +4058,7 @@ var mainvue_type_template_id_b840ef72_render = function render() {
     }
   }) : _vm._e()], 1)], 1);
 };
-var mainvue_type_template_id_b840ef72_staticRenderFns = [];
+var mainvue_type_template_id_622a1568_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
 
@@ -4049,11 +4066,46 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
   name: "ytPageComp",
   components: {},
   props: {
+    inline: {
+      type: Boolean,
+      default: true
+    },
+    // 行内表单模式 true / false
     formLabel: {
       type: Array,
       default: () => []
     },
     // 搜索条件
+    formRules: {
+      type: Object,
+      default: () => {}
+    },
+    // 表单规则校验对象
+    labelWidth: {
+      type: String,
+      default: ""
+    },
+    // 表单标签label宽度
+    formSize: {
+      type: String,
+      default: "small"
+    },
+    // 组件尺寸 small / mini / medium
+    showOperationBtn: {
+      type: Boolean,
+      default: true
+    },
+    // 是否展示 (查询、重置)按钮
+    searchBtnName: {
+      type: String,
+      default: "查询"
+    },
+    // 查询按钮名称
+    resetBtnName: {
+      type: String,
+      default: "重置"
+    },
+    // 重置按钮名称
     btnList: {
       type: Array,
       default: () => []
@@ -4063,6 +4115,8 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
       type: Array,
       default: () => []
     },
+    // 工具栏按钮组权限数组（权限字符组成的数组，只会展示有权限的按钮）
+
     tableData: {
       type: Array,
       default: () => []
@@ -4186,9 +4240,18 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
 
   methods: {
     /**
-     * @Event 方法
-     * @description: 查询
-     * @more: 重置分页参数并查询指定的表单条件
+     * @Event yt-form 组件中 下拉列表里面的项点击
+     * @description: 组件下拉列表里面的项点击事件
+     * @param: item: formLabel里被点击的那个对象，items: formLabel里被点击的那个对象（opt数组）中选中的那个对象
+     * @author: mhf
+     * @time: 2023-10-29 13:30:25
+     **/
+    selectClick(selected) {
+      this.$emit("selectClick", selected);
+    },
+    /**
+     * @Event yt-form 组件中重置按钮点击
+     * @description: 查询按钮的点击事件
      * */
     handleSearch(searchData) {
       let updateData = {
@@ -4200,7 +4263,7 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
       this.getList();
     },
     /**
-     * @Event 方法
+     * @Event yt-form 组件中
      * @description: 重置表单并重新获取表格数据
      * @more: 配合父组件中 .sync使用，:update实现更新父组件传递进来的数据
      * */
@@ -4230,11 +4293,11 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
     /**
      * @Event 方法
      * @description: 将点击的按钮的名称传递给父组件
-     * @use: 父组件中 @on-response="getBtnType" 用来接收按钮类型名称
-     * @warning!!!: 目前 新增、删除 已经实现功能，无需在父组件中重复编写
+     * @use: 父组件中 @getBtnType="getBtnType" 用来接收按钮类型名称
+     * @warning: 新增、删除 已经实现功能，无需在父组件中重复编写
      * */
     changeBtn(type) {
-      this.$emit("on-response", type);
+      this.$emit("getBtnType", type);
       if (type === "新增") {
         this.$emit("showPublicDialog", null, type);
       }
@@ -4294,10 +4357,10 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPageComp_src_mainvue_type_script_lang_js = (ytPageComp_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=b840ef72&prod&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-22.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=622a1568&prod&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=b840ef72&prod&lang=scss
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=622a1568&prod&lang=scss
 
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue
 
@@ -4310,8 +4373,8 @@ var mainvue_type_template_id_b840ef72_staticRenderFns = [];
 
 var ytPageComp_src_main_component = normalizeComponent(
   components_ytPageComp_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_b840ef72_render,
-  mainvue_type_template_id_b840ef72_staticRenderFns,
+  mainvue_type_template_id_622a1568_render,
+  mainvue_type_template_id_622a1568_staticRenderFns,
   false,
   null,
   null,
