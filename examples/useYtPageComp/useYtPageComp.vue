@@ -27,6 +27,7 @@
       :total="total"
       :paginationConfig.sync="paginationConfig"
       :pageSizes="pageSizes"
+      :background="background"
       :paginationColor="paginationColor"
       :init-table-data="true"
       @selectClick="selectClick"
@@ -257,6 +258,7 @@ export default {
         pageSize: 10,
       },
       pageSizes: [5, 10, 15, 20],
+      background: false,
       paginationColor: {
         "--activeBgColor": "pink", // 选中的背景色
         "--fontColor": "yellow", // 选中的字体颜色
