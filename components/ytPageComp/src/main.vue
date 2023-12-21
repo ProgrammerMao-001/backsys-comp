@@ -160,7 +160,7 @@ export default {
     tableData: {
       type: Array,
       default: () => [],
-    }, // 表格数据
+    }, // 表格数据（数据格式同el-table）
     tableDataColumn: {
       type: Array,
       default: () => [],
