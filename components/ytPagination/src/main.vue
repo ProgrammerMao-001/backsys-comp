@@ -114,7 +114,14 @@ export default {
   color: var(--fontColor) !important;
 }
 
-::v-deep .el-pager li:hover {
+::v-deep .el-pager li {
+  min-width: 30px !important;
+}
+
+::v-deep .el-pager li:not(.disabled):hover {
   color: var(--hoverColor) !important;
+}
+::v-deep .el-pager li:not(.disabled).active:hover {
+  color: var(--fontColor) !important;
 }
 </style>

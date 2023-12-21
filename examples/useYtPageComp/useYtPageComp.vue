@@ -258,7 +258,7 @@ export default {
         pageSize: 10,
       },
       pageSizes: [5, 10, 15, 20],
-      background: false,
+      background: true, // 是否需要自定义分页的背景颜色
       paginationColor: {
         "--activeBgColor": "pink", // 选中的背景色
         "--fontColor": "yellow", // 选中的字体颜色
