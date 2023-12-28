@@ -3967,8 +3967,8 @@ ytPagination_src_main.install = Vue => {
   Vue.component(ytPagination_src_main.name, ytPagination_src_main);
 };
 /* harmony default export */ var ytPagination = (ytPagination_src_main);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=19421b36
-var mainvue_type_template_id_19421b36_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=template&id=1b6429ba
+var mainvue_type_template_id_1b6429ba_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -4082,7 +4082,7 @@ var mainvue_type_template_id_19421b36_render = function render() {
     }
   }) : _vm._e()], 1)], 1);
 };
-var mainvue_type_template_id_19421b36_staticRenderFns = [];
+var mainvue_type_template_id_1b6429ba_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=script&lang=js
 
@@ -4145,7 +4145,7 @@ var mainvue_type_template_id_19421b36_staticRenderFns = [];
       type: Array,
       default: () => []
     },
-    // 表格数据
+    // 表格数据（数据格式同el-table）
     tableDataColumn: {
       type: Array,
       default: () => []
@@ -4436,10 +4436,10 @@ var mainvue_type_template_id_19421b36_staticRenderFns = [];
 });
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=script&lang=js
  /* harmony default export */ var components_ytPageComp_src_mainvue_type_script_lang_js = (ytPageComp_src_mainvue_type_script_lang_js); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=19421b36&prod&lang=scss
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-64.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-64.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-64.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-64.use[3]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=1b6429ba&prod&lang=scss
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=19421b36&prod&lang=scss
+;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue?vue&type=style&index=0&id=1b6429ba&prod&lang=scss
 
 ;// CONCATENATED MODULE: ./components/ytPageComp/src/main.vue
 
@@ -4452,8 +4452,8 @@ var mainvue_type_template_id_19421b36_staticRenderFns = [];
 
 var ytPageComp_src_main_component = normalizeComponent(
   components_ytPageComp_src_mainvue_type_script_lang_js,
-  mainvue_type_template_id_19421b36_render,
-  mainvue_type_template_id_19421b36_staticRenderFns,
+  mainvue_type_template_id_1b6429ba_render,
+  mainvue_type_template_id_1b6429ba_staticRenderFns,
   false,
   null,
   null,
