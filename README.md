@@ -78,3 +78,5 @@ public文件夹 ---> 存放组件的静态资源
  1. ytChooseDialog 弹窗选择器（表格选择数据，可展示并保存对应的tags）
  2. ytPageComp（快速搭建 搜索栏 + 表格 + 分页的页面） 
 ```
+
+![page](/public/img/page.png)
